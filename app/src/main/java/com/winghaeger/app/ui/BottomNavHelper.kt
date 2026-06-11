@@ -2,6 +2,7 @@ package com.winghaeger.app.ui
 
 import android.app.Activity
 import android.content.Intent
+import androidx.core.view.ViewCompat
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.winghaeger.app.R
 import com.winghaeger.app.explore.ExploreActivity
@@ -14,6 +15,11 @@ object BottomNavHelper {
 
     fun setup(activity: Activity, nav: BottomNavigationView, selectedId: Int) {
         nav.selectedItemId = selectedId
+        ViewCompat.setOnApplyWindowInsetsListener(nav) { v, insets ->
+            // Keep existing top padding from XML/Style
+            v.setPadding(v.paddingLeft, v.paddingTop, v.paddingRight, 0)
+            insets
+        }
         nav.setOnItemSelectedListener { item ->
             if (item.itemId == selectedId) return@setOnItemSelectedListener false
             when (item.itemId) {

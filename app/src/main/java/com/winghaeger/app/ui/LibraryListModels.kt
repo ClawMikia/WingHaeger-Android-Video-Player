@@ -12,10 +12,22 @@ fun buildGroupedItems(
     expandedFolders: Set<String> = emptySet(),
     alwaysExpand: Boolean = false
 ): List<LibraryListItem> {
-    val grouped = videos.groupBy { it.folderGroup }
+    // Group by folder name (case-insensitive)
+    val grouped = mutableMapOf<String, MutableList<VideoEntity>>()
+    val displayNames = mutableMapOf<String, String>()
+
+    for (v in videos) {
+        val key = v.folderGroup.lowercase()
+        grouped.getOrPut(key) { mutableListOf() }.add(v)
+        if (!displayNames.containsKey(key)) {
+            displayNames[key] = v.folderGroup
+        }
+    }
+
     val result = mutableListOf<LibraryListItem>()
-    for ((folder, items) in grouped) {
-        val expanded = alwaysExpand || expandedFolders.contains(folder)
+    for ((key, items) in grouped) {
+        val folder = displayNames[key] ?: key
+        val expanded = alwaysExpand || expandedFolders.any { it.equals(folder, ignoreCase = true) }
         result.add(LibraryListItem.Header(folder, items.size, expanded))
         if (expanded) items.forEach { result.add(LibraryListItem.VideoRow(it)) }
     }

@@ -27,14 +27,20 @@ class ExploreActivity : AppCompatActivity() {
 
         BottomNavHelper.setup(this, binding.bottomNav, R.id.nav_explore)
 
-        val adapter = LibraryAdapter { videoId, playlistIds, index ->
-            startActivity(
-                Intent(this, PlayerActivity::class.java)
-                    .putExtra(PlayerActivity.EXTRA_VIDEO_ID, videoId)
-                    .putExtra(PlayerActivity.EXTRA_PLAYLIST_IDS, playlistIds)
-                    .putExtra(PlayerActivity.EXTRA_PLAYLIST_INDEX, index)
-            )
-        }
+        val adapter = LibraryAdapter(
+            onHeaderClick = { folder ->
+                // Search results are always expanded, but we can allow toggling if desired.
+                // For now, let's just make it do nothing or show a message.
+            },
+            onOpen = { videoId, playlistIds, index ->
+                startActivity(
+                    Intent(this, PlayerActivity::class.java)
+                        .putExtra(PlayerActivity.EXTRA_VIDEO_ID, videoId)
+                        .putExtra(PlayerActivity.EXTRA_PLAYLIST_IDS, playlistIds)
+                        .putExtra(PlayerActivity.EXTRA_PLAYLIST_INDEX, index)
+                )
+            }
+        )
         val glm = GridLayoutManager(this, 2)
         glm.spanSizeLookup = adapter.spanSizeLookup()
         binding.recycler.layoutManager = glm
@@ -42,8 +48,9 @@ class ExploreActivity : AppCompatActivity() {
 
         fun applyQuery(raw: String) {
             val q = raw.trim()
-            val results = if (q.isEmpty()) emptyList() else repo.search(q)
-            val items = buildGroupedItems(results)
+            val results = if (q.isEmpty()) repo.listAllByFolder() else repo.search(q)
+            // Use alwaysExpand = true so results are immediately visible and clickable
+            val items = buildGroupedItems(results, alwaysExpand = true)
             adapter.submitList(items)
             binding.recycler.visibility =
                 if (items.isEmpty()) android.view.View.GONE else android.view.View.VISIBLE

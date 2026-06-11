@@ -118,8 +118,9 @@ class LibraryActivity : AppCompatActivity() {
 
         adapter = LibraryAdapter(
             onHeaderClick = { folder ->
-                if (expandedFolders.contains(folder)) {
-                    expandedFolders.remove(folder)
+                val existing = expandedFolders.find { it.equals(folder, ignoreCase = true) }
+                if (existing != null) {
+                    expandedFolders.remove(existing)
                 } else {
                     expandedFolders.add(folder)
                 }

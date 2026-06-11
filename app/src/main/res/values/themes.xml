@@ -21,6 +21,18 @@
         <item name="materialAlertDialogTheme">@style/ThemeOverlay.WH.Dialog</item>
         <item name="textInputStyle">@style/Widget.WH.TextInput</item>
         <item name="editTextStyle">@style/Widget.WH.EditText</item>
+        <item name="bottomNavigationStyle">@style/Widget.WH.BottomNavigationView</item>
+    </style>
+
+    <style name="Widget.WH.BottomNavigationView" parent="Widget.Material3.BottomNavigationView">
+        <item name="labelVisibilityMode">labeled</item>
+        <item name="itemPaddingTop">12dp</item>
+        <item name="itemPaddingBottom">12dp</item>
+        <item name="android:paddingTop">4dp</item>
+        <item name="android:paddingBottom">0dp</item>
+        <item name="itemActiveIndicatorStyle">@null</item>
+        <item name="android:minHeight">72dp</item>
+        <item name="paddingBottomSystemWindowInsets">false</item>
     </style>
 
     <style name="ThemeOverlay.WH.Dialog" parent="ThemeOverlay.Material3.MaterialAlertDialog">
@@ -68,8 +80,8 @@
     </style>
 
     <style name="Widget.WH.Toolbar" parent="Widget.Material3.Toolbar">
-        <item name="titleTextColor">@color/wh_neon_gold</item>
-        <item name="navigationIconTint">@color/wh_neon_gold</item>
+        <item name="titleTextColor">@color/wh_toolbar_text</item>
+        <item name="navigationIconTint">@color/wh_toolbar_text</item>
         <item name="titleTextAppearance">@style/Text.WH.ToolbarTitle</item>
         <item name="android:background">@color/wh_surface</item>
     </style>

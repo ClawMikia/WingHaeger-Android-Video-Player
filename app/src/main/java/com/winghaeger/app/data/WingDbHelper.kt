@@ -175,13 +175,27 @@ class WingDbHelper(context: Context) :
 
     fun listPlaybackMemory(limit: Int = 200): List<VideoEntity> = listRecentlyPlayed(limit)
 
-    fun searchByTitle(query: String): List<VideoEntity> {
+    fun search(query: String): List<VideoEntity> {
         if (query.isBlank()) return emptyList()
         val list = mutableListOf<VideoEntity>()
-        readableDatabase.query(
-            TABLE_VIDEOS, null, "$COL_TITLE LIKE ? COLLATE NOCASE", arrayOf("%${query.trim()}%"),
-            null, null, "$COL_FOLDER COLLATE NOCASE ASC, $COL_TITLE COLLATE NOCASE ASC"
-        ).use { c -> while (c.moveToNext()) list.add(c.toEntity()) }
+        val q = "%${query.trim()}%"
+        
+        // Search everything: title, folder, uri, and even chapter/skip labels
+        val sql = """
+            SELECT DISTINCT v.* FROM $TABLE_VIDEOS v
+            LEFT JOIN $TABLE_CHAPTERS c ON v.$COL_ID = c.$CHA_VIDEO_ID
+            LEFT JOIN $TABLE_TIMELINE_SKIPS s ON v.$COL_ID = s.$SKI_VIDEO_ID
+            WHERE v.$COL_TITLE LIKE ? COLLATE NOCASE
+               OR v.$COL_FOLDER LIKE ? COLLATE NOCASE
+               OR v.$COL_URI LIKE ? COLLATE NOCASE
+               OR c.$CHA_LABEL LIKE ? COLLATE NOCASE
+               OR s.$SKI_LABEL LIKE ? COLLATE NOCASE
+            ORDER BY v.$COL_FOLDER COLLATE NOCASE ASC, v.$COL_TITLE COLLATE NOCASE ASC
+        """.trimIndent()
+
+        readableDatabase.rawQuery(sql, arrayOf(q, q, q, q, q)).use { c ->
+            while (c.moveToNext()) list.add(c.toEntity())
+        }
         return list
     }
 

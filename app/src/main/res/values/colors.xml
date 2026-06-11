@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!-- Backgrounds kept as requested -->
     <color name="wh_bg">#05050D</color>
     <color name="wh_surface">#0D0D1A</color>
     <color name="wh_surface_elevated">#141428</color>
@@ -8,13 +9,22 @@
     <color name="wh_on_muted">#6060A0</color>
     <color name="wh_divider">#1F1F3A</color>
     <color name="wh_pure_black">#000000</color>
-    <color name="wh_neon_gold">#FFD700</color>
-    <color name="wh_neon_violet">#B000FF</color>
-    <color name="wh_neon_cyan">#00FFEE</color>
-    <color name="wh_neon_green">#00FF88</color>
-    <color name="wh_neon_red">#FF2244</color>
-    <color name="wh_neon_orange">#FF6600</color>
-    <color name="wh_neon_blue">#0088FF</color>
-    <color name="wh_neon_pink">#FF00AA</color>
+
+    <!-- App Identity Colors -->
+    <color name="wh_app_blue">#2800c9</color>
+    <color name="wh_app_green">#00d407</color>
+    <color name="wh_app_red">#ff0000</color>
+
+    <!-- Mapping existing neon names to the new color palette -->
+    <color name="wh_neon_gold">@color/wh_app_blue</color>
+    <color name="wh_neon_violet">@color/wh_app_green</color>
+    <color name="wh_neon_cyan">@color/wh_app_blue</color>
+    <color name="wh_neon_green">@color/wh_app_green</color>
+    <color name="wh_neon_red">@color/wh_app_red</color>
+    <color name="wh_neon_orange">@color/wh_app_red</color>
+    <color name="wh_neon_blue">@color/wh_app_blue</color>
+    <color name="wh_neon_pink">@color/wh_app_green</color>
     <color name="wh_neon_white">#CCCCFF</color>
+    <color name="wh_toolbar_text">#bac3ff</color>
+    <color name="wh_accordion_text">#ff3700</color>
 </resources>

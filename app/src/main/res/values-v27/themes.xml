@@ -17,5 +17,6 @@
         <item name="materialAlertDialogTheme">@style/ThemeOverlay.WH.Dialog</item>
         <item name="textInputStyle">@style/Widget.WH.TextInput</item>
         <item name="editTextStyle">@style/Widget.WH.EditText</item>
+        <item name="bottomNavigationStyle">@style/Widget.WH.BottomNavigationView</item>
     </style>
 </resources>

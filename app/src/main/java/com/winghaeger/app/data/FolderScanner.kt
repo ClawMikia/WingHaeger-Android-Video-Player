@@ -69,6 +69,55 @@ object FolderScanner {
         return mapMime?.startsWith("video/") == true || ext in VIDEO_EXTENSIONS
     }
 
+    suspend fun scanMediaStore(context: Context): List<VideoEntity> = withContext(Dispatchers.IO) {
+        val out = mutableListOf<VideoEntity>()
+        val projection = arrayOf(
+            android.provider.MediaStore.Video.Media._ID,
+            android.provider.MediaStore.Video.Media.DISPLAY_NAME,
+            android.provider.MediaStore.Video.Media.DATA,
+            android.provider.MediaStore.Video.Media.DURATION,
+            android.provider.MediaStore.Video.Media.SIZE,
+            android.provider.MediaStore.Video.Media.BUCKET_DISPLAY_NAME
+        )
+
+        val collection = if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.Q) {
+            android.provider.MediaStore.Video.Media.getContentUri(android.provider.MediaStore.VOLUME_EXTERNAL)
+        } else {
+            android.provider.MediaStore.Video.Media.EXTERNAL_CONTENT_URI
+        }
+
+        context.contentResolver.query(collection, projection, null, null, null)?.use { cursor ->
+            val idCol = cursor.getColumnIndexOrThrow(android.provider.MediaStore.Video.Media._ID)
+            val nameCol = cursor.getColumnIndexOrThrow(android.provider.MediaStore.Video.Media.DISPLAY_NAME)
+            val dataCol = cursor.getColumnIndexOrThrow(android.provider.MediaStore.Video.Media.DATA)
+            val durCol = cursor.getColumnIndexOrThrow(android.provider.MediaStore.Video.Media.DURATION)
+            val sizeCol = cursor.getColumnIndexOrThrow(android.provider.MediaStore.Video.Media.SIZE)
+            val folderCol = cursor.getColumnIndexOrThrow(android.provider.MediaStore.Video.Media.BUCKET_DISPLAY_NAME)
+
+            while (cursor.moveToNext()) {
+                val id = cursor.getLong(idCol)
+                val name = cursor.getString(nameCol)
+                val data = cursor.getString(dataCol)
+                val dur = cursor.getLong(durCol)
+                val size = cursor.getLong(sizeCol)
+                val folder = cursor.getString(folderCol) ?: "Root"
+
+                val uri = android.content.ContentUris.withAppendedId(collection, id)
+
+                out.add(
+                    VideoEntity(
+                        uriString = uri.toString(),
+                        title = name,
+                        folderGroup = folder,
+                        durationMs = dur,
+                        sizeBytes = size,
+                    )
+                )
+            }
+        }
+        out
+    }
+
     suspend fun resolveUris(context: Context, uris: List<Uri>): List<VideoEntity> = withContext(Dispatchers.IO) {
         val out = mutableListOf<VideoEntity>()
         for (uri in uris) {

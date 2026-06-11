@@ -41,7 +41,7 @@ class VideoRepository(context: Context) {
     fun listPlaybackMemory(): List<VideoEntity>       = db.listPlaybackMemory()
     fun listContinueWatching(): List<VideoEntity>     = db.listContinueWatching()
     fun listRecentlyPlayed(): List<VideoEntity>       = db.listRecentlyPlayed()
-    fun search(query: String): List<VideoEntity>      = db.searchByTitle(query)
+    fun search(query: String): List<VideoEntity>      = db.search(query)
 
     fun savePlaybackPosition(id: Long, positionMs: Long) =
         db.updatePlaybackState(id, positionMs)

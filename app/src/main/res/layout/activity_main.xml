@@ -29,7 +29,10 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:padding="20dp"
+            android:paddingLeft="20dp"
+            android:paddingTop="20dp"
+            android:paddingRight="20dp"
+            android:paddingBottom="100dp"
             android:gravity="center_horizontal">
 
             <!-- HUD header bar -->
@@ -47,7 +50,7 @@
                     android:text="WING HAEGER // MAIN BASE"
                     android:fontFamily="@font/orbitron_bold"
                     android:textSize="11sp"
-                    android:textColor="#FFD700"
+                    android:textColor="@color/wh_accordion_text"
                     android:letterSpacing="0.15"/>
                 <TextView
                     android:layout_width="wrap_content"
@@ -55,7 +58,7 @@
                     android:text="▶ READY"
                     android:fontFamily="@font/orbitron_regular"
                     android:textSize="10sp"
-                    android:textColor="#00FF88"/>
+                    android:textColor="@color/wh_neon_green"/>
             </LinearLayout>
 
             <!-- Primary action grid -->
@@ -72,7 +75,7 @@
                     android:background="@drawable/bg_btn_gold"
                     android:text="LOAD\nARCHIVE"
                     android:fontFamily="@font/orbitron_bold"
-                    android:textColor="#FFD700" android:textSize="13sp"
+                    android:textColor="@color/wh_neon_gold" android:textSize="13sp"
                     android:letterSpacing="0.1"/>
 
                 <Button android:id="@+id/btnOpenLibrary"
@@ -81,7 +84,7 @@
                     android:background="@drawable/bg_btn_violet"
                     android:text="VIDEO\nVAULT"
                     android:fontFamily="@font/orbitron_bold"
-                    android:textColor="#B000FF" android:textSize="13sp"
+                    android:textColor="@color/wh_neon_violet" android:textSize="13sp"
                     android:letterSpacing="0.1"/>
 
                 <Button android:id="@+id/btnContinueWatching"
@@ -90,7 +93,7 @@
                     android:background="@drawable/bg_btn_cyan"
                     android:text="CONTINUE\nMISSION"
                     android:fontFamily="@font/orbitron_bold"
-                    android:textColor="#00FFEE" android:textSize="13sp"
+                    android:textColor="@color/wh_neon_cyan" android:textSize="13sp"
                     android:letterSpacing="0.1"/>
 
                 <Button android:id="@+id/btnPlaylists"
@@ -99,7 +102,7 @@
                     android:background="@drawable/bg_btn_orange"
                     android:text="MISSION\nQUEUES"
                     android:fontFamily="@font/orbitron_bold"
-                    android:textColor="#FF6600" android:textSize="13sp"
+                    android:textColor="@color/wh_neon_orange" android:textSize="13sp"
                     android:letterSpacing="0.1"/>
 
                 <Button android:id="@+id/btnPlaybackMemory"
@@ -108,7 +111,7 @@
                     android:background="@drawable/bg_btn_green"
                     android:text="RECALL\nLOG"
                     android:fontFamily="@font/orbitron_bold"
-                    android:textColor="#00FF88" android:textSize="13sp"
+                    android:textColor="@color/wh_neon_green" android:textSize="13sp"
                     android:letterSpacing="0.1"/>
 
                 <Button android:id="@+id/btnEnhancement"
@@ -117,7 +120,7 @@
                     android:background="@drawable/bg_btn_violet"
                     android:text="LENS\nMATRIX"
                     android:fontFamily="@font/orbitron_bold"
-                    android:textColor="#B000FF" android:textSize="13sp"
+                    android:textColor="@color/wh_neon_violet" android:textSize="13sp"
                     android:letterSpacing="0.1"/>
             </GridLayout>
 
@@ -143,7 +146,7 @@
                     android:background="@drawable/bg_btn_red"
                     android:text="⚠ WIPE VAULT"
                     android:fontFamily="@font/orbitron_bold"
-                    android:textColor="#FF2244" android:textSize="11sp"
+                    android:textColor="@color/wh_neon_red" android:textSize="11sp"
                     android:letterSpacing="0.08"/>
             </LinearLayout>
         </LinearLayout>

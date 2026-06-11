@@ -40,7 +40,7 @@
                 android:text="0:00"
                 android:fontFamily="@font/orbitron_regular"
                 android:textSize="9sp"
-                android:textColor="#FFD700"/>
+                android:textColor="@color/wh_neon_gold"/>
             <!-- Progress bar at bottom -->
             <ProgressBar
                 android:id="@+id/progressBar"

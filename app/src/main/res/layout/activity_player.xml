@@ -60,7 +60,7 @@
             <TextView android:id="@+id/gestureHintText"
                 android:layout_width="wrap_content" android:layout_height="wrap_content"
                 android:fontFamily="@font/orbitron_bold"
-                android:textSize="16sp" android:textColor="#FFD700"/>
+                android:textSize="16sp" android:textColor="@color/wh_app_blue"/>
         </LinearLayout>
 
         <!-- Fullscreen button -->
@@ -79,6 +79,7 @@
         android:id="@+id/scrollView"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:layout_marginTop="12dp"
         app:layout_constraintTop_toBottomOf="@id/playerSurface"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -93,9 +94,9 @@
             <!-- Title row -->
             <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
                 android:orientation="horizontal" android:gravity="center_vertical"
-                android:layout_marginBottom="10dp">
+                android:layout_marginBottom="16dp">
                 <View android:layout_width="3dp" android:layout_height="20dp"
-                    android:background="@color/wh_neon_gold" android:layout_marginEnd="8dp"/>
+                    android:background="@color/wh_accordion_text" android:layout_marginEnd="8dp"/>
                 <TextView android:id="@+id/videoTitle"
                     android:layout_width="0dp" android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -107,7 +108,7 @@
             <!-- Playback seek -->
             <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
                 android:orientation="horizontal" android:gravity="center_vertical"
-                android:layout_marginBottom="4dp">
+                android:layout_marginBottom="16dp">
                 <TextView android:id="@+id/tvPlaybackTime"
                     android:layout_width="wrap_content" android:layout_height="wrap_content"
                     android:text="0:00"
@@ -135,7 +136,7 @@
             <!-- Main transport controls -->
             <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
                 android:orientation="horizontal" android:gravity="center"
-                android:layout_marginBottom="10dp">
+                android:layout_marginBottom="16dp">
                 <ImageButton android:id="@+id/btnPrev"
                     android:layout_width="44dp" android:layout_height="44dp"
                     android:layout_marginEnd="6dp" android:background="@drawable/bg_btn_cyan"
@@ -169,44 +170,53 @@
             <!-- Secondary controls row -->
             <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
                 android:orientation="horizontal" android:gravity="center"
-                android:layout_marginBottom="14dp">
+                android:layout_marginBottom="20dp">
                 <Button android:id="@+id/btnPip"
-                    android:layout_width="wrap_content" android:layout_height="36dp"
-                    android:layout_marginEnd="8dp"
+                    android:layout_width="0dp" android:layout_height="36dp"
+                    android:layout_weight="1"
+                    android:layout_marginEnd="6dp"
                     android:background="@drawable/bg_btn_neutral"
                     android:text="PiP"
                     android:fontFamily="@font/orbitron_bold" android:textSize="10sp"
                     android:textColor="@color/wh_on_bg" android:letterSpacing="0.05"/>
                 <Button android:id="@+id/btnPlaylist"
-                    android:layout_width="wrap_content" android:layout_height="36dp"
-                    android:layout_marginEnd="8dp"
+                    android:layout_width="0dp" android:layout_height="36dp"
+                    android:layout_weight="1"
+                    android:layout_marginEnd="6dp"
                     android:background="@drawable/bg_btn_orange"
-                    android:text="+ QUEUE"
+                    android:text="QUEUE"
                     android:fontFamily="@font/orbitron_bold" android:textSize="10sp"
                     android:textColor="@color/wh_neon_orange" android:letterSpacing="0.05"/>
-                <Button android:id="@+id/btnFavorite"
-                    android:layout_width="wrap_content" android:layout_height="36dp"
-                    android:layout_marginEnd="8dp"
+
+                <Button
+                    android:id="@+id/btnFavorite"
+                    android:layout_width="0dp"
+                    android:layout_height="36dp"
+                    android:layout_marginEnd="6dp"
+                    android:layout_weight="1"
                     android:background="@drawable/bg_btn_violet"
-                    android:text="@string/favorite_on"
-                    android:fontFamily="@font/orbitron_bold" android:textSize="10sp"
-                    android:textColor="@color/wh_neon_violet" android:letterSpacing="0.05"/>
+                    android:fontFamily="@font/orbitron_bold"
+                    android:text="RELIC"
+                    android:textColor="@color/wh_neon_violet"
+                    android:textSize="6sp" />
+
                 <Button android:id="@+id/btnAddChapter"
-                    android:layout_width="wrap_content" android:layout_height="36dp"
+                    android:layout_width="0dp" android:layout_height="36dp"
+                    android:layout_weight="1"
                     android:background="@drawable/bg_btn_gold"
                     android:text="MARK"
                     android:fontFamily="@font/orbitron_bold" android:textSize="10sp"
-                    android:textColor="@color/wh_neon_gold" android:letterSpacing="0.05"/>
+                    android:textColor="@color/wh_on_muted" android:letterSpacing="0.05"/>
             </LinearLayout>
 
             <!-- ── VOLUME panel ── -->
             <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
                 android:orientation="vertical" android:background="@drawable/bg_panel"
-                android:padding="12dp" android:layout_marginBottom="10dp">
+                android:padding="12dp" android:layout_marginBottom="16dp">
                 <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
                     android:text="// VOLUME"
                     android:fontFamily="@font/orbitron_bold" android:textSize="10sp"
-                    android:textColor="@color/wh_neon_orange" android:letterSpacing="0.15"
+                    android:textColor="@color/wh_accordion_text" android:letterSpacing="0.15"
                     android:layout_marginBottom="8dp"/>
                 <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
                     android:orientation="horizontal" android:gravity="center_vertical">
@@ -242,11 +252,11 @@
             <!-- ── PLAYBACK OPTIONS panel ── -->
             <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
                 android:orientation="vertical" android:background="@drawable/bg_panel"
-                android:padding="12dp" android:layout_marginBottom="10dp">
+                android:padding="12dp" android:layout_marginBottom="16dp">
                 <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
                     android:text="// CYCLE OPTIONS"
                     android:fontFamily="@font/orbitron_bold" android:textSize="10sp"
-                    android:textColor="@color/wh_neon_cyan" android:letterSpacing="0.15"
+                    android:textColor="@color/wh_accordion_text" android:letterSpacing="0.15"
                     android:layout_marginBottom="8dp"/>
                 <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
                     android:orientation="horizontal" android:gravity="center_vertical"
@@ -289,11 +299,11 @@
             <!-- ── ENHANCEMENT panel ── -->
             <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
                 android:orientation="vertical" android:background="@drawable/bg_panel"
-                android:padding="12dp" android:layout_marginBottom="10dp">
+                android:padding="12dp" android:layout_marginBottom="16dp">
                 <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
                     android:text="// LENS MATRIX"
                     android:fontFamily="@font/orbitron_bold" android:textSize="10sp"
-                    android:textColor="@color/wh_neon_violet" android:letterSpacing="0.15"
+                    android:textColor="@color/wh_accordion_text" android:letterSpacing="0.15"
                     android:layout_marginBottom="8dp"/>
                 <Spinner android:id="@+id/spinnerEnhancement"
                     android:layout_width="match_parent" android:layout_height="46dp"
@@ -304,11 +314,11 @@
             <!-- ── TRIM panel ── -->
             <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
                 android:orientation="vertical" android:background="@drawable/bg_panel"
-                android:padding="12dp" android:layout_marginBottom="10dp">
+                android:padding="12dp" android:layout_marginBottom="16dp">
                 <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
                     android:text="// TRIM ZONE"
                     android:fontFamily="@font/orbitron_bold" android:textSize="10sp"
-                    android:textColor="@color/wh_neon_green" android:letterSpacing="0.15"
+                    android:textColor="@color/wh_accordion_text" android:letterSpacing="0.15"
                     android:layout_marginBottom="8dp"/>
                 <!-- Trim Start -->
                 <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
@@ -371,11 +381,11 @@
             <!-- ── SKIP SEGMENTS panel ── -->
             <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
                 android:orientation="vertical" android:background="@drawable/bg_panel"
-                android:padding="12dp" android:layout_marginBottom="10dp">
+                android:padding="12dp" android:layout_marginBottom="16dp">
                 <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
                     android:text="// SKIP SEGMENTS"
                     android:fontFamily="@font/orbitron_bold" android:textSize="10sp"
-                    android:textColor="@color/wh_neon_pink" android:letterSpacing="0.15"
+                    android:textColor="@color/wh_accordion_text" android:letterSpacing="0.15"
                     android:layout_marginBottom="8dp"/>
                 <TextView android:id="@+id/tvSkipsSummary"
                     android:layout_width="match_parent" android:layout_height="wrap_content"
@@ -405,7 +415,7 @@
 
             <!-- ── ACTION row ── -->
             <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
-                android:orientation="horizontal" android:layout_marginBottom="20dp">
+                android:orientation="horizontal" android:layout_marginBottom="24dp">
                 <Button android:id="@+id/btnSavePrefs"
                     android:layout_width="0dp" android:layout_weight="1"
                     android:layout_height="46dp" android:layout_marginEnd="8dp"

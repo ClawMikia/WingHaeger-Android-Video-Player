@@ -31,7 +31,7 @@
             <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
                 android:text="// PLAYBACK PARAMETERS"
                 android:fontFamily="@font/orbitron_bold" android:textSize="11sp"
-                android:textColor="@color/wh_neon_cyan" android:letterSpacing="0.15"
+                android:textColor="@color/wh_accordion_text" android:letterSpacing="0.15"
                 android:layout_marginBottom="12dp" android:layout_marginTop="8dp"/>
 
             <!-- Seek interval -->

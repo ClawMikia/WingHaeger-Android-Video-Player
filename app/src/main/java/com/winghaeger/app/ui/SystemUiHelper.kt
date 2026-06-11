@@ -10,7 +10,12 @@ fun Activity.setContentWithWingInsets(root: View) {
     setContentView(root)
     ViewCompat.setOnApplyWindowInsetsListener(root) { v, insets ->
         val bars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-        v.updatePadding(top = bars.top, bottom = bars.bottom)
+        v.updatePadding(
+            left = bars.left,
+            top = bars.top,
+            right = bars.right,
+            bottom = bars.bottom
+        )
         insets
     }
 }

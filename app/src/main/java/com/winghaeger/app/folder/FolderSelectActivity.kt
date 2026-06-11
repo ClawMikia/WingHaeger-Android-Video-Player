@@ -4,14 +4,15 @@ import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.view.View
-import com.winghaeger.app.ui.showWingMessage
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import com.winghaeger.app.data.FolderScanner
 import com.winghaeger.app.data.VideoRepository
 import com.winghaeger.app.databinding.ActivityFolderSelectBinding
+import com.winghaeger.app.ui.BottomNavHelper
 import com.winghaeger.app.ui.setContentWithWingInsets
+import com.winghaeger.app.ui.showWingMessage
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
@@ -60,6 +61,34 @@ class FolderSelectActivity : AppCompatActivity() {
 
         binding.btnPickFolder.setOnClickListener { openTree.launch(null) }
         binding.btnPickFiles.setOnClickListener { openFiles.launch(arrayOf("video/*")) }
+
+        binding.btnDeepScan.setOnClickListener {
+            binding.progressBar.visibility = View.VISIBLE
+            binding.tvStatus.text = "Deep scanning system sectors..."
+            binding.btnPickFolder.isEnabled = false
+            binding.btnPickFiles.isEnabled = false
+            binding.btnDeepScan.isEnabled = false
+
+            lifecycleScope.launch {
+                val videos = withContext(Dispatchers.IO) {
+                    FolderScanner.scanMediaStore(this@FolderSelectActivity)
+                }
+                if (videos.isNotEmpty()) {
+                    withContext(Dispatchers.IO) {
+                        repo.importScanResults(videos, withThumbnails = true)
+                    }
+                    showWingMessage("Deep Scan Complete", "Discovered ${videos.size} items across all sectors.") { finish() }
+                } else {
+                    binding.progressBar.visibility = View.GONE
+                    binding.btnPickFolder.isEnabled = true
+                    binding.btnPickFiles.isEnabled = true
+                    binding.btnDeepScan.isEnabled = true
+                    binding.tvStatus.text = "No additional items found."
+                }
+            }
+        }
+
+        BottomNavHelper.setup(this, binding.bottomNav, -1)
     }
 
     private fun scanAndImport(treeUri: Uri) {

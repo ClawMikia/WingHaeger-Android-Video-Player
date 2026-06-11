@@ -7,7 +7,7 @@
     android:gravity="center_vertical"
     android:background="@color/wh_surface">
     <View android:layout_width="3dp" android:layout_height="18dp"
-        android:background="@color/wh_neon_gold" android:layout_marginEnd="10dp"/>
+        android:background="@color/wh_accordion_text" android:layout_marginEnd="10dp"/>
     <TextView
         android:id="@+id/tvHeaderTitle"
         android:layout_width="0dp"
@@ -16,7 +16,7 @@
         android:text="Folder"
         android:fontFamily="@font/orbitron_bold"
         android:textSize="11sp"
-        android:textColor="@color/wh_neon_gold"
+        android:textColor="@color/wh_accordion_text"
         android:letterSpacing="0.12"/>
     <TextView
         android:id="@+id/tvHeaderCount"
@@ -25,13 +25,13 @@
         android:text="0"
         android:fontFamily="@font/orbitron_regular"
         android:textSize="10sp"
-        android:textColor="@color/wh_on_muted"/>
+        android:textColor="@color/wh_accordion_text"/>
     <TextView
         android:id="@+id/tvExpandIndicator"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="▶"
-        android:textColor="@color/wh_neon_cyan"
+        android:textColor="@color/wh_accordion_text"
         android:textSize="10sp"
         android:layout_marginStart="8dp"/>
 </LinearLayout>

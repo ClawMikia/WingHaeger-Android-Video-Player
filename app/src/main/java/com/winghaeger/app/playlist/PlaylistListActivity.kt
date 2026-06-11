@@ -18,48 +18,30 @@ import com.winghaeger.app.ui.setContentWithWingInsets
 class PlaylistListActivity : AppCompatActivity() {
 
     private val repo by lazy { VideoRepository(this) }
-    private lateinit var recycler: RecyclerView
+    private lateinit var binding: com.winghaeger.app.databinding.ActivityPlaylistListBinding
     private var playlists = listOf<Pair<Long, String>>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        binding = com.winghaeger.app.databinding.ActivityPlaylistListBinding.inflate(layoutInflater)
+        setContentWithWingInsets(binding.root)
         
-        val root = android.widget.LinearLayout(this).apply {
-            orientation = android.widget.LinearLayout.VERTICAL
-            setBackgroundColor(resources.getColor(R.color.wh_bg, theme))
-        }
+        setSupportActionBar(binding.toolbar)
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        binding.toolbar.setNavigationOnClickListener { finish() }
 
-        val toolbar = com.google.android.material.appbar.MaterialToolbar(this).apply {
-            val typedValue = android.util.TypedValue()
-            theme.resolveAttribute(androidx.appcompat.R.attr.homeAsUpIndicator, typedValue, true)
-            setNavigationIcon(typedValue.resourceId)
-            title = "My Playlists"
-            setNavigationOnClickListener { finish() }
-            
-            // Add Create button to toolbar
-            val createItem = menu.add("Create")
-            createItem.setIcon(android.R.drawable.ic_input_add)
-            createItem.setShowAsAction(android.view.MenuItem.SHOW_AS_ACTION_ALWAYS)
-            setOnMenuItemClickListener {
-                if (it == createItem) { showCreatePlaylistDialog(); true } else false
-            }
-        }
-        root.addView(toolbar)
+        binding.recycler.layoutManager = LinearLayoutManager(this)
+        
+        binding.btnNewPlaylist.setOnClickListener { showCreatePlaylistDialog() }
 
-        recycler = RecyclerView(this).apply {
-            layoutManager = LinearLayoutManager(this@PlaylistListActivity)
-            setPadding(16, 16, 16, 16)
-            clipToPadding = false
-        }
-        root.addView(recycler, android.widget.LinearLayout.LayoutParams(-1, 0, 1f))
+        com.winghaeger.app.ui.BottomNavHelper.setup(this, binding.bottomNav, -1)
 
-        setContentWithWingInsets(root)
         loadData()
     }
 
     private fun loadData() {
         playlists = repo.listPlaylists()
-        recycler.adapter = object : RecyclerView.Adapter<PlaylistVH>() {
+        binding.recycler.adapter = object : RecyclerView.Adapter<PlaylistVH>() {
             override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PlaylistVH {
                 val view = android.widget.LinearLayout(parent.context).apply {
                     orientation = android.widget.LinearLayout.HORIZONTAL

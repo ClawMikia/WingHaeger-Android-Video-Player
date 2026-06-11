@@ -38,15 +38,20 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
-            android:padding="8dp"
+            android:paddingLeft="8dp"
+            android:paddingTop="8dp"
+            android:paddingRight="8dp"
+            android:paddingBottom="90dp"
             android:clipToPadding="false"/>
-        <com.google.android.material.bottomnavigation.BottomNavigationView
-            android:id="@+id/bottomNav"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/wh_surface"
-            app:menu="@menu/menu_bottom_nav"
-            app:itemTextColor="@color/wh_on_muted"
-            app:itemIconTint="@color/wh_on_muted"/>
     </LinearLayout>
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNav"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:background="@color/wh_surface"
+        app:menu="@menu/menu_bottom_nav"
+        app:itemTextColor="@color/wh_on_muted"
+        app:itemIconTint="@color/wh_on_muted"/>
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
