@@ -1,0 +1,2 @@
+-keep class com.winghaeger.app.** { *; }
+-keepattributes *Annotation*

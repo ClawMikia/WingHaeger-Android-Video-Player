@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="wh_bg">#05050D</color>
+    <color name="wh_surface">#0D0D1A</color>
+    <color name="wh_surface_elevated">#141428</color>
+    <color name="wh_surface_panel">#1A1A32</color>
+    <color name="wh_on_bg">#E0E0FF</color>
+    <color name="wh_on_muted">#6060A0</color>
+    <color name="wh_divider">#1F1F3A</color>
+    <color name="wh_pure_black">#000000</color>
+    <color name="wh_neon_gold">#FFD700</color>
+    <color name="wh_neon_violet">#B000FF</color>
+    <color name="wh_neon_cyan">#00FFEE</color>
+    <color name="wh_neon_green">#00FF88</color>
+    <color name="wh_neon_red">#FF2244</color>
+    <color name="wh_neon_orange">#FF6600</color>
+    <color name="wh_neon_blue">#0088FF</color>
+    <color name="wh_neon_pink">#FF00AA</color>
+    <color name="wh_neon_white">#CCCCFF</color>
+</resources>

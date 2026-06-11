@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/wh_bg">
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/wh_surface"
+        app:elevation="0dp">
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/toolbar"
+            style="@style/Widget.WH.Toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            app:title="Load Archive"/>
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:padding="24dp"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="SELECT VIDEO SOURCE"
+            android:fontFamily="@font/orbitron_bold"
+            android:textSize="13sp"
+            android:textColor="@color/wh_neon_cyan"
+            android:letterSpacing="0.2"
+            android:gravity="center"
+            android:layout_marginBottom="24dp"/>
+
+        <Button
+            android:id="@+id/btnPickFolder"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:layout_marginBottom="16dp"
+            android:background="@drawable/bg_btn_gold"
+            android:text="📁  SCAN FOLDER"
+            android:fontFamily="@font/orbitron_bold"
+            android:textColor="#FFD700"
+            android:textSize="14sp"
+            android:letterSpacing="0.1"/>
+
+        <Button
+            android:id="@+id/btnPickFiles"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:background="@drawable/bg_btn_violet"
+            android:text="🎬  SELECT FILES"
+            android:fontFamily="@font/orbitron_bold"
+            android:textColor="#B000FF"
+            android:textSize="14sp"
+            android:letterSpacing="0.1"/>
+
+        <TextView
+            android:id="@+id/tvStatus"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:gravity="center"
+            android:fontFamily="@font/orbitron_regular"
+            android:textSize="11sp"
+            android:textColor="@color/wh_neon_green"
+            android:text=""/>
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:indeterminateTint="@color/wh_neon_gold"
+            android:visibility="gone"/>
+    </LinearLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

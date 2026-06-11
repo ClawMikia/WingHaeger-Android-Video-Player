@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:padding="14dp"
+    android:gravity="center_vertical"
+    android:background="@drawable/bg_panel"
+    android:layout_margin="5dp">
+    <View android:layout_width="3dp" android:layout_height="20dp"
+        android:background="@color/wh_neon_orange" android:layout_marginEnd="10dp"/>
+    <TextView
+        android:id="@+id/tvName"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="Queue Name"
+        android:fontFamily="@font/orbitron_regular"
+        android:textSize="12sp"
+        android:textColor="@color/wh_on_bg"/>
+    <TextView
+        android:id="@+id/tvCount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="0 ops"
+        android:fontFamily="@font/orbitron_regular"
+        android:textSize="10sp"
+        android:textColor="@color/wh_on_muted"
+        android:layout_marginEnd="8dp"/>
+    <ImageButton
+        android:id="@+id/btnDelete"
+        android:layout_width="28dp"
+        android:layout_height="28dp"
+        android:background="@drawable/bg_btn_red"
+        android:src="@drawable/ic_close_custom"
+        android:padding="4dp"/>
+</LinearLayout>

@@ -1,0 +1,23 @@
+# Built variants
+**/build
+*.apk
+*.aar
+*.ap_
+*.aab
+
+# Android Studio
+.idea/
+*.iml
+.gradle/
+local.properties
+captures/
+.externalNativeBuild/
+.cxx/
+cmake-build-*/
+
+# Kotlin
+.kotlin/
+
+# OS specific
+.DS_Store
+Thumbs.db

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Wing Haeger</string>
+    <string name="splash_credit">Forged by Christopher Lee Cajes</string>
+    <string name="nav_home">Base</string>
+    <string name="nav_library">Vault</string>
+    <string name="nav_favorites">Relics</string>
+    <string name="nav_memory">Recall</string>
+    <string name="nav_explore">Scan</string>
+    <string name="pick_folder">Select video folder</string>
+    <string name="pick_files">Select video files</string>
+    <string name="scanning">Scanning archives\u2026</string>
+    <string name="library_title">Video Vault</string>
+    <string name="favorites_title">Relic Chamber</string>
+    <string name="memory_title">Recall Log</string>
+    <string name="explore_title">Scan Archives</string>
+    <string name="enhancement_title">Lens Matrix</string>
+    <string name="settings_title">System Config</string>
+    <string name="offline_section">Local Archives</string>
+    <string name="duration_unknown">\u2014</string>
+    <string name="play">PLAY</string>
+    <string name="pause">PAUSE</string>
+    <string name="stop">STOP</string>
+    <string name="restart">RESTART</string>
+    <string name="trim_start">Trim Start</string>
+    <string name="trim_end">Trim End</string>
+    <string name="save_prefs">SAVE CONFIG</string>
+    <string name="favorite_on">Add to Relics</string>
+    <string name="favorite_off">Remove Relic</string>
+    <string name="auto_next">Auto-Launch Next</string>
+    <string name="loop">Loop Cycle</string>
+    <string name="default_seek_interval">Skip Interval (seconds)</string>
+    <string name="chapter_add">Mark Chapter</string>
+    <string name="chapter_title">Chapter Label</string>
+    <string name="pip_enter">Picture-in-Picture</string>
+    <string name="mute">Mute</string>
+    <string name="reset_all">FULL RESET</string>
+    <string name="add_to_playlist">Add to Queue</string>
+    <string name="section_continue_watching">Continue Mission</string>
+    <string name="section_recently_played">Recent Ops</string>
+    <string name="section_favorites">Relic Chamber</string>
+</resources>

@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Theme.WingHaeger" parent="Theme.Material3.Dark.NoActionBar">
+        <item name="colorPrimary">@color/wh_neon_gold</item>
+        <item name="colorOnPrimary">@color/wh_bg</item>
+        <item name="colorSecondary">@color/wh_neon_violet</item>
+        <item name="colorTertiary">@color/wh_neon_cyan</item>
+        <item name="android:colorBackground">@color/wh_bg</item>
+        <item name="colorSurface">@color/wh_surface</item>
+        <item name="colorOnSurface">@color/wh_on_bg</item>
+        <item name="android:statusBarColor">@color/wh_surface</item>
+        <item name="android:navigationBarColor">@color/wh_surface</item>
+        <item name="android:windowLightNavigationBar">false</item>
+        <item name="android:navigationBarDividerColor">@android:color/transparent</item>
+        <item name="android:windowDrawsSystemBarBackgrounds">true</item>
+        <item name="android:windowTranslucentNavigation">false</item>
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="materialButtonStyle">@style/Widget.WH.Button</item>
+        <item name="toolbarStyle">@style/Widget.WH.Toolbar</item>
+        <item name="alertDialogTheme">@style/ThemeOverlay.WH.Dialog</item>
+        <item name="materialAlertDialogTheme">@style/ThemeOverlay.WH.Dialog</item>
+        <item name="textInputStyle">@style/Widget.WH.TextInput</item>
+        <item name="editTextStyle">@style/Widget.WH.EditText</item>
+    </style>
+
+    <style name="ThemeOverlay.WH.Dialog" parent="ThemeOverlay.Material3.MaterialAlertDialog">
+        <item name="colorPrimary">@color/wh_neon_gold</item>
+        <item name="colorSurface">@color/wh_surface_elevated</item>
+        <item name="colorOnSurface">@color/wh_on_bg</item>
+        <item name="shapeAppearance">@style/Shape.WH.Dialog</item>
+        <item name="shapeAppearanceMediumComponent">@style/Shape.WH.Dialog</item>
+        <item name="buttonBarPositiveButtonStyle">@style/Widget.WH.Button.Text.Dialog</item>
+        <item name="buttonBarNegativeButtonStyle">@style/Widget.WH.Button.Text.Dialog</item>
+        <item name="buttonBarNeutralButtonStyle">@style/Widget.WH.Button.Text.Dialog</item>
+    </style>
+
+    <style name="Shape.WH.Dialog" parent="ShapeAppearance.Material3.MediumComponent">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">20dp</item>
+    </style>
+
+    <style name="Widget.WH.Button.Text.Dialog" parent="Widget.Material3.Button.TextButton">
+        <item name="android:textColor">@color/wh_neon_gold</item>
+        <item name="android:fontFamily">@font/orbitron_bold</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:letterSpacing">0.12</item>
+    </style>
+
+    <style name="Widget.WH.TextInput" parent="Widget.Material3.TextInputLayout.OutlinedBox">
+        <item name="boxStrokeColor">@color/wh_neon_violet</item>
+        <item name="boxStrokeWidth">1.5dp</item>
+        <item name="boxStrokeWidthFocused">2.5dp</item>
+        <item name="hintTextColor">@color/wh_neon_violet</item>
+        <item name="android:textColorHint">@color/wh_on_muted</item>
+        <item name="boxBackgroundColor">@color/wh_surface</item>
+        <item name="shapeAppearance">@style/Shape.WH.SmallComp</item>
+    </style>
+
+    <style name="Widget.WH.EditText" parent="Widget.Material3.TextInputEditText.OutlinedBox">
+        <item name="android:paddingTop">16dp</item>
+        <item name="android:paddingBottom">16dp</item>
+        <item name="android:textColor">@color/wh_on_bg</item>
+    </style>
+
+    <style name="Shape.WH.SmallComp" parent="ShapeAppearance.Material3.SmallComponent">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">12dp</item>
+    </style>
+
+    <style name="Widget.WH.Toolbar" parent="Widget.Material3.Toolbar">
+        <item name="titleTextColor">@color/wh_neon_gold</item>
+        <item name="navigationIconTint">@color/wh_neon_gold</item>
+        <item name="titleTextAppearance">@style/Text.WH.ToolbarTitle</item>
+        <item name="android:background">@color/wh_surface</item>
+    </style>
+
+    <style name="Text.WH.ToolbarTitle" parent="TextAppearance.Material3.TitleLarge">
+        <item name="android:fontFamily">@font/orbitron_bold</item>
+        <item name="android:textSize">17sp</item>
+        <item name="android:letterSpacing">0.08</item>
+    </style>
+
+    <style name="Widget.WH.Button" parent="Widget.Material3.Button.TonalButton">
+        <item name="backgroundTint">@color/wh_surface_panel</item>
+        <item name="android:textColor">@color/wh_neon_gold</item>
+        <item name="android:fontFamily">@font/orbitron_bold</item>
+        <item name="android:letterSpacing">0.1</item>
+    </style>
+
+    <style name="Widget.WH.Card" parent="Widget.Material3.CardView.Elevated">
+        <item name="cardBackgroundColor">@color/wh_surface_elevated</item>
+        <item name="cardCornerRadius">12dp</item>
+        <item name="cardElevation">0dp</item>
+        <item name="strokeColor">@color/wh_divider</item>
+        <item name="strokeWidth">1dp</item>
+    </style>
+</resources>

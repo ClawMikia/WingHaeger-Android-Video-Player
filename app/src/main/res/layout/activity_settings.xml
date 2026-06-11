@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/wh_bg">
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/wh_surface"
+        app:elevation="0dp">
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/toolbar"
+            style="@style/Widget.WH.Toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            app:title="@string/settings_title"/>
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:text="// PLAYBACK PARAMETERS"
+                android:fontFamily="@font/orbitron_bold" android:textSize="11sp"
+                android:textColor="@color/wh_neon_cyan" android:letterSpacing="0.15"
+                android:layout_marginBottom="12dp" android:layout_marginTop="8dp"/>
+
+            <!-- Seek interval -->
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:orientation="vertical" android:background="@drawable/bg_panel"
+                android:padding="14dp" android:layout_marginBottom="10dp">
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:orientation="horizontal" android:gravity="center_vertical">
+                    <TextView android:layout_width="0dp" android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Skip Interval (sec)"
+                        android:fontFamily="@font/orbitron_regular" android:textSize="12sp"
+                        android:textColor="@color/wh_on_bg"/>
+                    <TextView android:id="@+id/seekValue"
+                        android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:text="10"
+                        android:fontFamily="@font/orbitron_bold" android:textSize="13sp"
+                        android:textColor="@color/wh_neon_gold" android:padding="8dp"
+                        android:background="@drawable/bg_btn_gold"/>
+                </LinearLayout>
+                <SeekBar android:id="@+id/seekBarInterval"
+                    android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp" android:max="59"
+                    android:progressDrawable="@drawable/seek_playback_progress"
+                    android:thumb="@drawable/seekbar_thumb"/>
+            </LinearLayout>
+
+            <!-- Volume step -->
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:orientation="horizontal" android:background="@drawable/bg_panel"
+                android:padding="14dp" android:layout_marginBottom="10dp"
+                android:gravity="center_vertical">
+                <TextView android:layout_width="0dp" android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Volume Step (%)"
+                    android:fontFamily="@font/orbitron_regular" android:textSize="12sp"
+                    android:textColor="@color/wh_on_bg"/>
+                <TextView android:id="@+id/volumeValue"
+                    android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="5 %"
+                    android:fontFamily="@font/orbitron_bold" android:textSize="13sp"
+                    android:textColor="@color/wh_neon_orange" android:padding="8dp"
+                    android:background="@drawable/bg_btn_orange"/>
+            </LinearLayout>
+
+            <!-- Trim step -->
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:orientation="horizontal" android:background="@drawable/bg_panel"
+                android:padding="14dp" android:layout_marginBottom="10dp"
+                android:gravity="center_vertical">
+                <TextView android:layout_width="0dp" android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Trim Step (ms)"
+                    android:fontFamily="@font/orbitron_regular" android:textSize="12sp"
+                    android:textColor="@color/wh_on_bg"/>
+                <TextView android:id="@+id/trimValue"
+                    android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="10000 ms"
+                    android:fontFamily="@font/orbitron_bold" android:textSize="13sp"
+                    android:textColor="@color/wh_neon_green" android:padding="8dp"
+                    android:background="@drawable/bg_btn_green"/>
+            </LinearLayout>
+
+            <!-- FF/RW step -->
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:orientation="horizontal" android:background="@drawable/bg_panel"
+                android:padding="14dp" android:layout_marginBottom="20dp"
+                android:gravity="center_vertical">
+                <TextView android:layout_width="0dp" android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Fast Fwd/Rwd (sec)"
+                    android:fontFamily="@font/orbitron_regular" android:textSize="12sp"
+                    android:textColor="@color/wh_on_bg"/>
+                <TextView android:id="@+id/ffrwValue"
+                    android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="10 sec"
+                    android:fontFamily="@font/orbitron_bold" android:textSize="13sp"
+                    android:textColor="@color/wh_neon_cyan" android:padding="8dp"
+                    android:background="@drawable/bg_btn_cyan"/>
+            </LinearLayout>
+
+            <Button android:id="@+id/btnResetPlaybackDefaults"
+                android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:background="@drawable/bg_btn_red"
+                android:text="↺  RESTORE DEFAULTS"
+                android:fontFamily="@font/orbitron_bold"
+                android:textColor="@color/wh_neon_red" android:textSize="13sp"
+                android:letterSpacing="0.1"/>
+        </LinearLayout>
+    </ScrollView>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

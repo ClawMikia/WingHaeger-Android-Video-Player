@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:padding="10dp"
+    android:gravity="center_vertical"
+    android:background="@color/wh_surface">
+    <View android:layout_width="3dp" android:layout_height="18dp"
+        android:background="@color/wh_neon_gold" android:layout_marginEnd="10dp"/>
+    <TextView
+        android:id="@+id/tvHeaderTitle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="Folder"
+        android:fontFamily="@font/orbitron_bold"
+        android:textSize="11sp"
+        android:textColor="@color/wh_neon_gold"
+        android:letterSpacing="0.12"/>
+    <TextView
+        android:id="@+id/tvHeaderCount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="0"
+        android:fontFamily="@font/orbitron_regular"
+        android:textSize="10sp"
+        android:textColor="@color/wh_on_muted"/>
+    <TextView
+        android:id="@+id/tvExpandIndicator"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="▶"
+        android:textColor="@color/wh_neon_cyan"
+        android:textSize="10sp"
+        android:layout_marginStart="8dp"/>
+</LinearLayout>

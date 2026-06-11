@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Theme.WingHaeger" parent="Theme.Material3.Dark.NoActionBar">
+        <item name="colorPrimary">@color/wh_neon_gold</item>
+        <item name="colorOnPrimary">@color/wh_bg</item>
+        <item name="colorSecondary">@color/wh_neon_violet</item>
+        <item name="android:colorBackground">@color/wh_bg</item>
+        <item name="colorSurface">@color/wh_surface</item>
+        <item name="colorOnSurface">@color/wh_on_bg</item>
+        <item name="android:statusBarColor">@color/wh_surface</item>
+        <item name="android:navigationBarColor">@color/wh_surface</item>
+        <item name="android:windowLightNavigationBar">false</item>
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="materialButtonStyle">@style/Widget.WH.Button</item>
+        <item name="toolbarStyle">@style/Widget.WH.Toolbar</item>
+        <item name="alertDialogTheme">@style/ThemeOverlay.WH.Dialog</item>
+        <item name="materialAlertDialogTheme">@style/ThemeOverlay.WH.Dialog</item>
+        <item name="textInputStyle">@style/Widget.WH.TextInput</item>
+        <item name="editTextStyle">@style/Widget.WH.EditText</item>
+    </style>
+</resources>
