@@ -131,6 +131,7 @@ class LibraryActivity : AppCompatActivity() {
                 refreshData()
             } else null,
             onOpen = { videoId, playlistIds, index ->
+                binding.miniPlayerView.player = null
                 startActivity(
                     Intent(this, PlayerActivity::class.java)
                         .putExtra(PlayerActivity.EXTRA_VIDEO_ID, videoId)
@@ -192,7 +193,8 @@ class LibraryActivity : AppCompatActivity() {
 
     private fun updateMiniPlayer() {
         val player = playbackService?.getPlayer()
-        if (player != null && (player.isPlaying || player.playbackState != Player.STATE_IDLE)) {
+        val service = playbackService
+        if (player != null && (player.isPlaying || player.playbackState != Player.STATE_IDLE) && service?.isPlayerActivityVisible == false) {
             binding.miniPlayerContainer.visibility = View.VISIBLE
             
             player.removeListener(playerListener)
@@ -234,6 +236,7 @@ class LibraryActivity : AppCompatActivity() {
             }
             
             binding.miniPlayerContainer.setOnClickListener {
+                binding.miniPlayerView.player = null
                 val intent = Intent(this, PlayerActivity::class.java).apply {
                     putExtra(PlayerActivity.EXTRA_VIDEO_ID, currentMediaItem?.mediaId?.toLongOrNull() ?: -1L)
                     flags = Intent.FLAG_ACTIVITY_SINGLE_TOP

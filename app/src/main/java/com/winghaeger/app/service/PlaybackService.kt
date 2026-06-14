@@ -12,6 +12,8 @@ class PlaybackService : MediaSessionService() {
     private var player: ExoPlayer? = null
     private var mediaSession: MediaSession? = null
     private val binder = LocalBinder()
+    
+    var isPlayerActivityVisible = false
 
     inner class LocalBinder : android.os.Binder() {
         fun getService(): PlaybackService = this@PlaybackService

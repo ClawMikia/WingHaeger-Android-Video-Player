@@ -67,6 +67,14 @@ class PlayerActivity : AppCompatActivity() {
     private var isFullscreen = false
     private var isBindingUi = false
     private var isFsPanelsVisible = true
+    private val hideFsPanelsRunnable = Runnable { if (isFullscreen && isFsPanelsVisible) toggleFsPanels() }
+
+    private fun scheduleFsPanelsHide() {
+        handler.removeCallbacks(hideFsPanelsRunnable)
+        if (isFullscreen && isFsPanelsVisible && player?.isPlaying == true) {
+            handler.postDelayed(hideFsPanelsRunnable, 3500L)
+        }
+    }
     private var chapters = listOf<ChapterMarker>()
     private var skips = listOf<TimelineSkip>()
 
@@ -174,10 +182,18 @@ class PlayerActivity : AppCompatActivity() {
         handler.post(tickRunnable)
     }
 
-    override fun onStart() { super.onStart(); initPlayerIfNeeded() }
+    override fun onStart() {
+        super.onStart()
+        playbackService?.isPlayerActivityVisible = true
+        initPlayerIfNeeded()
+    }
 
     override fun onResume() {
         super.onResume()
+        playbackService?.isPlayerActivityVisible = true
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O && !isInPictureInPictureMode) {
+            restoreFullUI()
+        }
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
             androidx.core.view.WindowCompat.setDecorFitsSystemWindows(window, false)
             window.insetsController?.setSystemBarsAppearance(0, android.view.WindowInsetsController.APPEARANCE_LIGHT_STATUS_BARS)
@@ -189,9 +205,11 @@ class PlayerActivity : AppCompatActivity() {
 
     override fun onStop() {
         persistProgress()
+        playbackService?.isPlayerActivityVisible = false
         window.clearFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
         player?.removeListener(playerListener)
         binding.playerView.player = null
+        binding.playerViewFs.player = null
         player = null
         super.onStop()
     }
@@ -213,6 +231,8 @@ class PlayerActivity : AppCompatActivity() {
         if (isInPiPMode) {
             binding.toolbar.visibility = View.GONE
             binding.scrollView.visibility = View.GONE
+            binding.btnFullscreen.visibility = View.GONE
+            binding.gestureHintOverlay.visibility = View.GONE
             binding.playerSurface.layoutParams = (binding.playerSurface.layoutParams as ViewGroup.MarginLayoutParams).apply {
                 height = ViewGroup.LayoutParams.MATCH_PARENT; topMargin = 0
             }
@@ -222,22 +242,41 @@ class PlayerActivity : AppCompatActivity() {
                 androidx.constraintlayout.widget.ConstraintSet.PARENT_ID, androidx.constraintlayout.widget.ConstraintSet.TOP)
             cs.applyTo(binding.rootLayout)
         } else {
+            restoreFullUI()
+        }
+    }
+
+    private fun restoreFullUI() {
+        if (isFullscreen) {
+            toggleFullscreen(true)
+        } else {
             binding.toolbar.visibility = View.VISIBLE
             binding.scrollView.visibility = View.VISIBLE
+            binding.btnFullscreen.visibility = View.VISIBLE
             binding.playerSurface.layoutParams = (binding.playerSurface.layoutParams as ViewGroup.MarginLayoutParams).apply {
+                width = ViewGroup.LayoutParams.MATCH_PARENT
                 height = (220 * resources.displayMetrics.density).toInt()
+                topMargin = 0
             }
             val cs = androidx.constraintlayout.widget.ConstraintSet()
             cs.clone(binding.rootLayout)
             cs.connect(R.id.playerSurface, androidx.constraintlayout.widget.ConstraintSet.TOP,
                 R.id.toolbar, androidx.constraintlayout.widget.ConstraintSet.BOTTOM)
             cs.applyTo(binding.rootLayout)
+            
+            binding.playerViewFs.visibility = View.GONE
+            binding.playerViewFs.player = null
+            binding.playerView.player = player
         }
+        binding.playerSurface.requestLayout()
     }
 
     override fun onNewIntent(intent: Intent) {
         super.onNewIntent(intent)
         setIntent(intent)
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O && !isInPictureInPictureMode) {
+            restoreFullUI()
+        }
         val newId = intent.getLongExtra(EXTRA_VIDEO_ID, -1L)
         if (newId != -1L) {
             val fresh = repo.getById(newId)
@@ -270,7 +309,13 @@ class PlayerActivity : AppCompatActivity() {
                 player = sharedPlayer
                 sharedPlayer.removeListener(playerListener)
                 sharedPlayer.addListener(playerListener)
-                binding.playerView.player = sharedPlayer
+                if (isFullscreen) {
+                    binding.playerViewFs.player = sharedPlayer
+                    binding.playerView.player = null
+                } else {
+                    binding.playerView.player = sharedPlayer
+                    binding.playerViewFs.player = null
+                }
                 val currentMedia = sharedPlayer.currentMediaItem
                 val workingUri = working.contentUri.toString()
                 if (currentMedia == null || currentMedia.localConfiguration?.uri?.toString() != workingUri) {
@@ -335,8 +380,13 @@ class PlayerActivity : AppCompatActivity() {
             }
         })
         val gestureDetector = GestureDetector(this, object : GestureDetector.SimpleOnGestureListener() {
+            override fun onSingleTapConfirmed(e: MotionEvent): Boolean {
+                if (isFullscreen) { toggleFsPanels(); return true }
+                return false
+            }
             override fun onDoubleTap(e: MotionEvent): Boolean {
-                val screenWidth = binding.playerView.width.toFloat()
+                val v = if (isFullscreen) binding.playerViewFs else binding.playerView
+                val screenWidth = v.width.toFloat()
                 val jumpSec = prefs.defaultSeekJumpSec
                 if (e.x < screenWidth / 3f) { jumpBy(-jumpSec); showGestureHint("⏪ -${jumpSec}s") }
                 else if (e.x > screenWidth * 2f / 3f) { jumpBy(+jumpSec); showGestureHint("⏩ +${jumpSec}s") }
@@ -345,17 +395,18 @@ class PlayerActivity : AppCompatActivity() {
             }
             override fun onScroll(e1: MotionEvent?, e2: MotionEvent, distX: Float, distY: Float): Boolean {
                 val e1nn = e1 ?: return false
-                val screenWidth = binding.playerView.width.toFloat()
+                val v = if (isFullscreen) binding.playerViewFs else binding.playerView
+                val screenWidth = v.width.toFloat()
                 if (abs(distX) > abs(distY)) {
                     val exo = player ?: return false; val dur = exo.duration; if (dur <= 0L) return false
                     val seekDeltaMs = (-distX / screenWidth * dur * 0.3f).toLong()
                     val newPos = (exo.currentPosition + seekDeltaMs).coerceIn(0L, dur); exo.seekTo(newPos); showGestureHint(FormatUtils.formatDuration(newPos))
                 } else {
                     if (e1nn.x / screenWidth < 0.5f) {
-                        val delta = -distY / binding.playerView.height; currentBrightness = (currentBrightness + delta * 0.5f).coerceIn(0.01f, 1f)
+                        val delta = -distY / v.height.coerceAtLeast(1); currentBrightness = (currentBrightness + delta * 0.5f).coerceIn(0.01f, 1f)
                         val lp = window.attributes; lp.screenBrightness = currentBrightness; window.attributes = lp; showGestureHint("☀ ${(currentBrightness * 100).toInt()}%")
                     } else {
-                        val delta = -distY / binding.playerView.height; currentVolume = (currentVolume + delta * 0.5f).coerceIn(0f, 1f)
+                        val delta = -distY / v.height.coerceAtLeast(1); currentVolume = (currentVolume + delta * 0.5f).coerceIn(0f, 1f)
                         player?.volume = currentVolume * working.audioBoost.coerceIn(1f, 2f); working = working.copy(volumeLevel = currentVolume)
                         binding.seekVolume.progress = (currentVolume * 100).toInt(); binding.tvVolumeValue.text = "${(currentVolume * 100).toInt()}%"; showGestureHint("🔊 ${(currentVolume * 100).toInt()}%")
                     }
@@ -363,7 +414,13 @@ class PlayerActivity : AppCompatActivity() {
                 return true
             }
         })
-        binding.playerView.setOnTouchListener { _, event -> scaleGestureDetector?.onTouchEvent(event); if (scaleGestureDetector?.isInProgress == false) gestureDetector.onTouchEvent(event); true }
+        val tl = View.OnTouchListener { _, event ->
+            scaleGestureDetector?.onTouchEvent(event)
+            if (scaleGestureDetector?.isInProgress == false) gestureDetector.onTouchEvent(event)
+            true
+        }
+        binding.playerView.setOnTouchListener(tl)
+        binding.playerViewFs.setOnTouchListener(tl)
     }
 
     private fun showGestureHint(text: String?, iconRes: Int? = null) {
@@ -507,11 +564,11 @@ class PlayerActivity : AppCompatActivity() {
 
         binding.btnFullscreen.setOnClickListener { toggleFullscreen(true) }
         binding.btnFsExit.setOnClickListener { toggleFullscreen(false) }
-        binding.btnFsRotate.setOnClickListener { toggleFsOrientation() }
+        binding.btnFsRotate.setOnClickListener { toggleFsOrientation(); scheduleFsPanelsHide() }
         binding.btnToggleFsPanels.setOnClickListener { toggleFsPanels() }
-        binding.btnFsPlayPause.setOnClickListener { binding.btnPlayPause.performClick() }
-        binding.btnFsPrev.setOnClickListener { binding.btnPrev.performClick() }
-        binding.btnFsNext.setOnClickListener { binding.btnNext.performClick() }
+        binding.btnFsPlayPause.setOnClickListener { binding.btnPlayPause.performClick(); scheduleFsPanelsHide() }
+        binding.btnFsPrev.setOnClickListener { binding.btnPrev.performClick(); scheduleFsPanelsHide() }
+        binding.btnFsNext.setOnClickListener { binding.btnNext.performClick(); scheduleFsPanelsHide() }
 
         binding.seekFs.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
             override fun onProgressChanged(sb: SeekBar?, p: Int, fromUser: Boolean) {
@@ -521,8 +578,8 @@ class PlayerActivity : AppCompatActivity() {
                     exo.seekTo(start + (p * max(end - start, 1L) / 1000L))
                 }
             }
-            override fun onStartTrackingTouch(sb: SeekBar?) { userScrubbingPlayback = true }
-            override fun onStopTrackingTouch(sb: SeekBar?) { userScrubbingPlayback = false; persistProgress() }
+            override fun onStartTrackingTouch(sb: SeekBar?) { userScrubbingPlayback = true; handler.removeCallbacks(hideFsPanelsRunnable) }
+            override fun onStopTrackingTouch(sb: SeekBar?) { userScrubbingPlayback = false; persistProgress(); scheduleFsPanelsHide() }
         })
 
         binding.switchLoop.setOnCheckedChangeListener { _, c -> if (!isBindingUi) { working = working.copy(loopPlayback = c); player?.repeatMode = if (c) Player.REPEAT_MODE_ALL else Player.REPEAT_MODE_OFF; persistPrefs() } }
@@ -788,6 +845,13 @@ class PlayerActivity : AppCompatActivity() {
             binding.playerSurface.layoutParams = (binding.playerSurface.layoutParams as ViewGroup.MarginLayoutParams).apply { width = ViewGroup.LayoutParams.MATCH_PARENT; height = ViewGroup.LayoutParams.MATCH_PARENT; topMargin = 0 }
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) window.insetsController?.hide(android.view.WindowInsets.Type.systemBars())
             else @Suppress("DEPRECATION") window.addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN)
+            
+            binding.playerViewFs.visibility = View.VISIBLE
+            binding.playerViewFs.player = player
+            binding.playerView.player = null
+            isFsPanelsVisible = true
+            binding.fsControlPanels.visibility = View.VISIBLE
+            scheduleFsPanelsHide()
         } else {
             requestedOrientation = ActivityInfo.SCREEN_ORIENTATION_UNSPECIFIED
             binding.fullscreenOverlay.visibility = View.GONE
@@ -795,6 +859,11 @@ class PlayerActivity : AppCompatActivity() {
             binding.playerSurface.layoutParams = (binding.playerSurface.layoutParams as ViewGroup.MarginLayoutParams).apply { width = ViewGroup.LayoutParams.MATCH_PARENT; height = (220 * resources.displayMetrics.density).toInt() }
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) window.insetsController?.show(android.view.WindowInsets.Type.systemBars())
             else @Suppress("DEPRECATION") window.clearFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN)
+            
+            binding.playerViewFs.visibility = View.GONE
+            binding.playerViewFs.player = null
+            binding.playerView.player = player
+            handler.removeCallbacks(hideFsPanelsRunnable)
         }
         binding.playerSurface.requestLayout()
     }
@@ -803,7 +872,9 @@ class PlayerActivity : AppCompatActivity() {
             ActivityInfo.SCREEN_ORIENTATION_SENSOR_LANDSCAPE else ActivityInfo.SCREEN_ORIENTATION_SENSOR_PORTRAIT
     }
     private fun toggleFsPanels() {
-        isFsPanelsVisible = !isFsPanelsVisible; binding.fsControlPanels.visibility = if (isFsPanelsVisible) View.VISIBLE else View.GONE
+        isFsPanelsVisible = !isFsPanelsVisible
+        binding.fsControlPanels.visibility = if (isFsPanelsVisible) View.VISIBLE else View.GONE
+        if (isFsPanelsVisible) scheduleFsPanelsHide() else handler.removeCallbacks(hideFsPanelsRunnable)
     }
     private fun enterPiP() {
         if (Build.VERSION.SDK_INT < Build.VERSION_CODES.O) return
