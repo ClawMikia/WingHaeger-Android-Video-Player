@@ -1,0 +1,134 @@
+[
+    {
+        "merged": "D:\\.gradle\\daemon\\8.13\\com.winghaeger.app-mergeDebugResources-46:\\layout\\activity_playlist_list.xml",
+        "source": "D:\\.gradle\\daemon\\8.13\\com.winghaeger.app-main-49:\\layout\\activity_playlist_list.xml"
+    },
+    {
+        "merged": "D:\\.gradle\\daemon\\8.13\\com.winghaeger.app-mergeDebugResources-46:\\layout\\activity_settings.xml",
+        "source": "D:\\.gradle\\daemon\\8.13\\com.winghaeger.app-main-49:\\layout\\activity_settings.xml"
+    },
+    {
+        "merged": "D:\\.gradle\\daemon\\8.13\\com.winghaeger.app-mergeDebugResources-46:\\layout\\item_library_header.xml",
+        "source": "D:\\.gradle\\daemon\\8.13\\com.winghaeger.app-main-49:\\layout\\item_library_header.xml"
+    },
+    {
+        "merged": "D:\\.gradle\\daemon\\8.13\\com.winghaeger.app-mergeDebugResources-46:\\layout\\activity_player.xml",
+        "source": "D:\\.gradle\\daemon\\8.13\\com.winghaeger.app-main-49:\\layout\\activity_player.xml"
+    },
+    {
+        "merged": "com.winghaeger.app-mergeDebugResources-46:/layout/item_memory_row.xml",
+        "source": "com.winghaeger.app-main-49:/layout/item_memory_row.xml"
+    },
+    {
+        "merged": "D:\\.gradle\\daemon\\8.13\\com.winghaeger.app-mergeDebugResources-46:\\layout\\item_memory_row.xml",
+        "source": "D:\\.gradle\\daemon\\8.13\\com.winghaeger.app-main-49:\\layout\\item_memory_row.xml"
+    },
+    {
+        "merged": "D:\\.gradle\\daemon\\8.13\\com.winghaeger.app-mergeDebugResources-46:\\layout\\activity_splash.xml",
+        "source": "D:\\.gradle\\daemon\\8.13\\com.winghaeger.app-main-49:\\layout\\activity_splash.xml"
+    },
+    {
+        "merged": "com.winghaeger.app-mergeDebugResources-46:/layout/activity_explore.xml",
+        "source": "com.winghaeger.app-main-49:/layout/activity_explore.xml"
+    },
+    {
+        "merged": "com.winghaeger.app-mergeDebugResources-46:/layout/activity_splash.xml",
+        "source": "com.winghaeger.app-main-49:/layout/activity_splash.xml"
+    },
+    {
+        "merged": "D:\\.gradle\\daemon\\8.13\\com.winghaeger.app-mergeDebugResources-46:\\layout\\dialog_add_chapter.xml",
+        "source": "D:\\.gradle\\daemon\\8.13\\com.winghaeger.app-main-49:\\layout\\dialog_add_chapter.xml"
+    },
+    {
+        "merged": "D:\\.gradle\\daemon\\8.13\\com.winghaeger.app-mergeDebugResources-46:\\layout\\activity_video_enhancement.xml",
+        "source": "D:\\.gradle\\daemon\\8.13\\com.winghaeger.app-main-49:\\layout\\activity_video_enhancement.xml"
+    },
+    {
+        "merged": "com.winghaeger.app-mergeDebugResources-46:/layout/dialog_add_skip.xml",
+        "source": "com.winghaeger.app-main-49:/layout/dialog_add_skip.xml"
+    },
+    {
+        "merged": "com.winghaeger.app-mergeDebugResources-46:/layout/item_library_header.xml",
+        "source": "com.winghaeger.app-main-49:/layout/item_library_header.xml"
+    },
+    {
+        "merged": "com.winghaeger.app-mergeDebugResources-46:/layout/item_playlist_row.xml",
+        "source": "com.winghaeger.app-main-49:/layout/item_playlist_row.xml"
+    },
+    {
+        "merged": "D:\\.gradle\\daemon\\8.13\\com.winghaeger.app-mergeDebugResources-46:\\layout\\item_video_card.xml",
+        "source": "D:\\.gradle\\daemon\\8.13\\com.winghaeger.app-main-49:\\layout\\item_video_card.xml"
+    },
+    {
+        "merged": "com.winghaeger.app-mergeDebugResources-46:/layout/activity_folder_select.xml",
+        "source": "com.winghaeger.app-main-49:/layout/activity_folder_select.xml"
+    },
+    {
+        "merged": "D:\\.gradle\\daemon\\8.13\\com.winghaeger.app-mergeDebugResources-46:\\layout\\activity_library.xml",
+        "source": "D:\\.gradle\\daemon\\8.13\\com.winghaeger.app-main-49:\\layout\\activity_library.xml"
+    },
+    {
+        "merged": "com.winghaeger.app-mergeDebugResources-46:/layout/activity_playback_memory.xml",
+        "source": "com.winghaeger.app-main-49:/layout/activity_playback_memory.xml"
+    },
+    {
+        "merged": "com.winghaeger.app-mergeDebugResources-46:/layout/activity_playlist_list.xml",
+        "source": "com.winghaeger.app-main-49:/layout/activity_playlist_list.xml"
+    },
+    {
+        "merged": "D:\\.gradle\\daemon\\8.13\\com.winghaeger.app-mergeDebugResources-46:\\layout\\dialog_add_skip.xml",
+        "source": "D:\\.gradle\\daemon\\8.13\\com.winghaeger.app-main-49:\\layout\\dialog_add_skip.xml"
+    },
+    {
+        "merged": "D:\\.gradle\\daemon\\8.13\\com.winghaeger.app-mergeDebugResources-46:\\layout\\item_playlist_row.xml",
+        "source": "D:\\.gradle\\daemon\\8.13\\com.winghaeger.app-main-49:\\layout\\item_playlist_row.xml"
+    },
+    {
+        "merged": "D:\\.gradle\\daemon\\8.13\\com.winghaeger.app-mergeDebugResources-46:\\layout\\item_enhancement_row.xml",
+        "source": "D:\\.gradle\\daemon\\8.13\\com.winghaeger.app-main-49:\\layout\\item_enhancement_row.xml"
+    },
+    {
+        "merged": "com.winghaeger.app-mergeDebugResources-46:/layout/activity_main.xml",
+        "source": "com.winghaeger.app-main-49:/layout/activity_main.xml"
+    },
+    {
+        "merged": "com.winghaeger.app-mergeDebugResources-46:/layout/item_video_card.xml",
+        "source": "com.winghaeger.app-main-49:/layout/item_video_card.xml"
+    },
+    {
+        "merged": "D:\\.gradle\\daemon\\8.13\\com.winghaeger.app-mergeDebugResources-46:\\layout\\activity_explore.xml",
+        "source": "D:\\.gradle\\daemon\\8.13\\com.winghaeger.app-main-49:\\layout\\activity_explore.xml"
+    },
+    {
+        "merged": "D:\\.gradle\\daemon\\8.13\\com.winghaeger.app-mergeDebugResources-46:\\layout\\activity_folder_select.xml",
+        "source": "D:\\.gradle\\daemon\\8.13\\com.winghaeger.app-main-49:\\layout\\activity_folder_select.xml"
+    },
+    {
+        "merged": "D:\\.gradle\\daemon\\8.13\\com.winghaeger.app-mergeDebugResources-46:\\layout\\activity_main.xml",
+        "source": "D:\\.gradle\\daemon\\8.13\\com.winghaeger.app-main-49:\\layout\\activity_main.xml"
+    },
+    {
+        "merged": "com.winghaeger.app-mergeDebugResources-46:/layout/item_enhancement_row.xml",
+        "source": "com.winghaeger.app-main-49:/layout/item_enhancement_row.xml"
+    },
+    {
+        "merged": "com.winghaeger.app-mergeDebugResources-46:/layout/dialog_add_chapter.xml",
+        "source": "com.winghaeger.app-main-49:/layout/dialog_add_chapter.xml"
+    },
+    {
+        "merged": "com.winghaeger.app-mergeDebugResources-46:/layout/activity_player.xml",
+        "source": "com.winghaeger.app-main-49:/layout/activity_player.xml"
+    },
+    {
+        "merged": "D:\\.gradle\\daemon\\8.13\\com.winghaeger.app-mergeDebugResources-46:\\layout\\activity_playback_memory.xml",
+        "source": "D:\\.gradle\\daemon\\8.13\\com.winghaeger.app-main-49:\\layout\\activity_playback_memory.xml"
+    },
+    {
+        "merged": "com.winghaeger.app-mergeDebugResources-46:/layout/activity_library.xml",
+        "source": "com.winghaeger.app-main-49:/layout/activity_library.xml"
+    },
+    {
+        "merged": "com.winghaeger.app-mergeDebugResources-46:/layout/activity_settings.xml",
+        "source": "com.winghaeger.app-main-49:/layout/activity_settings.xml"
+    }
+]

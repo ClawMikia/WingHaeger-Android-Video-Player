@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merger version="3"><dataSet aapt-namespace="http://schemas.android.com/apk/res-auto" config="main$Generated" generated="true" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="D:\Android Studio Projects\WingHaeger\app\src\main\res"/></dataSet><dataSet aapt-namespace="http://schemas.android.com/apk/res-auto" config="main" generated-set="main$Generated" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~:!&lt;dir>navigation"><source path="D:\Android Studio Projects\WingHaeger\app\src\main\res"><file name="bg_btn_cyan" path="D:\Android Studio Projects\WingHaeger\app\src\main\res\drawable\bg_btn_cyan.xml" qualifiers="" type="drawable"/><file name="bg_btn_gold" path="D:\Android Studio Projects\WingHaeger\app\src\main\res\drawable\bg_btn_gold.xml" qualifiers="" type="drawable"/><file name="bg_btn_green" path="D:\Android Studio Projects\WingHaeger\app\src\main\res\drawable\bg_btn_green.xml" qualifiers="" type="drawable"/><file name="bg_btn_neutral" path="D:\Android Studio Projects\WingHaeger\app\src\main\res\drawable\bg_btn_neutral.xml" qualifiers="" type="drawable"/><file name="bg_btn_orange" path="D:\Android Studio Projects\WingHaeger\app\src\main\res\drawable\bg_btn_orange.xml" qualifiers="" type="drawable"/><file name="bg_btn_red" path="D:\Android Studio Projects\WingHaeger\app\src\main\res\drawable\bg_btn_red.xml" qualifiers="" type="drawable"/><file name="bg_btn_violet" path="D:\Android Studio Projects\WingHaeger\app\src\main\res\drawable\bg_btn_violet.xml" qualifiers="" type="drawable"/><file name="bg_panel" path="D:\Android Studio Projects\WingHaeger\app\src\main\res\drawable\bg_panel.xml" qualifiers="" type="drawable"/><file name="bg_panel_gold" path="D:\Android Studio Projects\WingHaeger\app\src\main\res\drawable\bg_panel_gold.xml" qualifiers="" type="drawable"/><file name="bg_splash" path="D:\Android Studio Projects\WingHaeger\app\src\main\res\drawable\bg_splash.xml" qualifiers="" type="drawable"/><file name="bg_timeline_dot" path="D:\Android Studio Projects\WingHaeger\app\src\main\res\drawable\bg_timeline_dot.xml" qualifiers="" type="drawable"/><file name="ic_button_placeholder" path="D:\Android Studio Projects\WingHaeger\app\src\main\res\drawable\ic_button_placeholder.xml" qualifiers="" type="drawable"/><file name="ic_check" path="D:\Android Studio Projects\WingHaeger\app\src\main\res\drawable\ic_check.xml" qualifiers="" type="drawable"/><file name="ic_close_custom" path="D:\Android Studio Projects\WingHaeger\app\src\main\res\drawable\ic_close_custom.xml" qualifiers="" type="drawable"/><file name="ic_enhancement" path="D:\Android Studio Projects\WingHaeger\app\src\main\res\drawable\ic_enhancement.xml" qualifiers="" type="drawable"/><file name="ic_ff_custom" path="D:\Android Studio Projects\WingHaeger\app\src\main\res\drawable\ic_ff_custom.xml" qualifiers="" type="drawable"/><file name="ic_forward_5" path="D:\Android Studio Projects\WingHaeger\app\src\main\res\drawable\ic_forward_5.xml" qualifiers="" type="drawable"/><file name="ic_launcher_background" path="D:\Android Studio Projects\WingHaeger\app\src\main\res\drawable\ic_launcher_background.xml" qualifiers="" type="drawable"/><file name="ic_launcher_foreground" path="D:\Android Studio Projects\WingHaeger\app\src\main\res\drawable\ic_launcher_foreground.xml" qualifiers="" type="drawable"/><file name="ic_next_custom" path="D:\Android Studio Projects\WingHaeger\app\src\main\res\drawable\ic_next_custom.xml" qualifiers="" type="drawable"/><file name="ic_pause_custom" path="D:\Android Studio Projects\WingHaeger\app\src\main\res\drawable\ic_pause_custom.xml" qualifiers="" type="drawable"/><file name="ic_play_custom" path="D:\Android Studio Projects\WingHaeger\app\src\main\res\drawable\ic_play_custom.xml" qualifiers="" type="drawable"/><file name="ic_prev_custom" path="D:\Android Studio Projects\WingHaeger\app\src\main\res\drawable\ic_prev_custom.xml" qualifiers="" type="drawable"/><file name="ic_restart_custom" path="D:\Android Studio Projects\WingHaeger\app\src\main\res\drawable\ic_restart_custom.xml" qualifiers="" type="drawable"/><file name="ic_rew_custom" path="D:\Android Studio Projects\WingHaeger\app\src\main\res\drawable\ic_rew_custom.xml" qualifiers="" type="drawable"/><file name="ic_stop_custom" path="D:\Android Studio Projects\WingHaeger\app\src\main\res\drawable\ic_stop_custom.xml" qualifiers="" type="drawable"/><file name="ic_trim" path="D:\Android Studio Projects\WingHaeger\app\src\main\res\drawable\ic_trim.xml" qualifiers="" type="drawable"/><file name="ic_volume" path="D:\Android Studio Projects\WingHaeger\app\src\main\res\drawable\ic_volume.xml" qualifiers="" type="drawable"/><file name="seekbar_thumb" path="D:\Android Studio Projects\WingHaeger\app\src\main\res\drawable\seekbar_thumb.xml" qualifiers="" type="drawable"/><file name="seekbar_thumb_cyan" path="D:\Android Studio Projects\WingHaeger\app\src\main\res\drawable\seekbar_thumb_cyan.xml" qualifiers="" type="drawable"/><file name="seekbar_thumb_green" path="D:\Android Studio Projects\WingHaeger\app\src\main\res\drawable\seekbar_thumb_green.xml" qualifiers="" type="drawable"/><file name="seekbar_thumb_orange" path="D:\Android Studio Projects\WingHaeger\app\src\main\res\drawable\seekbar_thumb_orange.xml" qualifiers="" type="drawable"/><file name="seek_playback_progress" path="D:\Android Studio Projects\WingHaeger\app\src\main\res\drawable\seek_playback_progress.xml" qualifiers="" type="drawable"/><file name="seek_trim_progress" path="D:\Android Studio Projects\WingHaeger\app\src\main\res\drawable\seek_trim_progress.xml" qualifiers="" type="drawable"/><file name="orbitron_bold" path="D:\Android Studio Projects\WingHaeger\app\src\main\res\font\orbitron_bold.xml" qualifiers="" type="font"/><file name="orbitron_regular" path="D:\Android Studio Projects\WingHaeger\app\src\main\res\font\orbitron_regular.xml" qualifiers="" type="font"/><file name="activity_explore" path="D:\Android Studio Projects\WingHaeger\app\src\main\res\layout\activity_explore.xml" qualifiers="" type="layout"/><file name="activity_folder_select" path="D:\Android Studio Projects\WingHaeger\app\src\main\res\layout\activity_folder_select.xml" qualifiers="" type="layout"/><file name="activity_library" path="D:\Android Studio Projects\WingHaeger\app\src\main\res\layout\activity_library.xml" qualifiers="" type="layout"/><file name="activity_main" path="D:\Android Studio Projects\WingHaeger\app\src\main\res\layout\activity_main.xml" qualifiers="" type="layout"/><file name="activity_playback_memory" path="D:\Android Studio Projects\WingHaeger\app\src\main\res\layout\activity_playback_memory.xml" qualifiers="" type="layout"/><file name="activity_player" path="D:\Android Studio Projects\WingHaeger\app\src\main\res\layout\activity_player.xml" qualifiers="" type="layout"/><file name="activity_playlist_list" path="D:\Android Studio Projects\WingHaeger\app\src\main\res\layout\activity_playlist_list.xml" qualifiers="" type="layout"/><file name="activity_settings" path="D:\Android Studio Projects\WingHaeger\app\src\main\res\layout\activity_settings.xml" qualifiers="" type="layout"/><file name="activity_splash" path="D:\Android Studio Projects\WingHaeger\app\src\main\res\layout\activity_splash.xml" qualifiers="" type="layout"/><file name="activity_video_enhancement" path="D:\Android Studio Projects\WingHaeger\app\src\main\res\layout\activity_video_enhancement.xml" qualifiers="" type="layout"/><file name="dialog_add_chapter" path="D:\Android Studio Projects\WingHaeger\app\src\main\res\layout\dialog_add_chapter.xml" qualifiers="" type="layout"/><file name="dialog_add_skip" path="D:\Android Studio Projects\WingHaeger\app\src\main\res\layout\dialog_add_skip.xml" qualifiers="" type="layout"/><file name="item_enhancement_row" path="D:\Android Studio Projects\WingHaeger\app\src\main\res\layout\item_enhancement_row.xml" qualifiers="" type="layout"/><file name="item_library_header" path="D:\Android Studio Projects\WingHaeger\app\src\main\res\layout\item_library_header.xml" qualifiers="" type="layout"/><file name="item_memory_row" path="D:\Android Studio Projects\WingHaeger\app\src\main\res\layout\item_memory_row.xml" qualifiers="" type="layout"/><file name="item_playlist_row" path="D:\Android Studio Projects\WingHaeger\app\src\main\res\layout\item_playlist_row.xml" qualifiers="" type="layout"/><file name="item_video_card" path="D:\Android Studio Projects\WingHaeger\app\src\main\res\layout\item_video_card.xml" qualifiers="" type="layout"/><file name="menu_bottom_nav" path="D:\Android Studio Projects\WingHaeger\app\src\main\res\menu\menu_bottom_nav.xml" qualifiers="" type="menu"/><file name="ic_launcher" path="D:\Android Studio Projects\WingHaeger\app\src\main\res\mipmap-anydpi-v26\ic_launcher.xml" qualifiers="anydpi-v26" type="mipmap"/><file name="ic_launcher_round" path="D:\Android Studio Projects\WingHaeger\app\src\main\res\mipmap-anydpi-v26\ic_launcher_round.xml" qualifiers="anydpi-v26" type="mipmap"/><file path="D:\Android Studio Projects\WingHaeger\app\src\main\res\values\colors.xml" qualifiers=""><color name="wh_bg">#05050D</color><color name="wh_surface">#0D0D1A</color><color name="wh_surface_elevated">#141428</color><color name="wh_surface_panel">#1A1A32</color><color name="wh_on_bg">#E0E0FF</color><color name="wh_on_muted">#6060A0</color><color name="wh_divider">#1F1F3A</color><color name="wh_pure_black">#000000</color><color name="wh_neon_gold">@color/wh_app_blue</color><color name="wh_neon_violet">@color/wh_app_green</color><color name="wh_neon_cyan">@color/wh_app_blue</color><color name="wh_neon_green">@color/wh_app_green</color><color name="wh_neon_red">@color/wh_app_red</color><color name="wh_neon_orange">@color/wh_app_red</color><color name="wh_neon_blue">@color/wh_app_blue</color><color name="wh_neon_pink">@color/wh_app_green</color><color name="wh_neon_white">#CCCCFF</color><color name="wh_app_blue">#2800c9</color><color name="wh_app_green">#00d407</color><color name="wh_app_red">#ff0000</color><color name="wh_toolbar_text">#bac3ff</color><color name="wh_accordion_text">#ff3700</color></file><file path="D:\Android Studio Projects\WingHaeger\app\src\main\res\values\font_certs.xml" qualifiers=""><array name="com_google_android_gms_fonts_certs">
+        <item>@array/com_google_android_gms_fonts_certs_dev</item>
+        <item>@array/com_google_android_gms_fonts_certs_prod</item>
+    </array><string-array name="com_google_android_gms_fonts_certs_dev">
+        <item>MIIEqDCCA5CgAwIBAgIJANWFuGx90071MA0GCSqGSIb3DQEBBAUAMIGUMQswCQYDVQQGEwJVUzETMBEGA1UECBMKQ2FsaWZvcm5pYTEWMBQGA1UEBxMNU2FuIEZyYW5jaXNjbzETMBEGA1UEChMKR29vZ2xlIEluYzEUMBIGA1UECxMLRW5naW5lZXJpbmcxDTALBgNVBAMTBGxpdmUxHzAdBgkqhkiG9w0BCQEWEGxpdmVAZ29vZ2xlLmNvbTAeFw0wODEwMDIxMDQ4MzRaFw0wOTEwMDIxMDQ4MzRaMIGUMQswCQYDVQQGEwJVUzETMBEGA1UECBMKQ2FsaWZvcm5pYTEWMBQGA1UEBxMNU2FuIEZyYW5jaXNjbzETMBEGA1UEChMKR29vZ2xlIEluYzEUMBIGA1UECxMLRW5naW5lZXJpbmcxDTALBgNVBAMTBGxpdmUxHzAdBgkqhkiG9w0BCQEWEGxpdmVAZ29vZ2xlLmNvbTCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAMYM2XFmPBLDMn2v5Yx5XZFyaxcFsTsHqPHNVwxT9w+N8lHpFgA/L5a6E1f/T6h2sV9i6Y2A5g+gLe2GjxU+hMHzYB1PzRrb4XD3k1pOHOK+v1K8hM6PXTB2sY/N8C+iL9u8c2gU5V+fYFt6j/oL5e9HLm5nKxP3hR0F9GbD8R0+lHhM2rK5W8S8E+qYFT4Z2V/kY7V9F1X5c3MHwH9o8N5Gd9Y/KXkQ1rV3h9e8F9oC5KsV3k7L7k5a3V6L1k3HdN7+L7c3V6L1k3HdN7</item>
+    </string-array><string-array name="com_google_android_gms_fonts_certs_prod">
+        <item>MIIEQzCCAyugAwIBAgIJAMLgh0ZkSjCNMA0GCSqGSIb3DQEBBAUAMHQxCzAJBgNVBAYTAlVTMRMwEQYDVQQIEwpDYWxpZm9ybmlhMRYwFAYDVQQHEw1Nb3VudGFpbiBWaWV3MRQwEgYDVQQKEwtHb29nbGUgSW5jLjEQMA4GA1UECxMHQW5kcm9pZDEQMA4GA1UEAxMHQW5kcm9pZDAeFw0wODA4MjEyMzEzMzRaFw0zNjAxMDcyMzEzMzRaMHQxCzAJBgNVBAYTAlVTMRMwEQYDVQQIEwpDYWxpZm9ybmlhMRYwFAYDVQQHEw1Nb3VudGFpbiBWaWV3MRQwEgYDVQQKEwtHb29nbGUgSW5jLjEQMA4GA1UECxMHQW5kcm9pZDEQMA4GA1UEAxMHQW5kcm9pZDCCASAwDQYJKoZIhvcNAQEBBQADggENADCCAQgCggEBAKtWLgDYO6IIrgqWbxJOKdoR8qtW0uXPmfNEv5uHv7nCPGELNv7VINbINGVLCBTf5v4cLvTUSJJf4o8Vs5Wef4</item>
+    </string-array></file><file path="D:\Android Studio Projects\WingHaeger\app\src\main\res\values\preloaded_fonts.xml" qualifiers=""><array name="preloaded_fonts" translatable="false">
+        <item>@font/orbitron_bold</item>
+        <item>@font/orbitron_regular</item>
+    </array></file><file path="D:\Android Studio Projects\WingHaeger\app\src\main\res\values\strings.xml" qualifiers=""><string name="app_name">Wing Haeger</string><string name="splash_credit">Forged by Christopher Lee Cajes</string><string name="nav_home">Base</string><string name="nav_library">Vault</string><string name="nav_favorites">Relics</string><string name="nav_memory">Recall</string><string name="nav_explore">Deep Scan</string><string name="pick_folder">Select video folder</string><string name="pick_files">Select video files</string><string name="scanning">Scanning archives\u2026</string><string name="library_title">Video Vault</string><string name="favorites_title">Relic Chamber</string><string name="memory_title">Recall Log</string><string name="explore_title">System Scan</string><string name="enhancement_title">Lens Matrix</string><string name="settings_title">System Config</string><string name="offline_section">Local Archives</string><string name="duration_unknown">\u2014</string><string name="play">PLAY</string><string name="pause">PAUSE</string><string name="stop">STOP</string><string name="restart">RESTART</string><string name="trim_start">Trim Start</string><string name="trim_end">Trim End</string><string name="save_prefs">SAVE CONFIG</string><string name="favorite_on">Add to Relics</string><string name="favorite_off">Remove Relic</string><string name="auto_next">Auto-Launch Next</string><string name="loop">Loop Cycle</string><string name="default_seek_interval">Skip Interval (seconds)</string><string name="chapter_add">Mark Chapter</string><string name="chapter_title">Chapter Label</string><string name="pip_enter">Picture-in-Picture</string><string name="mute">Mute</string><string name="reset_all">FULL RESET</string><string name="add_to_playlist">Add to Queue</string><string name="section_continue_watching">Continue Mission</string><string name="section_recently_played">Recent Ops</string><string name="section_favorites">Relic Chamber</string><string name="trim_end_format">End: %1$s</string><string name="trim_start_format">Start: %1$s</string></file><file path="D:\Android Studio Projects\WingHaeger\app\src\main\res\values\themes.xml" qualifiers=""><style name="Theme.WingHaeger" parent="Theme.Material3.Dark.NoActionBar">
+        <item name="colorPrimary">@color/wh_neon_gold</item>
+        <item name="colorOnPrimary">@color/wh_bg</item>
+        <item name="colorSecondary">@color/wh_neon_violet</item>
+        <item name="colorTertiary">@color/wh_neon_cyan</item>
+        <item name="android:colorBackground">@color/wh_bg</item>
+        <item name="colorSurface">@color/wh_surface</item>
+        <item name="colorOnSurface">@color/wh_on_bg</item>
+        <item name="android:statusBarColor">@color/wh_surface</item>
+        <item name="android:navigationBarColor">@color/wh_surface</item>
+        <item name="android:windowLightNavigationBar">false</item>
+        <item name="android:navigationBarDividerColor">@android:color/transparent</item>
+        <item name="android:windowDrawsSystemBarBackgrounds">true</item>
+        <item name="android:windowTranslucentNavigation">false</item>
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="materialButtonStyle">@style/Widget.WH.Button</item>
+        <item name="toolbarStyle">@style/Widget.WH.Toolbar</item>
+        <item name="alertDialogTheme">@style/ThemeOverlay.WH.Dialog</item>
+        <item name="materialAlertDialogTheme">@style/ThemeOverlay.WH.Dialog</item>
+        <item name="textInputStyle">@style/Widget.WH.TextInput</item>
+        <item name="editTextStyle">@style/Widget.WH.EditText</item>
+        <item name="bottomNavigationStyle">@style/Widget.WH.BottomNavigationView</item>
+    </style><style name="ThemeOverlay.WH.Dialog" parent="ThemeOverlay.Material3.MaterialAlertDialog">
+        <item name="colorPrimary">@color/wh_neon_gold</item>
+        <item name="colorSurface">@color/wh_surface_elevated</item>
+        <item name="colorOnSurface">@color/wh_on_bg</item>
+        <item name="shapeAppearance">@style/Shape.WH.Dialog</item>
+        <item name="shapeAppearanceMediumComponent">@style/Shape.WH.Dialog</item>
+        <item name="buttonBarPositiveButtonStyle">@style/Widget.WH.Button.Text.Dialog</item>
+        <item name="buttonBarNegativeButtonStyle">@style/Widget.WH.Button.Text.Dialog</item>
+        <item name="buttonBarNeutralButtonStyle">@style/Widget.WH.Button.Text.Dialog</item>
+    </style><style name="Shape.WH.Dialog" parent="ShapeAppearance.Material3.MediumComponent">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">20dp</item>
+    </style><style name="Widget.WH.Button.Text.Dialog" parent="Widget.Material3.Button.TextButton">
+        <item name="android:textColor">@color/wh_neon_gold</item>
+        <item name="android:fontFamily">@font/orbitron_bold</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:letterSpacing">0.12</item>
+    </style><style name="Widget.WH.TextInput" parent="Widget.Material3.TextInputLayout.OutlinedBox">
+        <item name="boxStrokeColor">@color/wh_neon_violet</item>
+        <item name="boxStrokeWidth">1.5dp</item>
+        <item name="boxStrokeWidthFocused">2.5dp</item>
+        <item name="hintTextColor">@color/wh_neon_violet</item>
+        <item name="android:textColorHint">@color/wh_on_muted</item>
+        <item name="boxBackgroundColor">@color/wh_surface</item>
+        <item name="shapeAppearance">@style/Shape.WH.SmallComp</item>
+    </style><style name="Widget.WH.EditText" parent="Widget.Material3.TextInputEditText.OutlinedBox">
+        <item name="android:paddingTop">16dp</item>
+        <item name="android:paddingBottom">16dp</item>
+        <item name="android:textColor">@color/wh_on_bg</item>
+    </style><style name="Shape.WH.SmallComp" parent="ShapeAppearance.Material3.SmallComponent">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">12dp</item>
+    </style><style name="Widget.WH.Toolbar" parent="Widget.Material3.Toolbar">
+        <item name="titleTextColor">@color/wh_toolbar_text</item>
+        <item name="navigationIconTint">@color/wh_toolbar_text</item>
+        <item name="titleTextAppearance">@style/Text.WH.ToolbarTitle</item>
+        <item name="android:background">@color/wh_surface</item>
+    </style><style name="Text.WH.ToolbarTitle" parent="TextAppearance.Material3.TitleLarge">
+        <item name="android:fontFamily">@font/orbitron_bold</item>
+        <item name="android:textSize">17sp</item>
+        <item name="android:letterSpacing">0.08</item>
+    </style><style name="Widget.WH.Button" parent="Widget.Material3.Button.TonalButton">
+        <item name="backgroundTint">@color/wh_surface_panel</item>
+        <item name="android:textColor">@color/wh_neon_gold</item>
+        <item name="android:fontFamily">@font/orbitron_bold</item>
+        <item name="android:letterSpacing">0.1</item>
+    </style><style name="Widget.WH.Card" parent="Widget.Material3.CardView.Elevated">
+        <item name="cardBackgroundColor">@color/wh_surface_elevated</item>
+        <item name="cardCornerRadius">12dp</item>
+        <item name="cardElevation">0dp</item>
+        <item name="strokeColor">@color/wh_divider</item>
+        <item name="strokeWidth">1dp</item>
+    </style><style name="Widget.WH.BottomNavigationView" parent="Widget.Material3.BottomNavigationView">
+        <item name="labelVisibilityMode">labeled</item>
+        <item name="itemPaddingTop">12dp</item>
+        <item name="itemPaddingBottom">12dp</item>
+        <item name="android:paddingTop">4dp</item>
+        <item name="android:paddingBottom">0dp</item>
+        <item name="itemActiveIndicatorStyle">@null</item>
+        <item name="android:minHeight">72dp</item>
+        <item name="paddingBottomSystemWindowInsets">false</item>
+    </style></file><file path="D:\Android Studio Projects\WingHaeger\app\src\main\res\values-v27\themes.xml" qualifiers="v27"><style name="Theme.WingHaeger" parent="Theme.Material3.Dark.NoActionBar">
+        <item name="colorPrimary">@color/wh_neon_gold</item>
+        <item name="colorOnPrimary">@color/wh_bg</item>
+        <item name="colorSecondary">@color/wh_neon_violet</item>
+        <item name="android:colorBackground">@color/wh_bg</item>
+        <item name="colorSurface">@color/wh_surface</item>
+        <item name="colorOnSurface">@color/wh_on_bg</item>
+        <item name="android:statusBarColor">@color/wh_surface</item>
+        <item name="android:navigationBarColor">@color/wh_surface</item>
+        <item name="android:windowLightNavigationBar">false</item>
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="materialButtonStyle">@style/Widget.WH.Button</item>
+        <item name="toolbarStyle">@style/Widget.WH.Toolbar</item>
+        <item name="alertDialogTheme">@style/ThemeOverlay.WH.Dialog</item>
+        <item name="materialAlertDialogTheme">@style/ThemeOverlay.WH.Dialog</item>
+        <item name="textInputStyle">@style/Widget.WH.TextInput</item>
+        <item name="editTextStyle">@style/Widget.WH.EditText</item>
+        <item name="bottomNavigationStyle">@style/Widget.WH.BottomNavigationView</item>
+    </style></file><file path="D:\Android Studio Projects\WingHaeger\app\src\main\res\values-v29\themes.xml" qualifiers="v29"><style name="Theme.WingHaeger" parent="Theme.Material3.Dark.NoActionBar">
+        <item name="colorPrimary">@color/wh_neon_gold</item>
+        <item name="colorOnPrimary">@color/wh_bg</item>
+        <item name="colorSecondary">@color/wh_neon_violet</item>
+        <item name="android:colorBackground">@color/wh_bg</item>
+        <item name="colorSurface">@color/wh_surface</item>
+        <item name="colorOnSurface">@color/wh_on_bg</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:navigationBarColor">@android:color/transparent</item>
+        <item name="android:windowLightNavigationBar">false</item>
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:enforceStatusBarContrast">false</item>
+        <item name="android:enforceNavigationBarContrast">false</item>
+        <item name="materialButtonStyle">@style/Widget.WH.Button</item>
+        <item name="toolbarStyle">@style/Widget.WH.Toolbar</item>
+        <item name="alertDialogTheme">@style/ThemeOverlay.WH.Dialog</item>
+        <item name="materialAlertDialogTheme">@style/ThemeOverlay.WH.Dialog</item>
+        <item name="textInputStyle">@style/Widget.WH.TextInput</item>
+        <item name="editTextStyle">@style/Widget.WH.EditText</item>
+        <item name="bottomNavigationStyle">@style/Widget.WH.BottomNavigationView</item>
+    </style></file><file name="app_icon" path="D:\Android Studio Projects\WingHaeger\app\src\main\res\drawable\app_icon.png" qualifiers="" type="drawable"/></source></dataSet><dataSet aapt-namespace="http://schemas.android.com/apk/res-auto" config="debug$Generated" generated="true" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="D:\Android Studio Projects\WingHaeger\app\src\debug\res"/></dataSet><dataSet aapt-namespace="http://schemas.android.com/apk/res-auto" config="debug" generated-set="debug$Generated" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~:!&lt;dir>navigation"><source path="D:\Android Studio Projects\WingHaeger\app\src\debug\res"/></dataSet><dataSet aapt-namespace="http://schemas.android.com/apk/res-auto" config="generated$Generated" generated="true" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~"><source path="D:\Android Studio Projects\WingHaeger\app\build\generated\res\resValues\debug"/></dataSet><dataSet aapt-namespace="http://schemas.android.com/apk/res-auto" config="generated" generated-set="generated$Generated" ignore_pattern="!.svn:!.git:!.ds_store:!*.scc:.*:&lt;dir>_*:!CVS:!thumbs.db:!picasa.ini:!*~:!&lt;dir>navigation"><source path="D:\Android Studio Projects\WingHaeger\app\build\generated\res\resValues\debug"/></dataSet><mergedItems/></merger>

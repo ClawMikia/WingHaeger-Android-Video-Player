@@ -1,0 +1,20 @@
+{
+    "logs": [
+        {
+            "outputFile": "com.winghaeger.app-mergeDebugResources-45:/values-v27/values-v27.xml",
+            "map": [
+                {
+                    "source": "D:\\Android Studio Projects\\WingHaeger\\app\\src\\main\\res\\values-v27\\themes.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endLines": "20",
+                        "endColumns": "12",
+                        "endOffsets": "1300"
+                    }
+                }
+            ]
+        }
+    ]
+}

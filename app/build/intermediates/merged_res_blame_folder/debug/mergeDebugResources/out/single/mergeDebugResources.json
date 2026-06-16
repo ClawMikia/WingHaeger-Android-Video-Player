@@ -1,0 +1,234 @@
+[
+    {
+        "merged": "D:\\.gradle\\daemon\\8.13\\com.winghaeger.app-debug-47:\\drawable_seekbar_thumb_orange.xml.flat",
+        "source": "D:\\.gradle\\daemon\\8.13\\com.winghaeger.app-main-49:\\drawable\\seekbar_thumb_orange.xml"
+    },
+    {
+        "merged": "D:\\.gradle\\daemon\\8.13\\com.winghaeger.app-debug-47:\\layout_activity_playlist_list.xml.flat",
+        "source": "D:\\.gradle\\daemon\\8.13\\com.winghaeger.app-main-49:\\layout\\activity_playlist_list.xml"
+    },
+    {
+        "merged": "D:\\.gradle\\daemon\\8.13\\com.winghaeger.app-debug-47:\\layout_activity_video_enhancement.xml.flat",
+        "source": "D:\\.gradle\\daemon\\8.13\\com.winghaeger.app-main-49:\\layout\\activity_video_enhancement.xml"
+    },
+    {
+        "merged": "D:\\.gradle\\daemon\\8.13\\com.winghaeger.app-debug-47:\\drawable_ic_next_custom.xml.flat",
+        "source": "D:\\.gradle\\daemon\\8.13\\com.winghaeger.app-main-49:\\drawable\\ic_next_custom.xml"
+    },
+    {
+        "merged": "com.winghaeger.app-debug-47:/drawable_app_icon.png.flat",
+        "source": "com.winghaeger.app-main-49:/drawable/app_icon.png"
+    },
+    {
+        "merged": "D:\\.gradle\\daemon\\8.13\\com.winghaeger.app-debug-47:\\drawable_bg_btn_green.xml.flat",
+        "source": "D:\\.gradle\\daemon\\8.13\\com.winghaeger.app-main-49:\\drawable\\bg_btn_green.xml"
+    },
+    {
+        "merged": "D:\\.gradle\\daemon\\8.13\\com.winghaeger.app-debug-47:\\layout_activity_main.xml.flat",
+        "source": "D:\\.gradle\\daemon\\8.13\\com.winghaeger.app-main-49:\\layout\\activity_main.xml"
+    },
+    {
+        "merged": "D:\\.gradle\\daemon\\8.13\\com.winghaeger.app-debug-47:\\layout_activity_folder_select.xml.flat",
+        "source": "D:\\.gradle\\daemon\\8.13\\com.winghaeger.app-main-49:\\layout\\activity_folder_select.xml"
+    },
+    {
+        "merged": "D:\\.gradle\\daemon\\8.13\\com.winghaeger.app-debug-47:\\font_orbitron_bold.xml.flat",
+        "source": "D:\\.gradle\\daemon\\8.13\\com.winghaeger.app-main-49:\\font\\orbitron_bold.xml"
+    },
+    {
+        "merged": "D:\\.gradle\\daemon\\8.13\\com.winghaeger.app-debug-47:\\drawable_seek_playback_progress.xml.flat",
+        "source": "D:\\.gradle\\daemon\\8.13\\com.winghaeger.app-main-49:\\drawable\\seek_playback_progress.xml"
+    },
+    {
+        "merged": "D:\\.gradle\\daemon\\8.13\\com.winghaeger.app-debug-47:\\drawable_bg_btn_violet.xml.flat",
+        "source": "D:\\.gradle\\daemon\\8.13\\com.winghaeger.app-main-49:\\drawable\\bg_btn_violet.xml"
+    },
+    {
+        "merged": "D:\\.gradle\\daemon\\8.13\\com.winghaeger.app-debug-47:\\drawable_bg_panel.xml.flat",
+        "source": "D:\\.gradle\\daemon\\8.13\\com.winghaeger.app-main-49:\\drawable\\bg_panel.xml"
+    },
+    {
+        "merged": "D:\\.gradle\\daemon\\8.13\\com.winghaeger.app-debug-47:\\drawable_bg_btn_gold.xml.flat",
+        "source": "D:\\.gradle\\daemon\\8.13\\com.winghaeger.app-main-49:\\drawable\\bg_btn_gold.xml"
+    },
+    {
+        "merged": "D:\\.gradle\\daemon\\8.13\\com.winghaeger.app-debug-47:\\drawable_seek_trim_progress.xml.flat",
+        "source": "D:\\.gradle\\daemon\\8.13\\com.winghaeger.app-main-49:\\drawable\\seek_trim_progress.xml"
+    },
+    {
+        "merged": "D:\\.gradle\\daemon\\8.13\\com.winghaeger.app-debug-47:\\layout_item_memory_row.xml.flat",
+        "source": "D:\\.gradle\\daemon\\8.13\\com.winghaeger.app-main-49:\\layout\\item_memory_row.xml"
+    },
+    {
+        "merged": "D:\\.gradle\\daemon\\8.13\\com.winghaeger.app-debug-47:\\mipmap-anydpi-v26_ic_launcher.xml.flat",
+        "source": "D:\\.gradle\\daemon\\8.13\\com.winghaeger.app-main-49:\\mipmap-anydpi-v26\\ic_launcher.xml"
+    },
+    {
+        "merged": "D:\\.gradle\\daemon\\8.13\\com.winghaeger.app-debug-47:\\drawable_ic_check.xml.flat",
+        "source": "D:\\.gradle\\daemon\\8.13\\com.winghaeger.app-main-49:\\drawable\\ic_check.xml"
+    },
+    {
+        "merged": "D:\\.gradle\\daemon\\8.13\\com.winghaeger.app-debug-47:\\drawable_ic_stop_custom.xml.flat",
+        "source": "D:\\.gradle\\daemon\\8.13\\com.winghaeger.app-main-49:\\drawable\\ic_stop_custom.xml"
+    },
+    {
+        "merged": "D:\\.gradle\\daemon\\8.13\\com.winghaeger.app-debug-47:\\drawable_ic_button_placeholder.xml.flat",
+        "source": "D:\\.gradle\\daemon\\8.13\\com.winghaeger.app-main-49:\\drawable\\ic_button_placeholder.xml"
+    },
+    {
+        "merged": "D:\\.gradle\\daemon\\8.13\\com.winghaeger.app-debug-47:\\drawable_bg_btn_orange.xml.flat",
+        "source": "D:\\.gradle\\daemon\\8.13\\com.winghaeger.app-main-49:\\drawable\\bg_btn_orange.xml"
+    },
+    {
+        "merged": "D:\\.gradle\\daemon\\8.13\\com.winghaeger.app-debug-47:\\drawable_ic_volume.xml.flat",
+        "source": "D:\\.gradle\\daemon\\8.13\\com.winghaeger.app-main-49:\\drawable\\ic_volume.xml"
+    },
+    {
+        "merged": "D:\\.gradle\\daemon\\8.13\\com.winghaeger.app-debug-47:\\menu_menu_bottom_nav.xml.flat",
+        "source": "D:\\.gradle\\daemon\\8.13\\com.winghaeger.app-main-49:\\menu\\menu_bottom_nav.xml"
+    },
+    {
+        "merged": "D:\\.gradle\\daemon\\8.13\\com.winghaeger.app-debug-47:\\layout_activity_library.xml.flat",
+        "source": "D:\\.gradle\\daemon\\8.13\\com.winghaeger.app-main-49:\\layout\\activity_library.xml"
+    },
+    {
+        "merged": "D:\\.gradle\\daemon\\8.13\\com.winghaeger.app-debug-47:\\font_orbitron_regular.xml.flat",
+        "source": "D:\\.gradle\\daemon\\8.13\\com.winghaeger.app-main-49:\\font\\orbitron_regular.xml"
+    },
+    {
+        "merged": "D:\\.gradle\\daemon\\8.13\\com.winghaeger.app-debug-47:\\drawable_bg_btn_neutral.xml.flat",
+        "source": "D:\\.gradle\\daemon\\8.13\\com.winghaeger.app-main-49:\\drawable\\bg_btn_neutral.xml"
+    },
+    {
+        "merged": "D:\\.gradle\\daemon\\8.13\\com.winghaeger.app-debug-47:\\drawable_ic_play_custom.xml.flat",
+        "source": "D:\\.gradle\\daemon\\8.13\\com.winghaeger.app-main-49:\\drawable\\ic_play_custom.xml"
+    },
+    {
+        "merged": "D:\\.gradle\\daemon\\8.13\\com.winghaeger.app-debug-47:\\layout_activity_playback_memory.xml.flat",
+        "source": "D:\\.gradle\\daemon\\8.13\\com.winghaeger.app-main-49:\\layout\\activity_playback_memory.xml"
+    },
+    {
+        "merged": "D:\\.gradle\\daemon\\8.13\\com.winghaeger.app-debug-47:\\mipmap-anydpi-v26_ic_launcher_round.xml.flat",
+        "source": "D:\\.gradle\\daemon\\8.13\\com.winghaeger.app-main-49:\\mipmap-anydpi-v26\\ic_launcher_round.xml"
+    },
+    {
+        "merged": "D:\\.gradle\\daemon\\8.13\\com.winghaeger.app-debug-47:\\drawable_bg_splash.xml.flat",
+        "source": "D:\\.gradle\\daemon\\8.13\\com.winghaeger.app-main-49:\\drawable\\bg_splash.xml"
+    },
+    {
+        "merged": "D:\\.gradle\\daemon\\8.13\\com.winghaeger.app-debug-47:\\drawable_ic_pause_custom.xml.flat",
+        "source": "D:\\.gradle\\daemon\\8.13\\com.winghaeger.app-main-49:\\drawable\\ic_pause_custom.xml"
+    },
+    {
+        "merged": "D:\\.gradle\\daemon\\8.13\\com.winghaeger.app-debug-47:\\drawable_ic_launcher_foreground.xml.flat",
+        "source": "D:\\.gradle\\daemon\\8.13\\com.winghaeger.app-main-49:\\drawable\\ic_launcher_foreground.xml"
+    },
+    {
+        "merged": "D:\\.gradle\\daemon\\8.13\\com.winghaeger.app-debug-47:\\drawable_app_icon.png.flat",
+        "source": "D:\\.gradle\\daemon\\8.13\\com.winghaeger.app-main-49:\\drawable\\app_icon.png"
+    },
+    {
+        "merged": "D:\\.gradle\\daemon\\8.13\\com.winghaeger.app-debug-47:\\drawable_bg_timeline_dot.xml.flat",
+        "source": "D:\\.gradle\\daemon\\8.13\\com.winghaeger.app-main-49:\\drawable\\bg_timeline_dot.xml"
+    },
+    {
+        "merged": "D:\\.gradle\\daemon\\8.13\\com.winghaeger.app-debug-47:\\drawable_ic_launcher_background.xml.flat",
+        "source": "D:\\.gradle\\daemon\\8.13\\com.winghaeger.app-main-49:\\drawable\\ic_launcher_background.xml"
+    },
+    {
+        "merged": "D:\\.gradle\\daemon\\8.13\\com.winghaeger.app-debug-47:\\layout_item_video_card.xml.flat",
+        "source": "D:\\.gradle\\daemon\\8.13\\com.winghaeger.app-main-49:\\layout\\item_video_card.xml"
+    },
+    {
+        "merged": "D:\\.gradle\\daemon\\8.13\\com.winghaeger.app-debug-47:\\layout_activity_splash.xml.flat",
+        "source": "D:\\.gradle\\daemon\\8.13\\com.winghaeger.app-main-49:\\layout\\activity_splash.xml"
+    },
+    {
+        "merged": "D:\\.gradle\\daemon\\8.13\\com.winghaeger.app-debug-47:\\drawable_ic_restart_custom.xml.flat",
+        "source": "D:\\.gradle\\daemon\\8.13\\com.winghaeger.app-main-49:\\drawable\\ic_restart_custom.xml"
+    },
+    {
+        "merged": "D:\\.gradle\\daemon\\8.13\\com.winghaeger.app-debug-47:\\drawable_ic_forward_5.xml.flat",
+        "source": "D:\\.gradle\\daemon\\8.13\\com.winghaeger.app-main-49:\\drawable\\ic_forward_5.xml"
+    },
+    {
+        "merged": "D:\\.gradle\\daemon\\8.13\\com.winghaeger.app-debug-47:\\drawable_ic_rew_custom.xml.flat",
+        "source": "D:\\.gradle\\daemon\\8.13\\com.winghaeger.app-main-49:\\drawable\\ic_rew_custom.xml"
+    },
+    {
+        "merged": "D:\\.gradle\\daemon\\8.13\\com.winghaeger.app-debug-47:\\drawable_bg_btn_cyan.xml.flat",
+        "source": "D:\\.gradle\\daemon\\8.13\\com.winghaeger.app-main-49:\\drawable\\bg_btn_cyan.xml"
+    },
+    {
+        "merged": "D:\\.gradle\\daemon\\8.13\\com.winghaeger.app-debug-47:\\layout_activity_player.xml.flat",
+        "source": "D:\\.gradle\\daemon\\8.13\\com.winghaeger.app-main-49:\\layout\\activity_player.xml"
+    },
+    {
+        "merged": "D:\\.gradle\\daemon\\8.13\\com.winghaeger.app-debug-47:\\drawable_bg_btn_red.xml.flat",
+        "source": "D:\\.gradle\\daemon\\8.13\\com.winghaeger.app-main-49:\\drawable\\bg_btn_red.xml"
+    },
+    {
+        "merged": "D:\\.gradle\\daemon\\8.13\\com.winghaeger.app-debug-47:\\drawable_seekbar_thumb_cyan.xml.flat",
+        "source": "D:\\.gradle\\daemon\\8.13\\com.winghaeger.app-main-49:\\drawable\\seekbar_thumb_cyan.xml"
+    },
+    {
+        "merged": "D:\\.gradle\\daemon\\8.13\\com.winghaeger.app-debug-47:\\layout_item_enhancement_row.xml.flat",
+        "source": "D:\\.gradle\\daemon\\8.13\\com.winghaeger.app-main-49:\\layout\\item_enhancement_row.xml"
+    },
+    {
+        "merged": "D:\\.gradle\\daemon\\8.13\\com.winghaeger.app-debug-47:\\drawable_ic_prev_custom.xml.flat",
+        "source": "D:\\.gradle\\daemon\\8.13\\com.winghaeger.app-main-49:\\drawable\\ic_prev_custom.xml"
+    },
+    {
+        "merged": "D:\\.gradle\\daemon\\8.13\\com.winghaeger.app-debug-47:\\drawable_ic_trim.xml.flat",
+        "source": "D:\\.gradle\\daemon\\8.13\\com.winghaeger.app-main-49:\\drawable\\ic_trim.xml"
+    },
+    {
+        "merged": "D:\\.gradle\\daemon\\8.13\\com.winghaeger.app-debug-47:\\layout_item_library_header.xml.flat",
+        "source": "D:\\.gradle\\daemon\\8.13\\com.winghaeger.app-main-49:\\layout\\item_library_header.xml"
+    },
+    {
+        "merged": "D:\\.gradle\\daemon\\8.13\\com.winghaeger.app-debug-47:\\drawable_seekbar_thumb_green.xml.flat",
+        "source": "D:\\.gradle\\daemon\\8.13\\com.winghaeger.app-main-49:\\drawable\\seekbar_thumb_green.xml"
+    },
+    {
+        "merged": "D:\\.gradle\\daemon\\8.13\\com.winghaeger.app-debug-47:\\layout_dialog_add_skip.xml.flat",
+        "source": "D:\\.gradle\\daemon\\8.13\\com.winghaeger.app-main-49:\\layout\\dialog_add_skip.xml"
+    },
+    {
+        "merged": "D:\\.gradle\\daemon\\8.13\\com.winghaeger.app-debug-47:\\layout_activity_settings.xml.flat",
+        "source": "D:\\.gradle\\daemon\\8.13\\com.winghaeger.app-main-49:\\layout\\activity_settings.xml"
+    },
+    {
+        "merged": "D:\\.gradle\\daemon\\8.13\\com.winghaeger.app-debug-47:\\drawable_ic_ff_custom.xml.flat",
+        "source": "D:\\.gradle\\daemon\\8.13\\com.winghaeger.app-main-49:\\drawable\\ic_ff_custom.xml"
+    },
+    {
+        "merged": "D:\\.gradle\\daemon\\8.13\\com.winghaeger.app-debug-47:\\layout_activity_explore.xml.flat",
+        "source": "D:\\.gradle\\daemon\\8.13\\com.winghaeger.app-main-49:\\layout\\activity_explore.xml"
+    },
+    {
+        "merged": "D:\\.gradle\\daemon\\8.13\\com.winghaeger.app-debug-47:\\drawable_seekbar_thumb.xml.flat",
+        "source": "D:\\.gradle\\daemon\\8.13\\com.winghaeger.app-main-49:\\drawable\\seekbar_thumb.xml"
+    },
+    {
+        "merged": "D:\\.gradle\\daemon\\8.13\\com.winghaeger.app-debug-47:\\drawable_bg_panel_gold.xml.flat",
+        "source": "D:\\.gradle\\daemon\\8.13\\com.winghaeger.app-main-49:\\drawable\\bg_panel_gold.xml"
+    },
+    {
+        "merged": "D:\\.gradle\\daemon\\8.13\\com.winghaeger.app-debug-47:\\drawable_ic_close_custom.xml.flat",
+        "source": "D:\\.gradle\\daemon\\8.13\\com.winghaeger.app-main-49:\\drawable\\ic_close_custom.xml"
+    },
+    {
+        "merged": "D:\\.gradle\\daemon\\8.13\\com.winghaeger.app-debug-47:\\drawable_ic_enhancement.xml.flat",
+        "source": "D:\\.gradle\\daemon\\8.13\\com.winghaeger.app-main-49:\\drawable\\ic_enhancement.xml"
+    },
+    {
+        "merged": "D:\\.gradle\\daemon\\8.13\\com.winghaeger.app-debug-47:\\layout_item_playlist_row.xml.flat",
+        "source": "D:\\.gradle\\daemon\\8.13\\com.winghaeger.app-main-49:\\layout\\item_playlist_row.xml"
+    },
+    {
+        "merged": "D:\\.gradle\\daemon\\8.13\\com.winghaeger.app-debug-47:\\layout_dialog_add_chapter.xml.flat",
+        "source": "D:\\.gradle\\daemon\\8.13\\com.winghaeger.app-main-49:\\layout\\dialog_add_chapter.xml"
+    }
+]

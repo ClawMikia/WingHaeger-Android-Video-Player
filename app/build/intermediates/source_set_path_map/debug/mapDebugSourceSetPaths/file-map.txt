@@ -1,0 +1,51 @@
+com.winghaeger.app-fragment-1.5.4-0 D:\.gradle\caches\8.13\transforms\00c2638e7c58ae586a2187d008daf793\transformed\fragment-1.5.4\res
+com.winghaeger.app-graphics-shapes-release-1 D:\.gradle\caches\8.13\transforms\011ad6dc89d73cc2f67b1735932a398a\transformed\graphics-shapes-release\res
+com.winghaeger.app-activity-1.12.4-2 D:\.gradle\caches\8.13\transforms\01d3fe72eb543a88019706457658b576\transformed\activity-1.12.4\res
+com.winghaeger.app-lifecycle-viewmodel-ktx-2.8.7-3 D:\.gradle\caches\8.13\transforms\024aeeebd5ee1628b16465cfc430cbe3\transformed\lifecycle-viewmodel-ktx-2.8.7\res
+com.winghaeger.app-cardview-1.0.0-4 D:\.gradle\caches\8.13\transforms\0f7f3f48a48fd18e6719a84e87a5933f\transformed\cardview-1.0.0\res
+com.winghaeger.app-lifecycle-runtime-release-5 D:\.gradle\caches\8.13\transforms\17d7bb785b0e9b41bdf031d399573799\transformed\lifecycle-runtime-release\res
+com.winghaeger.app-media3-ui-1.5.1-6 D:\.gradle\caches\8.13\transforms\185be972a945cbaddfad4cf1981b27cc\transformed\media3-ui-1.5.1\res
+com.winghaeger.app-emoji2-1.3.0-7 D:\.gradle\caches\8.13\transforms\212f8cfb33d86eb6461256baae001631\transformed\emoji2-1.3.0\res
+com.winghaeger.app-annotation-experimental-1.4.1-8 D:\.gradle\caches\8.13\transforms\2343d77f2d971995279784d975b2a19d\transformed\annotation-experimental-1.4.1\res
+com.winghaeger.app-drawerlayout-1.1.1-9 D:\.gradle\caches\8.13\transforms\293c238ee06bf8bed62487929f61e5e3\transformed\drawerlayout-1.1.1\res
+com.winghaeger.app-core-viewtree-1.0.0-10 D:\.gradle\caches\8.13\transforms\2a60bf1c78a8be269642a58e5f9a58f6\transformed\core-viewtree-1.0.0\res
+com.winghaeger.app-customview-poolingcontainer-1.0.0-11 D:\.gradle\caches\8.13\transforms\3b8cf81ba8bc74f47754f094af188e97\transformed\customview-poolingcontainer-1.0.0\res
+com.winghaeger.app-media3-session-1.5.1-12 D:\.gradle\caches\8.13\transforms\3c455e2462ea44fd3507cd201835e17d\transformed\media3-session-1.5.1\res
+com.winghaeger.app-documentfile-1.1.0-13 D:\.gradle\caches\8.13\transforms\4274cdffa848e96ae1dbd0d91635b2a9\transformed\documentfile-1.1.0\res
+com.winghaeger.app-lifecycle-runtime-ktx-release-14 D:\.gradle\caches\8.13\transforms\49b8045e76a9f4d7652cf442c7cd6ab4\transformed\lifecycle-runtime-ktx-release\res
+com.winghaeger.app-lifecycle-process-2.8.7-15 D:\.gradle\caches\8.13\transforms\4f1e9357ec6c823f7cf67cfe5b46619b\transformed\lifecycle-process-2.8.7\res
+com.winghaeger.app-core-1.17.0-16 D:\.gradle\caches\8.13\transforms\5840f02fafd351057c7bc30b2e89c167\transformed\core-1.17.0\res
+com.winghaeger.app-lifecycle-livedata-core-2.8.7-17 D:\.gradle\caches\8.13\transforms\5870b61a3cb00ba0ed1d160dbfc8c437\transformed\lifecycle-livedata-core-2.8.7\res
+com.winghaeger.app-tracing-1.2.0-18 D:\.gradle\caches\8.13\transforms\58aad9dc3e01fa96322dbd7a4fea2d2c\transformed\tracing-1.2.0\res
+com.winghaeger.app-media3-exoplayer-1.5.1-19 D:\.gradle\caches\8.13\transforms\59a49ef537031c9b64477c4a86d2707b\transformed\media3-exoplayer-1.5.1\res
+com.winghaeger.app-startup-runtime-1.1.1-20 D:\.gradle\caches\8.13\transforms\5fb965429a292178edd21e0b4d0778be\transformed\startup-runtime-1.1.1\res
+com.winghaeger.app-emoji2-views-helper-1.3.0-21 D:\.gradle\caches\8.13\transforms\62f48c75a7b978634ce0cf85e172603e\transformed\emoji2-views-helper-1.3.0\res
+com.winghaeger.app-material-1.13.0-22 D:\.gradle\caches\8.13\transforms\67282c8705ca7a543deea976fe47a264\transformed\material-1.13.0\res
+com.winghaeger.app-appcompat-1.7.1-23 D:\.gradle\caches\8.13\transforms\727e69a288d568b0a4b619502b6b4c44\transformed\appcompat-1.7.1\res
+com.winghaeger.app-savedstate-ktx-1.2.1-24 D:\.gradle\caches\8.13\transforms\72c6eb1122c51354a8829718a559e4a2\transformed\savedstate-ktx-1.2.1\res
+com.winghaeger.app-viewpager2-1.1.0-beta02-25 D:\.gradle\caches\8.13\transforms\7c47c411f8366351b6c7f8232dda04c9\transformed\viewpager2-1.1.0-beta02\res
+com.winghaeger.app-navigationevent-26 D:\.gradle\caches\8.13\transforms\8201e12234cc4a9560e2835704571577\transformed\navigationevent\res
+com.winghaeger.app-savedstate-1.2.1-27 D:\.gradle\caches\8.13\transforms\88cb9d293841c96ad7e3f7230b3a0442\transformed\savedstate-1.2.1\res
+com.winghaeger.app-dynamicanimation-1.1.0-28 D:\.gradle\caches\8.13\transforms\8ae92174cb6cc71643c556ec7b13f33d\transformed\dynamicanimation-1.1.0\res
+com.winghaeger.app-profileinstaller-1.4.0-29 D:\.gradle\caches\8.13\transforms\8e16b30b5877e5bb989fc08b588404b2\transformed\profileinstaller-1.4.0\res
+com.winghaeger.app-constraintlayout-2.2.1-30 D:\.gradle\caches\8.13\transforms\92538327ad7b178fbcfdd1aa9a468e4a\transformed\constraintlayout-2.2.1\res
+com.winghaeger.app-lifecycle-livedata-2.8.7-31 D:\.gradle\caches\8.13\transforms\98e37648e7ec8f146c8370452057d047\transformed\lifecycle-livedata-2.8.7\res
+com.winghaeger.app-transition-1.5.0-32 D:\.gradle\caches\8.13\transforms\9d5c6707927da4e65e3db129e61236b7\transformed\transition-1.5.0\res
+com.winghaeger.app-lifecycle-viewmodel-release-33 D:\.gradle\caches\8.13\transforms\a1e830bd222a4d21dcec1275b17e1ab4\transformed\lifecycle-viewmodel-release\res
+com.winghaeger.app-activity-ktx-1.12.4-34 D:\.gradle\caches\8.13\transforms\ab10c739d4817f989a9f1b297efffddf\transformed\activity-ktx-1.12.4\res
+com.winghaeger.app-core-ktx-1.17.0-35 D:\.gradle\caches\8.13\transforms\ad3d3a62dd278e40504225a15d3a9350\transformed\core-ktx-1.17.0\res
+com.winghaeger.app-core-runtime-2.2.0-36 D:\.gradle\caches\8.13\transforms\c9d8320cc1e8e98d647671c5169a36e4\transformed\core-runtime-2.2.0\res
+com.winghaeger.app-lifecycle-viewmodel-savedstate-2.8.7-37 D:\.gradle\caches\8.13\transforms\cec8f2c3f55b1ab54c3e2e2d3cf7bbfe\transformed\lifecycle-viewmodel-savedstate-2.8.7\res
+com.winghaeger.app-media-1.7.0-38 D:\.gradle\caches\8.13\transforms\e320d7973073aa0c8a7e00ed3ce28325\transformed\media-1.7.0\res
+com.winghaeger.app-lifecycle-livedata-core-ktx-2.8.7-39 D:\.gradle\caches\8.13\transforms\e97b0fc2e83e66cc18dd5782c1c1997d\transformed\lifecycle-livedata-core-ktx-2.8.7\res
+com.winghaeger.app-appcompat-resources-1.7.1-40 D:\.gradle\caches\8.13\transforms\eeb4c247500c395d37bc1361e9d4d80d\transformed\appcompat-resources-1.7.1\res
+com.winghaeger.app-coordinatorlayout-1.3.0-41 D:\.gradle\caches\8.13\transforms\fd69588e44fdda0c8b839836e7e40a0b\transformed\coordinatorlayout-1.3.0\res
+com.winghaeger.app-recyclerview-1.4.0-42 D:\.gradle\caches\8.13\transforms\fdd109e3e9fefca28ba8a2a8128ae495\transformed\recyclerview-1.4.0\res
+com.winghaeger.app-pngs-43 D:\Android Studio Projects\WingHaeger\app\build\generated\res\pngs\debug
+com.winghaeger.app-resValues-44 D:\Android Studio Projects\WingHaeger\app\build\generated\res\resValues\debug
+com.winghaeger.app-updated_navigation_xml-45 D:\Android Studio Projects\WingHaeger\app\build\generated\updated_navigation_xml\debug
+com.winghaeger.app-packageDebugResources-46 D:\Android Studio Projects\WingHaeger\app\build\intermediates\incremental\debug\packageDebugResources\merged.dir
+com.winghaeger.app-packageDebugResources-47 D:\Android Studio Projects\WingHaeger\app\build\intermediates\incremental\debug\packageDebugResources\stripped.dir
+com.winghaeger.app-debug-48 D:\Android Studio Projects\WingHaeger\app\build\intermediates\merged_res\debug\mergeDebugResources
+com.winghaeger.app-debug-49 D:\Android Studio Projects\WingHaeger\app\src\debug\res
+com.winghaeger.app-main-50 D:\Android Studio Projects\WingHaeger\app\src\main\res

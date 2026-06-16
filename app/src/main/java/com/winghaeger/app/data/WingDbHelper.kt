@@ -68,8 +68,13 @@ class WingDbHelper(context: Context) :
 
     fun getIdByUri(uriString: String): Long? {
         readableDatabase.query(
-            TABLE_VIDEOS, arrayOf(COL_ID), "$COL_URI = ?", arrayOf(uriString),
-            null, null, null
+            TABLE_VIDEOS,
+            arrayOf(COL_ID),
+            "$COL_URI = ?",
+            arrayOf(uriString),
+            null,
+            null,
+            null,
         ).use { c -> if (c.moveToFirst()) return c.getLong(0) }
         return null
     }
@@ -127,7 +132,9 @@ class WingDbHelper(context: Context) :
     fun getById(id: Long): VideoEntity? {
         readableDatabase.query(
             TABLE_VIDEOS, null, "$COL_ID = ?", arrayOf(id.toString()),
-            null, null, null
+            null,
+            null,
+            null,
         ).use { c -> if (c.moveToFirst()) return c.toEntity() }
         return null
     }
@@ -179,7 +186,7 @@ class WingDbHelper(context: Context) :
         if (query.isBlank()) return emptyList()
         val list = mutableListOf<VideoEntity>()
         val q = "%${query.trim()}%"
-        
+
         // Search everything: title, folder, uri, and even chapter/skip labels
         val sql = """
             SELECT DISTINCT v.* FROM $TABLE_VIDEOS v
@@ -197,10 +204,6 @@ class WingDbHelper(context: Context) :
             while (c.moveToNext()) list.add(c.toEntity())
         }
         return list
-    }
-
-    fun deleteById(id: Long) {
-        writableDatabase.delete(TABLE_VIDEOS, "$COL_ID = ?", arrayOf(id.toString()))
     }
 
     // ── Chapter Markers ────────────────────────────────────────────────────────
@@ -282,16 +285,25 @@ class WingDbHelper(context: Context) :
     }
 
     fun removeVideoFromPlaylist(playlistId: Long, videoId: Long) {
-        writableDatabase.delete(TABLE_PLAYLIST_VIDEOS, "$PLV_PLAYLIST_ID = ? AND $PLV_VIDEO_ID = ?",
-            arrayOf(playlistId.toString(), videoId.toString()))
+        writableDatabase.delete(
+            TABLE_PLAYLIST_VIDEOS,
+            "$PLV_PLAYLIST_ID = ? AND $PLV_VIDEO_ID = ?",
+            arrayOf(playlistId.toString(), videoId.toString()),
+        )
     }
 
     fun listPlaylists(): List<Pair<Long, String>> {
         val list = mutableListOf<Pair<Long, String>>()
         readableDatabase.query(TABLE_PLAYLISTS, null, null, null, null, null, "$PLA_TITLE ASC")
-            .use { c -> while (c.moveToNext()) {
-                list.add(c.getLong(c.getColumnIndex(PLA_ID)) to c.getString(c.getColumnIndex(PLA_TITLE)))
-            }}
+            .use { c ->
+                val idIdx = c.getColumnIndex(PLA_ID)
+                val titleIdx = c.getColumnIndex(PLA_TITLE)
+                while (c.moveToNext()) {
+                    if ((idIdx >= 0) && (titleIdx >= 0)) {
+                        list.add(c.getLong(idIdx) to c.getString(titleIdx))
+                    }
+                }
+            }
         return list
     }
 
@@ -505,7 +517,7 @@ private fun Cursor.toEntity(): VideoEntity {
     fun int(col: String, def: Int = 0): Int = getColumnIndex(col).takeIf { it >= 0 }?.let { getInt(it) } ?: def
     fun flt(col: String, def: Float = 0f): Float = getColumnIndex(col).takeIf { it >= 0 }?.let { getFloat(it) } ?: def
     val thumbIdx = getColumnIndex(WingDbHelper.COL_THUMB)
-    val thumb = if (thumbIdx >= 0 && !isNull(thumbIdx)) {
+    val thumb = if (thumbIdx >= 0 && (!isNull(thumbIdx))) {
         getBlob(thumbIdx)
     } else {
         null
@@ -558,7 +570,7 @@ private fun ChapterMarker.toContentValues(): ContentValues = ContentValues().app
     put(WingDbHelper.CHA_CREATED_AT,  createdAt)
 }
 
-private fun android.database.Cursor.toChapter(): ChapterMarker {
+private fun Cursor.toChapter(): ChapterMarker {
     fun str(col: String): String? = getColumnIndex(col).takeIf { it >= 0 }?.let { getString(it) }
     fun lng(col: String): Long = getColumnIndex(col).takeIf { it >= 0 }?.let { getLong(it) } ?: 0L
     fun int(col: String): Int = getColumnIndex(col).takeIf { it >= 0 }?.let { getInt(it) } ?: 0
@@ -582,7 +594,7 @@ private fun TimelineSkip.toContentValues(): ContentValues = ContentValues().appl
     put(WingDbHelper.SKI_CREATED_AT, createdAt)
 }
 
-private fun android.database.Cursor.toSkip(): TimelineSkip {
+private fun Cursor.toSkip(): TimelineSkip {
     fun str(col: String): String? = getColumnIndex(col).takeIf { it >= 0 }?.let { getString(it) }
     fun lng(col: String): Long = getColumnIndex(col).takeIf { it >= 0 }?.let { getLong(it) } ?: 0L
     return TimelineSkip(

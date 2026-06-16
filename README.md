@@ -39,12 +39,13 @@ WingHaeger breaks away from traditional "clean" Material design in favor of a **
 
 ## 🛠️ Tech Stack
 
-- **Language**: Kotlin 1.9+
+- **Language**: Kotlin 2.0 (K2 Compiler)
 - **Media Engine**: AndroidX Media3 (ExoPlayer 1.5.1)
-- **UI Framework**: XML Layouts with ViewBinding, ConstraintLayout, and Material 3 Components.
+- **UI Framework**: XML Layouts with ViewBinding, ConstraintLayout, and Material 3 Components (1.13.0).
 - **Database**: SQLite (via `WingDbHelper`) with support for complex video preferences, skips, and chapter markers.
 - **Concurrency**: Kotlin Coroutines & Flow.
-- **Architecture**: Modular structure following modern Android best practices.
+- **Architecture**: Clean Architecture with Repository pattern.
+- **Gradle**: Kotlin DSL with Version Catalog (libs.versions.toml).
 
 ## 📥 Getting Started
 

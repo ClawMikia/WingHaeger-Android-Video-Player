@@ -48,7 +48,11 @@ class LibraryActivity : AppCompatActivity() {
     private val playerListener = object : Player.Listener {
         override fun onIsPlayingChanged(isPlaying: Boolean) {
             binding.btnMiniPlayPause.setImageResource(
-                if (isPlaying) android.R.drawable.ic_media_pause else android.R.drawable.ic_media_play
+                if (isPlaying) {
+                    android.R.drawable.ic_media_pause
+                } else {
+                    android.R.drawable.ic_media_play
+                },
             )
             if (isPlaying) handler.post(tickRunnable) else handler.removeCallbacks(tickRunnable)
         }
@@ -57,7 +61,7 @@ class LibraryActivity : AppCompatActivity() {
             tickMiniPlayer()
         }
         override fun onPlaybackStateChanged(state: Int) {
-            if (state == Player.STATE_IDLE || state == Player.STATE_ENDED) {
+            if ((state == Player.STATE_IDLE) || (state == Player.STATE_ENDED)) {
                 binding.miniPlayerContainer.visibility = View.GONE
                 handler.removeCallbacks(tickRunnable)
             } else {
@@ -97,12 +101,14 @@ class LibraryActivity : AppCompatActivity() {
             MODE_RECENTLY_PLAYED  -> R.id.nav_memory
             else                  -> R.id.nav_library
         }
-        binding.toolbar.title = getString(when (currentMode) {
-            MODE_FAVORITES       -> R.string.favorites_title
-            MODE_CONTINUE        -> R.string.section_continue_watching
-            MODE_RECENTLY_PLAYED -> R.string.memory_title
-            else                 -> R.string.library_title
-        })
+        binding.toolbar.title = getString(
+            when (currentMode) {
+                MODE_FAVORITES -> R.string.favorites_title
+                MODE_CONTINUE -> R.string.section_continue_watching
+                MODE_RECENTLY_PLAYED -> R.string.memory_title
+                else -> R.string.library_title
+            },
+        )
         BottomNavHelper.setup(this, binding.bottomNav, navSelected)
         
         if (currentMode == MODE_PLAYLIST) {
@@ -133,10 +139,11 @@ class LibraryActivity : AppCompatActivity() {
             onOpen = { videoId, playlistIds, index ->
                 binding.miniPlayerView.player = null
                 startActivity(
-                    Intent(this, PlayerActivity::class.java)
-                        .putExtra(PlayerActivity.EXTRA_VIDEO_ID, videoId)
-                        .putExtra(PlayerActivity.EXTRA_PLAYLIST_IDS, playlistIds)
-                        .putExtra(PlayerActivity.EXTRA_PLAYLIST_INDEX, index)
+                    Intent(this, PlayerActivity::class.java).apply {
+                        putExtra(PlayerActivity.EXTRA_VIDEO_ID, videoId)
+                        putExtra(PlayerActivity.EXTRA_PLAYLIST_IDS, playlistIds)
+                        putExtra(PlayerActivity.EXTRA_PLAYLIST_INDEX, index)
+                    },
                 )
             }
         )
@@ -273,7 +280,7 @@ class LibraryActivity : AppCompatActivity() {
 
     private fun showAddVideoToPlaylistDialog() {
         val allVideosInLibrary = repo.listAllByFolder()
-        val currentPlaylistVideoIds = allVideos.map { it.id }.toSet()
+        val currentPlaylistVideoIds = allVideos.asSequence().map { it.id }.toSet()
         val availableVideos = allVideosInLibrary.filter { it.id !in currentPlaylistVideoIds }
         
         if (availableVideos.isEmpty()) {
@@ -307,7 +314,13 @@ class LibraryActivity : AppCompatActivity() {
             else     -> {
                 if (allVideos.isEmpty()) emptyList()
                 else buildList {
-                    add(LibraryListItem.Header(binding.toolbar.title?.toString() ?: "", allVideos.size, true))
+                    add(
+                        LibraryListItem.Header(
+                            folderName = binding.toolbar.title?.toString() ?: "",
+                            count = allVideos.size,
+                            expanded = true,
+                        ),
+                    )
                     addAll(allVideos.map { LibraryListItem.VideoRow(it) })
                 }
             }

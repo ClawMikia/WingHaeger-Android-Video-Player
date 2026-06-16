@@ -1,0 +1,20 @@
+{
+    "logs": [
+        {
+            "outputFile": "com.winghaeger.app-mergeDebugResources-45:/values-v16/values-v16.xml",
+            "map": [
+                {
+                    "source": "D:\\.gradle\\caches\\8.13\\transforms\\727e69a288d568b0a4b619502b6b4c44\\transformed\\appcompat-1.7.1\\res\\values-v16\\values-v16.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endLines": "5",
+                        "endColumns": "12",
+                        "endOffsets": "223"
+                    }
+                }
+            ]
+        }
+    ]
+}

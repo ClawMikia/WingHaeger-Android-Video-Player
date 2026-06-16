@@ -1,0 +1,532 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/rootLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/wh_bg">
+
+    <!-- Toolbar -->
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/toolbar"
+        style="@style/Widget.WH.Toolbar"
+        android:layout_width="0dp"
+        android:layout_height="?attr/actionBarSize"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <!-- Video surface -->
+    <FrameLayout
+        android:id="@+id/playerSurface"
+        android:layout_width="0dp"
+        android:layout_height="220dp"
+        android:background="@color/wh_pure_black"
+        app:layout_constraintTop_toBottomOf="@id/toolbar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <androidx.media3.ui.PlayerView
+            android:id="@+id/playerView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:use_controller="false"
+            app:surface_type="surface_view"
+            android:background="@color/wh_pure_black"/>
+
+        <!-- Enhancement overlay -->
+        <View
+            android:id="@+id/enhancementOverlay"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone"
+            android:clickable="false"/>
+
+        <!-- Gesture hint overlay -->
+        <LinearLayout
+            android:id="@+id/gestureHintOverlay"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:orientation="horizontal"
+            android:background="#CC000015"
+            android:padding="12dp"
+            android:gravity="center"
+            android:visibility="gone">
+            <ImageView android:id="@+id/gestureHintIcon"
+                android:layout_width="20dp" android:layout_height="20dp"
+                android:layout_marginEnd="6dp" android:visibility="gone"/>
+            <TextView android:id="@+id/gestureHintText"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"
+                android:fontFamily="@font/orbitron_bold"
+                android:textSize="16sp" android:textColor="@color/wh_app_blue"/>
+        </LinearLayout>
+
+        <!-- Fullscreen button -->
+        <ImageButton
+            android:id="@+id/btnFullscreen"
+            android:layout_width="36dp" android:layout_height="36dp"
+            android:layout_gravity="bottom|end"
+            android:layout_margin="8dp"
+            android:background="#88000015"
+            android:src="@android:drawable/ic_menu_zoom"
+            android:padding="6dp"/>
+    </FrameLayout>
+
+    <!-- Scroll area with all controls -->
+    <ScrollView
+        android:id="@+id/scrollView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="12dp"
+        app:layout_constraintTop_toBottomOf="@id/playerSurface"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="12dp">
+
+            <!-- Title row -->
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:orientation="horizontal" android:gravity="center_vertical"
+                android:layout_marginBottom="16dp">
+                <View android:layout_width="3dp" android:layout_height="20dp"
+                    android:background="@color/wh_accordion_text" android:layout_marginEnd="8dp"/>
+                <TextView android:id="@+id/videoTitle"
+                    android:layout_width="0dp" android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/orbitron_bold" android:textSize="13sp"
+                    android:textColor="@color/wh_neon_gold" android:singleLine="true"
+                    android:ellipsize="end"/>
+            </LinearLayout>
+
+            <!-- Playback seek -->
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:orientation="horizontal" android:gravity="center_vertical"
+                android:layout_marginBottom="16dp">
+                <TextView android:id="@+id/tvPlaybackTime"
+                    android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="0:00"
+                    android:fontFamily="@font/orbitron_regular" android:textSize="11sp"
+                    android:textColor="@color/wh_neon_cyan" android:minWidth="40dp"/>
+                <FrameLayout android:layout_width="0dp" android:layout_height="wrap_content"
+                    android:layout_weight="1" android:layout_marginStart="6dp" android:layout_marginEnd="6dp">
+                    <SeekBar android:id="@+id/seekPlayback"
+                        android:layout_width="match_parent" android:layout_height="wrap_content"
+                        android:max="1000"
+                        android:progressDrawable="@drawable/seek_playback_progress"
+                        android:thumb="@drawable/seekbar_thumb"/>
+                    <FrameLayout android:id="@+id/skipsOverlay"
+                        android:layout_width="match_parent" android:layout_height="6dp"
+                        android:layout_gravity="center_vertical" android:clickable="false"/>
+                </FrameLayout>
+                <TextView android:id="@+id/timeLabel"
+                    android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="0:00"
+                    android:fontFamily="@font/orbitron_regular" android:textSize="11sp"
+                    android:textColor="@color/wh_on_muted" android:minWidth="40dp"
+                    android:gravity="end"/>
+            </LinearLayout>
+
+            <!-- Main transport controls -->
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:orientation="horizontal" android:gravity="center"
+                android:layout_marginBottom="16dp">
+                <ImageButton android:id="@+id/btnPrev"
+                    android:layout_width="44dp" android:layout_height="44dp"
+                    android:layout_marginEnd="6dp" android:background="@drawable/bg_btn_cyan"
+                    android:src="@drawable/ic_prev_custom" android:padding="8dp" android:scaleType="fitCenter"/>
+                <ImageButton android:id="@+id/btnRewind"
+                    android:layout_width="44dp" android:layout_height="44dp"
+                    android:layout_marginEnd="6dp" android:background="@drawable/bg_btn_neutral"
+                    android:src="@drawable/ic_rew_custom" android:padding="8dp" android:scaleType="fitCenter"/>
+                <ImageButton android:id="@+id/btnStop"
+                    android:layout_width="44dp" android:layout_height="44dp"
+                    android:layout_marginEnd="6dp" android:background="@drawable/bg_btn_red"
+                    android:src="@drawable/ic_stop_custom" android:padding="8dp" android:scaleType="fitCenter"/>
+                <ImageButton android:id="@+id/btnPlayPause"
+                    android:layout_width="56dp" android:layout_height="56dp"
+                    android:layout_marginEnd="6dp" android:background="@drawable/bg_btn_gold"
+                    android:src="@drawable/ic_play_custom" android:padding="10dp" android:scaleType="fitCenter"/>
+                <ImageButton android:id="@+id/btnRestart"
+                    android:layout_width="44dp" android:layout_height="44dp"
+                    android:layout_marginEnd="6dp" android:background="@drawable/bg_btn_violet"
+                    android:src="@drawable/ic_restart_custom" android:padding="8dp" android:scaleType="fitCenter"/>
+                <ImageButton android:id="@+id/btnForward"
+                    android:layout_width="44dp" android:layout_height="44dp"
+                    android:layout_marginEnd="6dp" android:background="@drawable/bg_btn_neutral"
+                    android:src="@drawable/ic_ff_custom" android:padding="8dp" android:scaleType="fitCenter"/>
+                <ImageButton android:id="@+id/btnNext"
+                    android:layout_width="44dp" android:layout_height="44dp"
+                    android:background="@drawable/bg_btn_cyan"
+                    android:src="@drawable/ic_next_custom" android:padding="8dp" android:scaleType="fitCenter"/>
+            </LinearLayout>
+
+            <!-- Secondary controls row -->
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:orientation="horizontal" android:gravity="center"
+                android:layout_marginBottom="20dp">
+                <Button android:id="@+id/btnPip"
+                    android:layout_width="0dp" android:layout_height="36dp"
+                    android:layout_weight="1"
+                    android:layout_marginEnd="6dp"
+                    android:background="@drawable/bg_btn_neutral"
+                    android:text="PiP"
+                    android:fontFamily="@font/orbitron_bold" android:textSize="10sp"
+                    android:textColor="@color/wh_on_bg" android:letterSpacing="0.05"/>
+                <Button android:id="@+id/btnPlaylist"
+                    android:layout_width="0dp" android:layout_height="36dp"
+                    android:layout_weight="1"
+                    android:layout_marginEnd="6dp"
+                    android:background="@drawable/bg_btn_orange"
+                    android:text="QUEUE"
+                    android:fontFamily="@font/orbitron_bold" android:textSize="10sp"
+                    android:textColor="@color/wh_neon_orange" android:letterSpacing="0.05"/>
+
+                <Button
+                    android:id="@+id/btnFavorite"
+                    android:layout_width="0dp"
+                    android:layout_height="36dp"
+                    android:layout_marginEnd="6dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/bg_btn_violet"
+                    android:fontFamily="@font/orbitron_bold"
+                    android:text="RELIC"
+                    android:textColor="@color/wh_neon_violet"
+                    android:textSize="6sp" />
+
+                <Button android:id="@+id/btnAddChapter"
+                    android:layout_width="0dp" android:layout_height="36dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/bg_btn_gold"
+                    android:text="MARK"
+                    android:fontFamily="@font/orbitron_bold" android:textSize="10sp"
+                    android:textColor="@color/wh_on_muted" android:letterSpacing="0.05"/>
+            </LinearLayout>
+
+            <!-- ── VOLUME panel ── -->
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:orientation="vertical" android:background="@drawable/bg_panel"
+                android:padding="12dp" android:layout_marginBottom="16dp">
+                <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:text="// VOLUME"
+                    android:fontFamily="@font/orbitron_bold" android:textSize="10sp"
+                    android:textColor="@color/wh_accordion_text" android:letterSpacing="0.15"
+                    android:layout_marginBottom="8dp"/>
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:orientation="horizontal" android:gravity="center_vertical">
+                    <ImageButton android:id="@+id/btnMute"
+                        android:layout_width="36dp" android:layout_height="36dp"
+                        android:layout_marginEnd="6dp" android:background="@drawable/bg_btn_neutral"
+                        android:src="@android:drawable/ic_lock_silent_mode_off" android:padding="6dp"/>
+                    <ImageButton android:id="@+id/btnVolumeDown"
+                        android:layout_width="36dp" android:layout_height="36dp"
+                        android:layout_marginEnd="6dp" android:background="@drawable/bg_btn_orange"
+                        android:src="@android:drawable/ic_media_previous" android:padding="6dp"/>
+                    <SeekBar android:id="@+id/seekVolume"
+                        android:layout_width="0dp" android:layout_height="wrap_content"
+                        android:layout_weight="1" android:max="100" android:progress="100"
+                        android:progressDrawable="@drawable/seek_playback_progress"
+                        android:thumb="@drawable/seekbar_thumb_orange"/>
+                    <ImageButton android:id="@+id/btnVolumeUp"
+                        android:layout_width="36dp" android:layout_height="36dp"
+                        android:layout_marginStart="6dp" android:background="@drawable/bg_btn_orange"
+                        android:src="@android:drawable/ic_media_next" android:padding="6dp"/>
+                    <ImageButton android:id="@+id/btnVolumeReset"
+                        android:layout_width="36dp" android:layout_height="36dp"
+                        android:layout_marginStart="6dp" android:background="@drawable/bg_btn_neutral"
+                        android:src="@drawable/ic_restart_custom" android:padding="6dp"/>
+                    <TextView android:id="@+id/tvVolumeValue"
+                        android:layout_width="40dp" android:layout_height="wrap_content"
+                        android:layout_marginStart="6dp" android:text="100%"
+                        android:fontFamily="@font/orbitron_regular" android:textSize="10sp"
+                        android:textColor="@color/wh_neon_orange" android:gravity="center"/>
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- ── PLAYBACK OPTIONS panel ── -->
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:orientation="vertical" android:background="@drawable/bg_panel"
+                android:padding="12dp" android:layout_marginBottom="16dp">
+                <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:text="// CYCLE OPTIONS"
+                    android:fontFamily="@font/orbitron_bold" android:textSize="10sp"
+                    android:textColor="@color/wh_accordion_text" android:letterSpacing="0.15"
+                    android:layout_marginBottom="8dp"/>
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:orientation="horizontal" android:gravity="center_vertical"
+                    android:layout_marginBottom="8dp">
+                    <com.google.android.material.switchmaterial.SwitchMaterial
+                        android:id="@+id/switchLoop"
+                        android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:layout_marginEnd="16dp"
+                        android:text="LOOP" android:textColor="@color/wh_on_bg"
+                        android:fontFamily="@font/orbitron_regular" android:textSize="11sp"/>
+                    <com.google.android.material.switchmaterial.SwitchMaterial
+                        android:id="@+id/switchAutoNext"
+                        android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:text="AUTO-LAUNCH" android:textColor="@color/wh_on_bg"
+                        android:fontFamily="@font/orbitron_regular" android:textSize="11sp"/>
+                </LinearLayout>
+                <LinearLayout
+                    android:id="@+id/autoNextModeGroup"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:visibility="gone">
+                <RadioGroup android:id="@+id/rgAutoNextMode"
+                    android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <RadioButton android:id="@+id/rbAutoNextSequential"
+                        android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:layout_marginEnd="16dp"
+                        android:text="Sequential" android:textColor="@color/wh_on_bg"
+                        android:fontFamily="@font/orbitron_regular" android:textSize="11sp"
+                        android:checked="true"/>
+                    <RadioButton android:id="@+id/rbAutoNextRandom"
+                        android:layout_width="wrap_content" android:layout_height="wrap_content"
+                        android:text="Random" android:textColor="@color/wh_on_bg"
+                        android:fontFamily="@font/orbitron_regular" android:textSize="11sp"/>
+                </RadioGroup>
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- ── ENHANCEMENT panel ── -->
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:orientation="vertical" android:background="@drawable/bg_panel"
+                android:padding="12dp" android:layout_marginBottom="16dp">
+                <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:text="// LENS MATRIX"
+                    android:fontFamily="@font/orbitron_bold" android:textSize="10sp"
+                    android:textColor="@color/wh_accordion_text" android:letterSpacing="0.15"
+                    android:layout_marginBottom="8dp"/>
+                <Spinner android:id="@+id/spinnerEnhancement"
+                    android:layout_width="match_parent" android:layout_height="46dp"
+                    android:background="@drawable/bg_btn_violet"
+                    android:paddingStart="12dp" android:paddingEnd="12dp"/>
+            </LinearLayout>
+
+            <!-- ── TRIM panel ── -->
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:orientation="vertical" android:background="@drawable/bg_panel"
+                android:padding="12dp" android:layout_marginBottom="16dp">
+                <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:text="// TRIM ZONE"
+                    android:fontFamily="@font/orbitron_bold" android:textSize="10sp"
+                    android:textColor="@color/wh_accordion_text" android:letterSpacing="0.15"
+                    android:layout_marginBottom="8dp"/>
+                <!-- Trim Start -->
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:orientation="horizontal" android:gravity="center_vertical"
+                    android:layout_marginBottom="6dp">
+                    <ImageButton android:id="@+id/btnTrimStartMinus"
+                        android:layout_width="34dp" android:layout_height="34dp"
+                        android:background="@drawable/bg_btn_neutral"
+                        android:src="@android:drawable/ic_media_previous" android:padding="6dp"/>
+                    <SeekBar android:id="@+id/seekTrimStart"
+                        android:layout_width="0dp" android:layout_height="wrap_content"
+                        android:layout_weight="1" android:layout_marginStart="6dp" android:layout_marginEnd="6dp"
+                        android:max="1000"
+                        android:progressDrawable="@drawable/seek_trim_progress"
+                        android:thumb="@drawable/seekbar_thumb_green"/>
+                    <ImageButton android:id="@+id/btnTrimStartPlus"
+                        android:layout_width="34dp" android:layout_height="34dp"
+                        android:background="@drawable/bg_btn_neutral"
+                        android:src="@android:drawable/ic_media_next" android:padding="6dp"/>
+                    <TextView android:id="@+id/tvTrimStart"
+                        android:layout_width="70dp" android:layout_height="wrap_content"
+                        android:layout_marginStart="6dp"
+                        android:text="Start: 0:00"
+                        android:fontFamily="@font/orbitron_regular" android:textSize="9sp"
+                        android:textColor="@color/wh_neon_green"/>
+                </LinearLayout>
+                <!-- Trim End -->
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:orientation="horizontal" android:gravity="center_vertical">
+                    <ImageButton android:id="@+id/btnTrimEndMinus"
+                        android:layout_width="34dp" android:layout_height="34dp"
+                        android:background="@drawable/bg_btn_neutral"
+                        android:src="@android:drawable/ic_media_previous" android:padding="6dp"/>
+                    <SeekBar android:id="@+id/seekTrimEnd"
+                        android:layout_width="0dp" android:layout_height="wrap_content"
+                        android:layout_weight="1" android:layout_marginStart="6dp" android:layout_marginEnd="6dp"
+                        android:max="1000" android:progress="1000"
+                        android:progressDrawable="@drawable/seek_trim_progress"
+                        android:thumb="@drawable/seekbar_thumb_green"/>
+                    <ImageButton android:id="@+id/btnTrimEndPlus"
+                        android:layout_width="34dp" android:layout_height="34dp"
+                        android:background="@drawable/bg_btn_neutral"
+                        android:src="@android:drawable/ic_media_next" android:padding="6dp"/>
+                    <TextView android:id="@+id/tvTrimEnd"
+                        android:layout_width="70dp" android:layout_height="wrap_content"
+                        android:layout_marginStart="6dp"
+                        android:text="End: 0:00"
+                        android:fontFamily="@font/orbitron_regular" android:textSize="9sp"
+                        android:textColor="@color/wh_neon_green"/>
+                </LinearLayout>
+                <Button android:id="@+id/btnTrimReset"
+                    android:layout_width="match_parent" android:layout_height="36dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/bg_btn_neutral"
+                    android:text="RESET TRIM"
+                    android:fontFamily="@font/orbitron_bold" android:textSize="10sp"
+                    android:textColor="@color/wh_on_muted" android:letterSpacing="0.1"/>
+            </LinearLayout>
+
+            <!-- ── SKIP SEGMENTS panel ── -->
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:orientation="vertical" android:background="@drawable/bg_panel"
+                android:padding="12dp" android:layout_marginBottom="16dp">
+                <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:text="// SKIP SEGMENTS"
+                    android:fontFamily="@font/orbitron_bold" android:textSize="10sp"
+                    android:textColor="@color/wh_accordion_text" android:letterSpacing="0.15"
+                    android:layout_marginBottom="8dp"/>
+                <TextView android:id="@+id/tvSkipsSummary"
+                    android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:text="No segments skipped"
+                    android:fontFamily="@font/orbitron_regular" android:textSize="11sp"
+                    android:textColor="@color/wh_on_muted"
+                    android:layout_marginBottom="8dp"/>
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <Button android:id="@+id/btnAddSkip"
+                        android:layout_width="0dp" android:layout_weight="1"
+                        android:layout_height="36dp" android:layout_marginEnd="8dp"
+                        android:background="@drawable/bg_btn_gold"
+                        android:text="+ ADD"
+                        android:fontFamily="@font/orbitron_bold" android:textSize="10sp"
+                        android:textColor="@color/wh_neon_gold" android:letterSpacing="0.1"/>
+                    <Button android:id="@+id/btnManageSkips"
+                        android:layout_width="0dp" android:layout_weight="1"
+                        android:layout_height="36dp"
+                        android:background="@drawable/bg_btn_neutral"
+                        android:text="MANAGE"
+                        android:fontFamily="@font/orbitron_bold" android:textSize="10sp"
+                        android:textColor="@color/wh_on_muted" android:letterSpacing="0.1"
+                        android:visibility="gone"/>
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- ── ACTION row ── -->
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:orientation="horizontal" android:layout_marginBottom="24dp">
+                <Button android:id="@+id/btnSavePrefs"
+                    android:layout_width="0dp" android:layout_weight="1"
+                    android:layout_height="46dp" android:layout_marginEnd="8dp"
+                    android:background="@drawable/bg_btn_gold"
+                    android:text="@string/save_prefs"
+                    android:fontFamily="@font/orbitron_bold" android:textSize="11sp"
+                    android:textColor="@color/wh_neon_gold" android:letterSpacing="0.1"/>
+                <Button android:id="@+id/btnResetAll"
+                    android:layout_width="0dp" android:layout_weight="1"
+                    android:layout_height="46dp"
+                    android:background="@drawable/bg_btn_red"
+                    android:text="@string/reset_all"
+                    android:fontFamily="@font/orbitron_bold" android:textSize="11sp"
+                    android:textColor="@color/wh_neon_red" android:letterSpacing="0.1"/>
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+    <!-- ════ FULLSCREEN OVERLAY ════ -->
+    <FrameLayout
+        android:id="@+id/fullscreenOverlay"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/wh_pure_black"
+        android:visibility="gone"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <!-- Fullscreen player -->
+        <androidx.media3.ui.PlayerView
+            android:id="@+id/playerViewFs"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:use_controller="false"
+            app:surface_type="surface_view"
+            android:visibility="gone"/>
+
+        <!-- FS Controls -->
+        <LinearLayout
+            android:id="@+id/fsControlPanels"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:orientation="vertical"
+            android:background="#CC000015"
+            android:padding="12dp">
+
+            <!-- FS Title -->
+            <TextView android:id="@+id/tvFsTitle"
+                android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:fontFamily="@font/orbitron_bold" android:textSize="12sp"
+                android:textColor="@color/wh_neon_gold" android:singleLine="true"
+                android:ellipsize="end" android:layout_marginBottom="8dp"/>
+
+            <!-- FS Seekbar row -->
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:orientation="horizontal" android:gravity="center_vertical"
+                android:layout_marginBottom="8dp">
+                <TextView android:id="@+id/tvFsTime"
+                    android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="0:00" android:fontFamily="@font/orbitron_regular"
+                    android:textSize="11sp" android:textColor="@color/wh_neon_cyan" android:minWidth="40dp"/>
+                <FrameLayout android:layout_width="0dp" android:layout_height="wrap_content"
+                    android:layout_weight="1" android:layout_marginStart="6dp" android:layout_marginEnd="6dp">
+                    <SeekBar android:id="@+id/seekFs"
+                        android:layout_width="match_parent" android:layout_height="wrap_content"
+                        android:max="1000"
+                        android:progressDrawable="@drawable/seek_playback_progress"
+                        android:thumb="@drawable/seekbar_thumb"/>
+                    <FrameLayout android:id="@+id/fsSkipsOverlay"
+                        android:layout_width="match_parent" android:layout_height="6dp"
+                        android:layout_gravity="center_vertical" android:clickable="false"/>
+                </FrameLayout>
+                <TextView android:id="@+id/tvFsDuration"
+                    android:layout_width="wrap_content" android:layout_height="wrap_content"
+                    android:text="0:00" android:fontFamily="@font/orbitron_regular"
+                    android:textSize="11sp" android:textColor="@color/wh_on_muted" android:minWidth="40dp"
+                    android:gravity="end"/>
+            </LinearLayout>
+
+            <!-- FS Controls row -->
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:orientation="horizontal" android:gravity="center">
+                <ImageButton android:id="@+id/btnFsPrev"
+                    android:layout_width="40dp" android:layout_height="40dp"
+                    android:layout_marginEnd="8dp" android:background="@drawable/bg_btn_cyan"
+                    android:src="@drawable/ic_prev_custom" android:padding="8dp" android:scaleType="fitCenter"/>
+                <ImageButton android:id="@+id/btnFsPlayPause"
+                    android:layout_width="52dp" android:layout_height="52dp"
+                    android:layout_marginEnd="8dp" android:background="@drawable/bg_btn_gold"
+                    android:src="@drawable/ic_play_custom" android:padding="10dp" android:scaleType="fitCenter"/>
+                <ImageButton android:id="@+id/btnFsNext"
+                    android:layout_width="40dp" android:layout_height="40dp"
+                    android:layout_marginEnd="16dp" android:background="@drawable/bg_btn_cyan"
+                    android:src="@drawable/ic_next_custom" android:padding="8dp" android:scaleType="fitCenter"/>
+                <ImageButton android:id="@+id/btnFsRotate"
+                    android:layout_width="36dp" android:layout_height="36dp"
+                    android:layout_marginEnd="8dp" android:background="@drawable/bg_btn_neutral"
+                    android:src="@android:drawable/ic_menu_rotate" android:padding="6dp"/>
+                <ImageButton android:id="@+id/btnToggleFsPanels"
+                    android:layout_width="36dp" android:layout_height="36dp"
+                    android:layout_marginEnd="8dp" android:background="@drawable/bg_btn_neutral"
+                    android:src="@android:drawable/ic_menu_view" android:padding="6dp"/>
+                <ImageButton android:id="@+id/btnFsExit"
+                    android:layout_width="36dp" android:layout_height="36dp"
+                    android:background="@drawable/bg_btn_red"
+                    android:src="@drawable/ic_close_custom" android:padding="6dp"/>
+            </LinearLayout>
+        </LinearLayout>
+    </FrameLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

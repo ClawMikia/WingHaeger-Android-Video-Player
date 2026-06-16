@@ -1,0 +1,237 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.winghaeger.app"
+4    android:versionCode="1"
+5    android:versionName="1.0" >
+6
+7    <uses-sdk
+8        android:minSdkVersion="26"
+9        android:targetSdkVersion="36" />
+10
+11    <uses-permission
+11-->D:\Android Studio Projects\WingHaeger\app\src\main\AndroidManifest.xml:4:5-107
+12        android:name="android.permission.READ_EXTERNAL_STORAGE"
+12-->D:\Android Studio Projects\WingHaeger\app\src\main\AndroidManifest.xml:4:22-77
+13        android:maxSdkVersion="32" />
+13-->D:\Android Studio Projects\WingHaeger\app\src\main\AndroidManifest.xml:4:78-104
+14    <uses-permission android:name="android.permission.READ_MEDIA_VIDEO" />
+14-->D:\Android Studio Projects\WingHaeger\app\src\main\AndroidManifest.xml:5:5-75
+14-->D:\Android Studio Projects\WingHaeger\app\src\main\AndroidManifest.xml:5:22-72
+15    <uses-permission android:name="android.permission.READ_MEDIA_AUDIO" />
+15-->D:\Android Studio Projects\WingHaeger\app\src\main\AndroidManifest.xml:6:5-75
+15-->D:\Android Studio Projects\WingHaeger\app\src\main\AndroidManifest.xml:6:22-72
+16    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+16-->D:\Android Studio Projects\WingHaeger\app\src\main\AndroidManifest.xml:7:5-77
+16-->D:\Android Studio Projects\WingHaeger\app\src\main\AndroidManifest.xml:7:22-74
+17    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_MEDIA_PLAYBACK" />
+17-->D:\Android Studio Projects\WingHaeger\app\src\main\AndroidManifest.xml:8:5-92
+17-->D:\Android Studio Projects\WingHaeger\app\src\main\AndroidManifest.xml:8:22-89
+18    <uses-permission android:name="android.permission.WAKE_LOCK" />
+18-->D:\Android Studio Projects\WingHaeger\app\src\main\AndroidManifest.xml:9:5-68
+18-->D:\Android Studio Projects\WingHaeger\app\src\main\AndroidManifest.xml:9:22-65
+19
+20    <uses-feature
+20-->D:\Android Studio Projects\WingHaeger\app\src\main\AndroidManifest.xml:11:5-97
+21        android:name="android.software.picture_in_picture"
+21-->D:\Android Studio Projects\WingHaeger\app\src\main\AndroidManifest.xml:11:19-69
+22        android:required="false" />
+22-->D:\Android Studio Projects\WingHaeger\app\src\main\AndroidManifest.xml:11:70-94
+23
+24    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+24-->[androidx.media3:media3-exoplayer:1.5.1] D:\.gradle\caches\8.13\transforms\59a49ef537031c9b64477c4a86d2707b\transformed\media3-exoplayer-1.5.1\AndroidManifest.xml:22:5-79
+24-->[androidx.media3:media3-exoplayer:1.5.1] D:\.gradle\caches\8.13\transforms\59a49ef537031c9b64477c4a86d2707b\transformed\media3-exoplayer-1.5.1\AndroidManifest.xml:22:22-76
+25
+26    <permission
+26-->[androidx.core:core:1.17.0] D:\.gradle\caches\8.13\transforms\5840f02fafd351057c7bc30b2e89c167\transformed\core-1.17.0\AndroidManifest.xml:22:5-24:47
+27        android:name="com.winghaeger.app.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
+27-->[androidx.core:core:1.17.0] D:\.gradle\caches\8.13\transforms\5840f02fafd351057c7bc30b2e89c167\transformed\core-1.17.0\AndroidManifest.xml:23:9-81
+28        android:protectionLevel="signature" />
+28-->[androidx.core:core:1.17.0] D:\.gradle\caches\8.13\transforms\5840f02fafd351057c7bc30b2e89c167\transformed\core-1.17.0\AndroidManifest.xml:24:9-44
+29
+30    <uses-permission android:name="com.winghaeger.app.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" />
+30-->[androidx.core:core:1.17.0] D:\.gradle\caches\8.13\transforms\5840f02fafd351057c7bc30b2e89c167\transformed\core-1.17.0\AndroidManifest.xml:26:5-97
+30-->[androidx.core:core:1.17.0] D:\.gradle\caches\8.13\transforms\5840f02fafd351057c7bc30b2e89c167\transformed\core-1.17.0\AndroidManifest.xml:26:22-94
+31
+32    <application
+32-->D:\Android Studio Projects\WingHaeger\app\src\main\AndroidManifest.xml:13:5-49:19
+33        android:allowBackup="true"
+33-->D:\Android Studio Projects\WingHaeger\app\src\main\AndroidManifest.xml:14:9-35
+34        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+34-->[androidx.core:core:1.17.0] D:\.gradle\caches\8.13\transforms\5840f02fafd351057c7bc30b2e89c167\transformed\core-1.17.0\AndroidManifest.xml:28:18-86
+35        android:debuggable="true"
+36        android:extractNativeLibs="false"
+37        android:icon="@drawable/app_icon"
+37-->D:\Android Studio Projects\WingHaeger\app\src\main\AndroidManifest.xml:15:9-42
+38        android:label="@string/app_name"
+38-->D:\Android Studio Projects\WingHaeger\app\src\main\AndroidManifest.xml:16:9-41
+39        android:supportsRtl="true"
+39-->D:\Android Studio Projects\WingHaeger\app\src\main\AndroidManifest.xml:17:9-35
+40        android:testOnly="true"
+41        android:theme="@style/Theme.WingHaeger" >
+41-->D:\Android Studio Projects\WingHaeger\app\src\main\AndroidManifest.xml:18:9-48
+42        <meta-data
+42-->D:\Android Studio Projects\WingHaeger\app\src\main\AndroidManifest.xml:20:9-22:57
+43            android:name="preloaded_fonts"
+43-->D:\Android Studio Projects\WingHaeger\app\src\main\AndroidManifest.xml:21:13-43
+44            android:resource="@array/preloaded_fonts" />
+44-->D:\Android Studio Projects\WingHaeger\app\src\main\AndroidManifest.xml:22:13-54
+45
+46        <activity
+46-->D:\Android Studio Projects\WingHaeger\app\src\main\AndroidManifest.xml:24:17-29:20
+47            android:name="com.winghaeger.app.splash.SplashActivity"
+47-->D:\Android Studio Projects\WingHaeger\app\src\main\AndroidManifest.xml:24:27-64
+48            android:exported="true" >
+48-->D:\Android Studio Projects\WingHaeger\app\src\main\AndroidManifest.xml:24:65-88
+49            <intent-filter>
+49-->D:\Android Studio Projects\WingHaeger\app\src\main\AndroidManifest.xml:25:13-28:29
+50                <action android:name="android.intent.action.MAIN" />
+50-->D:\Android Studio Projects\WingHaeger\app\src\main\AndroidManifest.xml:26:17-69
+50-->D:\Android Studio Projects\WingHaeger\app\src\main\AndroidManifest.xml:26:25-66
+51
+52                <category android:name="android.intent.category.LAUNCHER" />
+52-->D:\Android Studio Projects\WingHaeger\app\src\main\AndroidManifest.xml:27:17-77
+52-->D:\Android Studio Projects\WingHaeger\app\src\main\AndroidManifest.xml:27:27-74
+53            </intent-filter>
+54        </activity>
+55        <activity
+55-->D:\Android Studio Projects\WingHaeger\app\src\main\AndroidManifest.xml:31:9-32:58
+56            android:name="com.winghaeger.app.main.MainActivity"
+56-->D:\Android Studio Projects\WingHaeger\app\src\main\AndroidManifest.xml:31:19-52
+57            android:exported="false"
+57-->D:\Android Studio Projects\WingHaeger\app\src\main\AndroidManifest.xml:31:53-77
+58            android:windowSoftInputMode="adjustResize" />
+58-->D:\Android Studio Projects\WingHaeger\app\src\main\AndroidManifest.xml:32:13-55
+59        <activity
+59-->D:\Android Studio Projects\WingHaeger\app\src\main\AndroidManifest.xml:33:9-90
+60            android:name="com.winghaeger.app.folder.FolderSelectActivity"
+60-->D:\Android Studio Projects\WingHaeger\app\src\main\AndroidManifest.xml:33:19-62
+61            android:exported="false" />
+61-->D:\Android Studio Projects\WingHaeger\app\src\main\AndroidManifest.xml:33:63-87
+62        <activity
+62-->D:\Android Studio Projects\WingHaeger\app\src\main\AndroidManifest.xml:34:9-86
+63            android:name="com.winghaeger.app.library.LibraryActivity"
+63-->D:\Android Studio Projects\WingHaeger\app\src\main\AndroidManifest.xml:34:19-58
+64            android:exported="false" />
+64-->D:\Android Studio Projects\WingHaeger\app\src\main\AndroidManifest.xml:34:59-83
+65        <activity
+65-->D:\Android Studio Projects\WingHaeger\app\src\main\AndroidManifest.xml:35:9-92
+66            android:name="com.winghaeger.app.memory.PlaybackMemoryActivity"
+66-->D:\Android Studio Projects\WingHaeger\app\src\main\AndroidManifest.xml:35:19-64
+67            android:exported="false" />
+67-->D:\Android Studio Projects\WingHaeger\app\src\main\AndroidManifest.xml:35:65-89
+68        <activity
+68-->D:\Android Studio Projects\WingHaeger\app\src\main\AndroidManifest.xml:36:9-86
+69            android:name="com.winghaeger.app.explore.ExploreActivity"
+69-->D:\Android Studio Projects\WingHaeger\app\src\main\AndroidManifest.xml:36:19-58
+70            android:exported="false" />
+70-->D:\Android Studio Projects\WingHaeger\app\src\main\AndroidManifest.xml:36:59-83
+71        <activity
+71-->D:\Android Studio Projects\WingHaeger\app\src\main\AndroidManifest.xml:37:9-42:46
+72            android:name="com.winghaeger.app.player.PlayerActivity"
+72-->D:\Android Studio Projects\WingHaeger\app\src\main\AndroidManifest.xml:37:19-56
+73            android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|smallestScreenSize|uiMode"
+73-->D:\Android Studio Projects\WingHaeger\app\src\main\AndroidManifest.xml:38:13-122
+74            android:exported="false"
+74-->D:\Android Studio Projects\WingHaeger\app\src\main\AndroidManifest.xml:39:13-37
+75            android:launchMode="singleTop"
+75-->D:\Android Studio Projects\WingHaeger\app\src\main\AndroidManifest.xml:42:13-43
+76            android:resizeableActivity="true"
+76-->D:\Android Studio Projects\WingHaeger\app\src\main\AndroidManifest.xml:41:13-46
+77            android:supportsPictureInPicture="true" />
+77-->D:\Android Studio Projects\WingHaeger\app\src\main\AndroidManifest.xml:40:13-52
+78        <activity
+78-->D:\Android Studio Projects\WingHaeger\app\src\main\AndroidManifest.xml:43:9-88
+79            android:name="com.winghaeger.app.settings.SettingsActivity"
+79-->D:\Android Studio Projects\WingHaeger\app\src\main\AndroidManifest.xml:43:19-60
+80            android:exported="false" />
+80-->D:\Android Studio Projects\WingHaeger\app\src\main\AndroidManifest.xml:43:61-85
+81        <activity
+81-->D:\Android Studio Projects\WingHaeger\app\src\main\AndroidManifest.xml:44:9-99
+82            android:name="com.winghaeger.app.enhancement.VideoEnhancementActivity"
+82-->D:\Android Studio Projects\WingHaeger\app\src\main\AndroidManifest.xml:44:19-71
+83            android:exported="false" />
+83-->D:\Android Studio Projects\WingHaeger\app\src\main\AndroidManifest.xml:44:72-96
+84        <activity
+84-->D:\Android Studio Projects\WingHaeger\app\src\main\AndroidManifest.xml:45:9-92
+85            android:name="com.winghaeger.app.playlist.PlaylistListActivity"
+85-->D:\Android Studio Projects\WingHaeger\app\src\main\AndroidManifest.xml:45:19-64
+86            android:exported="false" />
+86-->D:\Android Studio Projects\WingHaeger\app\src\main\AndroidManifest.xml:45:65-89
+87
+88        <service
+88-->D:\Android Studio Projects\WingHaeger\app\src\main\AndroidManifest.xml:47:9-48:61
+89            android:name="com.winghaeger.app.service.PlaybackService"
+89-->D:\Android Studio Projects\WingHaeger\app\src\main\AndroidManifest.xml:47:18-57
+90            android:exported="false"
+90-->D:\Android Studio Projects\WingHaeger\app\src\main\AndroidManifest.xml:47:58-82
+91            android:foregroundServiceType="mediaPlayback" />
+91-->D:\Android Studio Projects\WingHaeger\app\src\main\AndroidManifest.xml:48:13-58
+92
+93        <provider
+93-->[androidx.emoji2:emoji2:1.3.0] D:\.gradle\caches\8.13\transforms\212f8cfb33d86eb6461256baae001631\transformed\emoji2-1.3.0\AndroidManifest.xml:24:9-32:20
+94            android:name="androidx.startup.InitializationProvider"
+94-->[androidx.emoji2:emoji2:1.3.0] D:\.gradle\caches\8.13\transforms\212f8cfb33d86eb6461256baae001631\transformed\emoji2-1.3.0\AndroidManifest.xml:25:13-67
+95            android:authorities="com.winghaeger.app.androidx-startup"
+95-->[androidx.emoji2:emoji2:1.3.0] D:\.gradle\caches\8.13\transforms\212f8cfb33d86eb6461256baae001631\transformed\emoji2-1.3.0\AndroidManifest.xml:26:13-68
+96            android:exported="false" >
+96-->[androidx.emoji2:emoji2:1.3.0] D:\.gradle\caches\8.13\transforms\212f8cfb33d86eb6461256baae001631\transformed\emoji2-1.3.0\AndroidManifest.xml:27:13-37
+97            <meta-data
+97-->[androidx.emoji2:emoji2:1.3.0] D:\.gradle\caches\8.13\transforms\212f8cfb33d86eb6461256baae001631\transformed\emoji2-1.3.0\AndroidManifest.xml:29:13-31:52
+98                android:name="androidx.emoji2.text.EmojiCompatInitializer"
+98-->[androidx.emoji2:emoji2:1.3.0] D:\.gradle\caches\8.13\transforms\212f8cfb33d86eb6461256baae001631\transformed\emoji2-1.3.0\AndroidManifest.xml:30:17-75
+99                android:value="androidx.startup" />
+99-->[androidx.emoji2:emoji2:1.3.0] D:\.gradle\caches\8.13\transforms\212f8cfb33d86eb6461256baae001631\transformed\emoji2-1.3.0\AndroidManifest.xml:31:17-49
+100            <meta-data
+100-->[androidx.lifecycle:lifecycle-process:2.8.7] D:\.gradle\caches\8.13\transforms\4f1e9357ec6c823f7cf67cfe5b46619b\transformed\lifecycle-process-2.8.7\AndroidManifest.xml:29:13-31:52
+101                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
+101-->[androidx.lifecycle:lifecycle-process:2.8.7] D:\.gradle\caches\8.13\transforms\4f1e9357ec6c823f7cf67cfe5b46619b\transformed\lifecycle-process-2.8.7\AndroidManifest.xml:30:17-78
+102                android:value="androidx.startup" />
+102-->[androidx.lifecycle:lifecycle-process:2.8.7] D:\.gradle\caches\8.13\transforms\4f1e9357ec6c823f7cf67cfe5b46619b\transformed\lifecycle-process-2.8.7\AndroidManifest.xml:31:17-49
+103            <meta-data
+103-->[androidx.profileinstaller:profileinstaller:1.4.0] D:\.gradle\caches\8.13\transforms\8e16b30b5877e5bb989fc08b588404b2\transformed\profileinstaller-1.4.0\AndroidManifest.xml:29:13-31:52
+104                android:name="androidx.profileinstaller.ProfileInstallerInitializer"
+104-->[androidx.profileinstaller:profileinstaller:1.4.0] D:\.gradle\caches\8.13\transforms\8e16b30b5877e5bb989fc08b588404b2\transformed\profileinstaller-1.4.0\AndroidManifest.xml:30:17-85
+105                android:value="androidx.startup" />
+105-->[androidx.profileinstaller:profileinstaller:1.4.0] D:\.gradle\caches\8.13\transforms\8e16b30b5877e5bb989fc08b588404b2\transformed\profileinstaller-1.4.0\AndroidManifest.xml:31:17-49
+106        </provider>
+107
+108        <receiver
+108-->[androidx.profileinstaller:profileinstaller:1.4.0] D:\.gradle\caches\8.13\transforms\8e16b30b5877e5bb989fc08b588404b2\transformed\profileinstaller-1.4.0\AndroidManifest.xml:34:9-52:20
+109            android:name="androidx.profileinstaller.ProfileInstallReceiver"
+109-->[androidx.profileinstaller:profileinstaller:1.4.0] D:\.gradle\caches\8.13\transforms\8e16b30b5877e5bb989fc08b588404b2\transformed\profileinstaller-1.4.0\AndroidManifest.xml:35:13-76
+110            android:directBootAware="false"
+110-->[androidx.profileinstaller:profileinstaller:1.4.0] D:\.gradle\caches\8.13\transforms\8e16b30b5877e5bb989fc08b588404b2\transformed\profileinstaller-1.4.0\AndroidManifest.xml:36:13-44
+111            android:enabled="true"
+111-->[androidx.profileinstaller:profileinstaller:1.4.0] D:\.gradle\caches\8.13\transforms\8e16b30b5877e5bb989fc08b588404b2\transformed\profileinstaller-1.4.0\AndroidManifest.xml:37:13-35
+112            android:exported="true"
+112-->[androidx.profileinstaller:profileinstaller:1.4.0] D:\.gradle\caches\8.13\transforms\8e16b30b5877e5bb989fc08b588404b2\transformed\profileinstaller-1.4.0\AndroidManifest.xml:38:13-36
+113            android:permission="android.permission.DUMP" >
+113-->[androidx.profileinstaller:profileinstaller:1.4.0] D:\.gradle\caches\8.13\transforms\8e16b30b5877e5bb989fc08b588404b2\transformed\profileinstaller-1.4.0\AndroidManifest.xml:39:13-57
+114            <intent-filter>
+114-->[androidx.profileinstaller:profileinstaller:1.4.0] D:\.gradle\caches\8.13\transforms\8e16b30b5877e5bb989fc08b588404b2\transformed\profileinstaller-1.4.0\AndroidManifest.xml:40:13-42:29
+115                <action android:name="androidx.profileinstaller.action.INSTALL_PROFILE" />
+115-->[androidx.profileinstaller:profileinstaller:1.4.0] D:\.gradle\caches\8.13\transforms\8e16b30b5877e5bb989fc08b588404b2\transformed\profileinstaller-1.4.0\AndroidManifest.xml:41:17-91
+115-->[androidx.profileinstaller:profileinstaller:1.4.0] D:\.gradle\caches\8.13\transforms\8e16b30b5877e5bb989fc08b588404b2\transformed\profileinstaller-1.4.0\AndroidManifest.xml:41:25-88
+116            </intent-filter>
+117            <intent-filter>
+117-->[androidx.profileinstaller:profileinstaller:1.4.0] D:\.gradle\caches\8.13\transforms\8e16b30b5877e5bb989fc08b588404b2\transformed\profileinstaller-1.4.0\AndroidManifest.xml:43:13-45:29
+118                <action android:name="androidx.profileinstaller.action.SKIP_FILE" />
+118-->[androidx.profileinstaller:profileinstaller:1.4.0] D:\.gradle\caches\8.13\transforms\8e16b30b5877e5bb989fc08b588404b2\transformed\profileinstaller-1.4.0\AndroidManifest.xml:44:17-85
+118-->[androidx.profileinstaller:profileinstaller:1.4.0] D:\.gradle\caches\8.13\transforms\8e16b30b5877e5bb989fc08b588404b2\transformed\profileinstaller-1.4.0\AndroidManifest.xml:44:25-82
+119            </intent-filter>
+120            <intent-filter>
+120-->[androidx.profileinstaller:profileinstaller:1.4.0] D:\.gradle\caches\8.13\transforms\8e16b30b5877e5bb989fc08b588404b2\transformed\profileinstaller-1.4.0\AndroidManifest.xml:46:13-48:29
+121                <action android:name="androidx.profileinstaller.action.SAVE_PROFILE" />
+121-->[androidx.profileinstaller:profileinstaller:1.4.0] D:\.gradle\caches\8.13\transforms\8e16b30b5877e5bb989fc08b588404b2\transformed\profileinstaller-1.4.0\AndroidManifest.xml:47:17-88
+121-->[androidx.profileinstaller:profileinstaller:1.4.0] D:\.gradle\caches\8.13\transforms\8e16b30b5877e5bb989fc08b588404b2\transformed\profileinstaller-1.4.0\AndroidManifest.xml:47:25-85
+122            </intent-filter>
+123            <intent-filter>
+123-->[androidx.profileinstaller:profileinstaller:1.4.0] D:\.gradle\caches\8.13\transforms\8e16b30b5877e5bb989fc08b588404b2\transformed\profileinstaller-1.4.0\AndroidManifest.xml:49:13-51:29
+124                <action android:name="androidx.profileinstaller.action.BENCHMARK_OPERATION" />
+124-->[androidx.profileinstaller:profileinstaller:1.4.0] D:\.gradle\caches\8.13\transforms\8e16b30b5877e5bb989fc08b588404b2\transformed\profileinstaller-1.4.0\AndroidManifest.xml:50:17-95
+124-->[androidx.profileinstaller:profileinstaller:1.4.0] D:\.gradle\caches\8.13\transforms\8e16b30b5877e5bb989fc08b588404b2\transformed\profileinstaller-1.4.0\AndroidManifest.xml:50:25-92
+125            </intent-filter>
+126        </receiver>
+127    </application>
+128
+129</manifest>

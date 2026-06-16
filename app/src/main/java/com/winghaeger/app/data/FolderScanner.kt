@@ -39,7 +39,7 @@ object FolderScanner {
                 folderGroup = folderPath.ifEmpty { "—" },
                 durationMs = duration,
                 sizeBytes = size,
-            )
+            ),
         )
     }
 
@@ -58,7 +58,7 @@ object FolderScanner {
     }
 
     private fun isVideoMime(mime: String?, fileName: String): Boolean {
-        if (mime != null && mime.startsWith("video/")) return true
+        if ((mime != null) && mime.startsWith("video/")) return true
         val ext = MimeTypeMap.getFileExtensionFromUrl(fileName)
             .ifEmpty {
                 val dot = fileName.lastIndexOf('.')
@@ -89,7 +89,6 @@ object FolderScanner {
         context.contentResolver.query(collection, projection, null, null, null)?.use { cursor ->
             val idCol = cursor.getColumnIndexOrThrow(android.provider.MediaStore.Video.Media._ID)
             val nameCol = cursor.getColumnIndexOrThrow(android.provider.MediaStore.Video.Media.DISPLAY_NAME)
-            val dataCol = cursor.getColumnIndexOrThrow(android.provider.MediaStore.Video.Media.DATA)
             val durCol = cursor.getColumnIndexOrThrow(android.provider.MediaStore.Video.Media.DURATION)
             val sizeCol = cursor.getColumnIndexOrThrow(android.provider.MediaStore.Video.Media.SIZE)
             val folderCol = cursor.getColumnIndexOrThrow(android.provider.MediaStore.Video.Media.BUCKET_DISPLAY_NAME)
@@ -97,7 +96,6 @@ object FolderScanner {
             while (cursor.moveToNext()) {
                 val id = cursor.getLong(idCol)
                 val name = cursor.getString(nameCol)
-                val data = cursor.getString(dataCol)
                 val dur = cursor.getLong(durCol)
                 val size = cursor.getLong(sizeCol)
                 val folder = cursor.getString(folderCol) ?: "Root"

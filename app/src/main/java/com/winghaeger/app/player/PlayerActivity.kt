@@ -44,7 +44,6 @@ import com.winghaeger.app.service.PlaybackService
 import com.winghaeger.app.ui.setContentWithWingInsets
 import com.winghaeger.app.ui.showWingMessage
 import com.winghaeger.app.util.FormatUtils
-import com.winghaeger.app.util.VideoEnhancement
 import kotlin.math.abs
 import kotlin.math.max
 import kotlin.math.min
@@ -71,7 +70,7 @@ class PlayerActivity : AppCompatActivity() {
 
     private fun scheduleFsPanelsHide() {
         handler.removeCallbacks(hideFsPanelsRunnable)
-        if (isFullscreen && isFsPanelsVisible && player?.isPlaying == true) {
+        if (isFullscreen && isFsPanelsVisible && (player?.isPlaying == true)) {
             handler.postDelayed(hideFsPanelsRunnable, 3500L)
         }
     }
@@ -102,7 +101,7 @@ class PlayerActivity : AppCompatActivity() {
                 val currentMedia = sharedPlayer.currentMediaItem
                 val workingUri = working.contentUri.toString()
                 if (currentMedia == null || currentMedia.localConfiguration?.uri?.toString() != workingUri) {
-                    attachCurrentMedia(play = true)
+                    attachCurrentMedia()
                 } else {
                     isBindingUi = true
                     try { bindUiFromWorking(); updatePlayPauseIcon(); tickTimeline() } finally { isBindingUi = false }
@@ -138,7 +137,7 @@ class PlayerActivity : AppCompatActivity() {
         override fun onIsPlayingChanged(isPlaying: Boolean) { updatePlayPauseIcon(); if (isPlaying) tickTimeline() }
         override fun onPlayerError(error: PlaybackException) {
             showWingMessage("Playback Error", error.message ?: "code ${error.errorCode}")
-            if (error.errorCode == PlaybackException.ERROR_CODE_IO_UNSPECIFIED) attachCurrentMedia(play = true)
+            if (error.errorCode == PlaybackException.ERROR_CODE_IO_UNSPECIFIED) attachCurrentMedia()
         }
     }
 
@@ -149,11 +148,19 @@ class PlayerActivity : AppCompatActivity() {
         setSupportActionBar(binding.toolbar)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
-        onBackPressedDispatcher.addCallback(this, object : OnBackPressedCallback(true) {
-            override fun handleOnBackPressed() {
-                if (isFullscreen) { toggleFullscreen(false) } else { isEnabled = false; onBackPressedDispatcher.onBackPressed() }
-            }
-        })
+        onBackPressedDispatcher.addCallback(
+            this,
+            object : OnBackPressedCallback(enabled = true) {
+                override fun handleOnBackPressed() {
+                    if (isFullscreen) {
+                        toggleFullscreen(enter = false)
+                    } else {
+                        isEnabled = false
+                        onBackPressedDispatcher.onBackPressed()
+                    }
+                }
+            },
+        )
         binding.toolbar.setNavigationOnClickListener { onBackPressedDispatcher.onBackPressed() }
 
         val startId = intent.getLongExtra(EXTRA_VIDEO_ID, -1L)
@@ -191,13 +198,16 @@ class PlayerActivity : AppCompatActivity() {
     override fun onResume() {
         super.onResume()
         playbackService?.isPlayerActivityVisible = true
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O && !isInPictureInPictureMode) {
+        if (!isInPictureInPictureMode) {
             restoreFullUI()
         }
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.R) {
             androidx.core.view.WindowCompat.setDecorFitsSystemWindows(window, false)
             window.insetsController?.setSystemBarsAppearance(0, android.view.WindowInsetsController.APPEARANCE_LIGHT_STATUS_BARS)
-        } else { @Suppress("DEPRECATION") window.navigationBarColor = Color.BLACK }
+        } else {
+            @Suppress("DEPRECATION")
+            window.navigationBarColor = Color.BLACK
+        }
         window.addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
     }
 
@@ -223,12 +233,12 @@ class PlayerActivity : AppCompatActivity() {
 
     override fun onUserLeaveHint() {
         super.onUserLeaveHint()
-        if (player?.isPlaying == true && Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) enterPiP()
+        if (player?.isPlaying == true) enterPiP()
     }
 
-    override fun onPictureInPictureModeChanged(isInPiPMode: Boolean, newConfig: android.content.res.Configuration) {
-        super.onPictureInPictureModeChanged(isInPiPMode, newConfig)
-        if (isInPiPMode) {
+    override fun onPictureInPictureModeChanged(isInPictureInPictureMode: Boolean, newConfig: android.content.res.Configuration) {
+        super.onPictureInPictureModeChanged(isInPictureInPictureMode, newConfig)
+        if (isInPictureInPictureMode) {
             binding.toolbar.visibility = View.GONE
             binding.scrollView.visibility = View.GONE
             binding.btnFullscreen.visibility = View.GONE
@@ -274,7 +284,7 @@ class PlayerActivity : AppCompatActivity() {
     override fun onNewIntent(intent: Intent) {
         super.onNewIntent(intent)
         setIntent(intent)
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O && !isInPictureInPictureMode) {
+        if (!isInPictureInPictureMode) {
             restoreFullUI()
         }
         val newId = intent.getLongExtra(EXTRA_VIDEO_ID, -1L)
@@ -292,7 +302,7 @@ class PlayerActivity : AppCompatActivity() {
                     working = working.copy(positionMs = startMs)
                 }
                 bindUiFromWorking()
-                attachCurrentMedia(play = true)
+                attachCurrentMedia()
             }
         }
     }
@@ -319,7 +329,7 @@ class PlayerActivity : AppCompatActivity() {
                 val currentMedia = sharedPlayer.currentMediaItem
                 val workingUri = working.contentUri.toString()
                 if (currentMedia == null || currentMedia.localConfiguration?.uri?.toString() != workingUri) {
-                    attachCurrentMedia(play = true)
+                    attachCurrentMedia()
                 } else {
                     isBindingUi = true
                     try { bindUiFromWorking(); updatePlayPauseIcon(); tickTimeline() } finally { isBindingUi = false }
@@ -334,7 +344,7 @@ class PlayerActivity : AppCompatActivity() {
         .setMediaMetadata(androidx.media3.common.MediaMetadata.Builder().setTitle(e.title).build())
         .build()
 
-    private fun attachCurrentMedia(play: Boolean) {
+    private fun attachCurrentMedia() {
         val exo = player ?: return
         val item = mediaItemFor(working)
         val currentUri = exo.currentMediaItem?.localConfiguration?.uri?.toString()
@@ -347,11 +357,11 @@ class PlayerActivity : AppCompatActivity() {
         working = working.copy(positionMs = targetPos)
         exo.volume = currentVolume * working.audioBoost.coerceIn(1f, 2f)
         exo.repeatMode = Player.REPEAT_MODE_OFF
-        exo.playWhenReady = play
+        exo.playWhenReady = true
         binding.playerView.postDelayed({ applyEnhancementMatrix() }, 150L)
         updatePlayPauseIcon()
         bindUiFromWorking()
-        playbackService?.updateNotification(working.title, if (play) "Playing" else "Paused")
+        playbackService?.updateNotification(working.title, "Playing")
     }
 
     private fun applyEnhancementMatrix() {
@@ -408,15 +418,22 @@ class PlayerActivity : AppCompatActivity() {
                     } else {
                         val delta = -distY / v.height.coerceAtLeast(1); currentVolume = (currentVolume + delta * 0.5f).coerceIn(0f, 1f)
                         player?.volume = currentVolume * working.audioBoost.coerceIn(1f, 2f); working = working.copy(volumeLevel = currentVolume)
-                        binding.seekVolume.progress = (currentVolume * 100).toInt(); binding.tvVolumeValue.text = "${(currentVolume * 100).toInt()}%"; showGestureHint("🔊 ${(currentVolume * 100).toInt()}%")
+                        binding.seekVolume.progress = (currentVolume * 100).toInt()
+                        val volText = "${(currentVolume * 100).toInt()}%"
+                        binding.tvVolumeValue.text = volText
+                        showGestureHint("🔊 $volText")
                     }
                 }
                 return true
             }
         })
-        val tl = View.OnTouchListener { _, event ->
+        val tl = View.OnTouchListener { v, event ->
             scaleGestureDetector?.onTouchEvent(event)
-            if (scaleGestureDetector?.isInProgress == false) gestureDetector.onTouchEvent(event)
+            if (scaleGestureDetector?.isInProgress == false) {
+                if (gestureDetector.onTouchEvent(event)) {
+                    v.performClick()
+                }
+            }
             true
         }
         binding.playerView.setOnTouchListener(tl)
@@ -486,7 +503,9 @@ class PlayerActivity : AppCompatActivity() {
             isBindingUi = true
             binding.toolbar.title = working.title; binding.videoTitle.text = working.title
             binding.tvFsTitle.text = working.title
-            binding.seekVolume.progress = (currentVolume * 100).toInt(); binding.tvVolumeValue.text = "${(currentVolume * 100).toInt()}%"
+            binding.seekVolume.progress = (currentVolume * 100).toInt()
+            val volText = "${(currentVolume * 100).toInt()}%"
+            binding.tvVolumeValue.text = volText
             binding.switchAutoNext.isChecked = working.autoPlayNext
             binding.switchLoop.isChecked = working.loopPlayback
             binding.autoNextModeGroup.visibility = if (working.autoPlayNext) View.VISIBLE else View.GONE
@@ -502,8 +521,8 @@ class PlayerActivity : AppCompatActivity() {
         val full = max(metaDurationMs(), 1L)
         binding.seekTrimStart.progress = ((working.trimStartMs * 1000L) / full).toInt().coerceIn(0, 1000)
         binding.seekTrimEnd.progress = if (working.trimEndMs <= 0L) 1000 else ((working.trimEndMs * 1000L) / full).toInt().coerceIn(0, 1000)
-        binding.tvTrimStart.text = "Start: ${FormatUtils.formatDuration(working.trimStartMs)}"
-        binding.tvTrimEnd.text = "End: ${FormatUtils.formatDuration(if (working.trimEndMs <= 0L) full else working.trimEndMs)}"
+        binding.tvTrimStart.text = getString(R.string.trim_start_format, FormatUtils.formatDuration(working.trimStartMs))
+        binding.tvTrimEnd.text = getString(R.string.trim_end_format, FormatUtils.formatDuration(if (working.trimEndMs <= 0L) full else working.trimEndMs))
     }
 
     private fun setupEnhancementSpinner() {
@@ -525,6 +544,7 @@ class PlayerActivity : AppCompatActivity() {
         when (exo.playbackState) {
             Player.STATE_IDLE -> exo.prepare()
             Player.STATE_ENDED -> exo.seekTo(working.trimStartMs.coerceAtLeast(0L))
+            Player.STATE_BUFFERING, Player.STATE_READY -> { /* already prepared */ }
         }
         exo.playWhenReady = true; exo.play(); updatePlayPauseIcon()
     }
@@ -557,7 +577,10 @@ class PlayerActivity : AppCompatActivity() {
         binding.btnVolumeUp.setOnClickListener { val np = ((currentVolume * 100).toInt() + prefs.defaultVolumeStepPercent).coerceIn(0, 100); binding.seekVolume.progress = np; applyVolumeStep(np); persistPrefs() }
         binding.btnVolumeReset.setOnClickListener { binding.seekVolume.progress = 100; applyVolumeStep(100); persistPrefs() }
         binding.btnMute.setOnClickListener { toggleMute() }
-        binding.seekVolume.setOnSeekBarChangeListener(seekBarListener(onChange = { p, f -> if (f) applyVolumeStep(p) }, onStop = { persistPrefs() }))
+        binding.seekVolume.setOnSeekBarChangeListener(seekBarListener(
+            onChange = { p, f -> if (f) applyVolumeStep(p) },
+            onStop = { persistPrefs() }
+        ))
 
         setupTrimControls()
         setupSkipControls()
@@ -600,7 +623,7 @@ class PlayerActivity : AppCompatActivity() {
                 if (fromUser) {
                     val full = max(metaDurationMs(), 1L); val startMs = (progress * full) / 1000L
                     working = working.copy(trimStartMs = startMs)
-                    binding.tvTrimStart.text = "Start: ${FormatUtils.formatDuration(startMs)}"
+                    binding.tvTrimStart.text = getString(R.string.trim_start_format, FormatUtils.formatDuration(startMs))
                     player?.let { if (it.currentPosition < startMs) it.seekTo(startMs) }
                 }
             }
@@ -724,11 +747,13 @@ class PlayerActivity : AppCompatActivity() {
         return try {
             if (input.contains(":")) {
                 val parts = input.split(":")
-                if (parts.size == 2) (parts[0].toLong() * 60 + parts[1].toLong()) * 1000L
-                else if (parts.size == 3) (parts[0].toLong() * 3600 + parts[1].toLong() * 60 + parts[2].toLong()) * 1000L
-                else -1L
+                when (parts.size) {
+                    2 -> (parts[0].toLong() * 60 + parts[1].toLong()) * 1000L
+                    3 -> (parts[0].toLong() * 3600 + parts[1].toLong() * 60 + parts[2].toLong()) * 1000L
+                    else -> -1L
+                }
             } else { input.toLong() * 1000L }
-        } catch (e: Exception) { -1L }
+        } catch (_: Exception) { -1L }
     }
 
     private fun showManageSkipsDialog() {
@@ -771,7 +796,7 @@ class PlayerActivity : AppCompatActivity() {
 
     private fun showPlaylistSelectionDialog() {
         val playlists = repo.listPlaylists()
-        val titles = playlists.map { it.second }.toMutableList()
+        val titles = playlists.asSequence().map { it.second }.toMutableList()
         titles.add(0, "+ Create New Queue")
         MaterialAlertDialogBuilder(this).setTitle("Add to Queue").setItems(titles.toTypedArray()) { _, which ->
             if (which == 0) showCreatePlaylistDialog()
@@ -802,7 +827,13 @@ class PlayerActivity : AppCompatActivity() {
         dialog.show()
     }
 
-    private fun applyVolumeStep(progress: Int) { currentVolume = progress / 100f; binding.tvVolumeValue.text = "$progress%"; working = working.copy(volumeLevel = currentVolume); player?.volume = currentVolume * working.audioBoost }
+    private fun applyVolumeStep(progress: Int) {
+        currentVolume = progress / 100f
+        val volText = "$progress%"
+        binding.tvVolumeValue.text = volText
+        working = working.copy(volumeLevel = currentVolume)
+        player?.volume = currentVolume * working.audioBoost
+    }
     private fun persistPrefs() { if (working.id > 0) repo.savePreferences(working) }
     private fun restartCurrentPlayback() {
         val exo = player ?: return; val startMs = working.trimStartMs.coerceAtLeast(0L)
@@ -826,7 +857,7 @@ class PlayerActivity : AppCompatActivity() {
         val fresh = repo.getById(playlistIds[playlistIndex]) ?: return
         working = fresh.copy(positionMs = fresh.trimStartMs, autoPlayNext = working.autoPlayNext, shufflePlaylist = working.shufflePlaylist)
         persistPrefs(); currentVolume = working.volumeLevel.coerceIn(0f, 1f)
-        chapters = repo.listChapters(working.id); skips = repo.listSkips(working.id); attachCurrentMedia(play = true)
+        chapters = repo.listChapters(working.id); skips = repo.listSkips(working.id); attachCurrentMedia()
     }
     private fun readTrimFromSeekBars() {
         val full = max(metaDurationMs(), 1L); val start = binding.seekTrimStart.progress * full / 1000L
@@ -877,7 +908,6 @@ class PlayerActivity : AppCompatActivity() {
         if (isFsPanelsVisible) scheduleFsPanelsHide() else handler.removeCallbacks(hideFsPanelsRunnable)
     }
     private fun enterPiP() {
-        if (Build.VERSION.SDK_INT < Build.VERSION_CODES.O) return
         val videoSize = player?.videoSize
         val rational = if (videoSize != null && videoSize.width > 0 && videoSize.height > 0) {
             val r = videoSize.width.toFloat() / videoSize.height.toFloat()

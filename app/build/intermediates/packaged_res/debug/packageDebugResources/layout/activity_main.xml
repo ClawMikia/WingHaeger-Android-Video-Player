@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/wh_bg">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/wh_surface"
+        app:elevation="0dp">
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            style="@style/Widget.WH.Toolbar"
+            app:title="@string/app_name"/>
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingLeft="20dp"
+            android:paddingTop="20dp"
+            android:paddingRight="20dp"
+            android:paddingBottom="100dp"
+            android:gravity="center_horizontal">
+
+            <!-- HUD header bar -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:background="@drawable/bg_panel_gold"
+                android:padding="14dp"
+                android:layout_marginBottom="20dp">
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="WING HAEGER // MAIN BASE"
+                    android:fontFamily="@font/orbitron_bold"
+                    android:textSize="11sp"
+                    android:textColor="@color/wh_accordion_text"
+                    android:letterSpacing="0.15"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="▶ READY"
+                    android:fontFamily="@font/orbitron_regular"
+                    android:textSize="10sp"
+                    android:textColor="@color/wh_neon_green"/>
+            </LinearLayout>
+
+            <!-- Primary action grid -->
+            <GridLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:columnCount="2"
+                android:rowCount="3"
+                android:layout_marginBottom="20dp">
+
+                <Button android:id="@+id/btnPickFolder"
+                    android:layout_width="0dp" android:layout_height="100dp"
+                    android:layout_columnWeight="1" android:layout_margin="6dp"
+                    android:background="@drawable/bg_btn_gold"
+                    android:text="LOAD\nARCHIVE"
+                    android:fontFamily="@font/orbitron_bold"
+                    android:textColor="@color/wh_neon_gold" android:textSize="13sp"
+                    android:letterSpacing="0.1"/>
+
+                <Button android:id="@+id/btnOpenLibrary"
+                    android:layout_width="0dp" android:layout_height="100dp"
+                    android:layout_columnWeight="1" android:layout_margin="6dp"
+                    android:background="@drawable/bg_btn_violet"
+                    android:text="VIDEO\nVAULT"
+                    android:fontFamily="@font/orbitron_bold"
+                    android:textColor="@color/wh_neon_violet" android:textSize="13sp"
+                    android:letterSpacing="0.1"/>
+
+                <Button android:id="@+id/btnContinueWatching"
+                    android:layout_width="0dp" android:layout_height="100dp"
+                    android:layout_columnWeight="1" android:layout_margin="6dp"
+                    android:background="@drawable/bg_btn_cyan"
+                    android:text="CONTINUE\nMISSION"
+                    android:fontFamily="@font/orbitron_bold"
+                    android:textColor="@color/wh_neon_cyan" android:textSize="13sp"
+                    android:letterSpacing="0.1"/>
+
+                <Button android:id="@+id/btnPlaylists"
+                    android:layout_width="0dp" android:layout_height="100dp"
+                    android:layout_columnWeight="1" android:layout_margin="6dp"
+                    android:background="@drawable/bg_btn_orange"
+                    android:text="MISSION\nQUEUES"
+                    android:fontFamily="@font/orbitron_bold"
+                    android:textColor="@color/wh_neon_orange" android:textSize="13sp"
+                    android:letterSpacing="0.1"/>
+
+                <Button android:id="@+id/btnPlaybackMemory"
+                    android:layout_width="0dp" android:layout_height="100dp"
+                    android:layout_columnWeight="1" android:layout_margin="6dp"
+                    android:background="@drawable/bg_btn_green"
+                    android:text="RECALL\nLOG"
+                    android:fontFamily="@font/orbitron_bold"
+                    android:textColor="@color/wh_neon_green" android:textSize="13sp"
+                    android:letterSpacing="0.1"/>
+
+                <Button android:id="@+id/btnEnhancement"
+                    android:layout_width="0dp" android:layout_height="100dp"
+                    android:layout_columnWeight="1" android:layout_margin="6dp"
+                    android:background="@drawable/bg_btn_violet"
+                    android:text="LENS\nMATRIX"
+                    android:fontFamily="@font/orbitron_bold"
+                    android:textColor="@color/wh_neon_violet" android:textSize="13sp"
+                    android:letterSpacing="0.1"/>
+            </GridLayout>
+
+            <!-- System buttons -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="8dp">
+                <Button android:id="@+id/btnSettings"
+                    android:layout_width="0dp" android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="8dp"
+                    android:background="@drawable/bg_btn_neutral"
+                    android:text="⚙ SYSTEM CONFIG"
+                    android:fontFamily="@font/orbitron_bold"
+                    android:textColor="#CCCCFF" android:textSize="11sp"
+                    android:letterSpacing="0.08"/>
+                <Button android:id="@+id/btnResetLibrary"
+                    android:layout_width="0dp" android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:background="@drawable/bg_btn_red"
+                    android:text="⚠ WIPE VAULT"
+                    android:fontFamily="@font/orbitron_bold"
+                    android:textColor="@color/wh_neon_red" android:textSize="11sp"
+                    android:letterSpacing="0.08"/>
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNav"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:background="@color/wh_surface"
+        app:menu="@menu/menu_bottom_nav"
+        app:itemTextColor="@color/wh_on_muted"
+        app:itemIconTint="@color/wh_on_muted"/>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

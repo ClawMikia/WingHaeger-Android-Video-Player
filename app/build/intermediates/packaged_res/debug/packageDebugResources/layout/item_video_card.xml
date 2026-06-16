@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="5dp"
+    style="@style/Widget.WH.Card"
+    app:strokeColor="@color/wh_divider"
+    app:strokeWidth="1dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <!-- Thumbnail -->
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="90dp"
+            android:background="@color/wh_surface_panel">
+            <ImageView
+                android:id="@+id/thumbnail"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                android:background="@color/wh_surface_panel"/>
+            <!-- Duration badge -->
+            <TextView
+                android:id="@+id/tvDuration"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|end"
+                android:layout_margin="6dp"
+                android:background="#CC000000"
+                android:paddingStart="5dp"
+                android:paddingEnd="5dp"
+                android:paddingTop="2dp"
+                android:paddingBottom="2dp"
+                android:text="0:00"
+                android:fontFamily="@font/orbitron_regular"
+                android:textSize="9sp"
+                android:textColor="@color/wh_neon_gold"/>
+            <!-- Progress bar at bottom -->
+            <ProgressBar
+                android:id="@+id/progressBar"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="match_parent"
+                android:layout_height="3dp"
+                android:layout_gravity="bottom"
+                android:progressTint="@color/wh_neon_gold"
+                android:progressBackgroundTint="@color/wh_divider"
+                android:max="100"
+                android:progress="0"/>
+        </FrameLayout>
+
+        <!-- Info section -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="8dp">
+            <TextView
+                android:id="@+id/tvTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Video Title"
+                android:fontFamily="@font/orbitron_regular"
+                android:textSize="10sp"
+                android:textColor="@color/wh_on_bg"
+                android:maxLines="2"
+                android:ellipsize="end"/>
+            <TextView
+                android:id="@+id/tvFolder"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="folder"
+                android:fontFamily="@font/orbitron_regular"
+                android:textSize="9sp"
+                android:textColor="@color/wh_on_muted"
+                android:layout_marginTop="2dp"
+                android:singleLine="true"
+                android:ellipsize="start"/>
+        </LinearLayout>
+    </LinearLayout>
+</com.google.android.material.card.MaterialCardView>

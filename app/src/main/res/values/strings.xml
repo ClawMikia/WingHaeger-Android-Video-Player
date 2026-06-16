@@ -39,4 +39,6 @@
     <string name="section_continue_watching">Continue Mission</string>
     <string name="section_recently_played">Recent Ops</string>
     <string name="section_favorites">Relic Chamber</string>
+    <string name="trim_start_format">Start: %1$s</string>
+    <string name="trim_end_format">End: %1$s</string>
 </resources>

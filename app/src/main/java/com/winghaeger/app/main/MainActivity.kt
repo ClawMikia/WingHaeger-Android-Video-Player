@@ -38,7 +38,7 @@ class MainActivity : AppCompatActivity() {
         binding.btnOpenLibrary.setOnClickListener {
             startActivity(
                 Intent(this, LibraryActivity::class.java)
-                    .putExtra(LibraryActivity.EXTRA_MODE, LibraryActivity.MODE_ALL)
+                    .putExtra(LibraryActivity.EXTRA_MODE, LibraryActivity.MODE_ALL),
             )
         }
 
